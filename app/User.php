@@ -34,6 +34,6 @@ class User extends Authenticatable
     
     public function request(){
     	
-    	return $this->hasMany('App\Request');
+    	return $this->hasMany('App\Request_');
     }
 }

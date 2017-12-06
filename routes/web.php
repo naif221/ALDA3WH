@@ -11,10 +11,22 @@
  |
  */
 
-Route::get('/', function () {
-	//return view('welcome');
+Route::get('/', 'Home@index');
 	
-	return 'Hi';
+Route::get('h', function () {
+	return view('navbar');
 });
-	
-	
+		
+Route::get('cpac', function () {
+	return view('cpac.style.header');
+});
+			
+			
+Route::get('r', function () {
+	return view('cpac.requests');
+});
+				
+				
+Route::get('n', function () {
+	return view('cpac.newrequests');
+});

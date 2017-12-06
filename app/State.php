@@ -17,7 +17,7 @@ class State extends Model
 	
 	public function requsest(){
 		
-		return $this->hasMany('App\Request');
+		return $this->hasMany('App\Request_');
 	}
 	
 }
