@@ -22,12 +22,12 @@ class Request_ extends Model
 	
 	public function state(){
 		
-		return $this->hasOne('App\State');
+		return $this->hasOne('App\State' , 'id' , 'state_id');
 	}
 	
 	public function user(){
 		
-		return $this->hasOne('App\User');
+		return $this->belongsTo('App\User');
 	}
 
 

@@ -11,13 +11,15 @@ class State extends Model
 	protected $table = 'state';
 	// Primary Key
 	public $primaryKey = 'id';
+	
 	// Timestamps
 	public $timestamps = false;
 	
 	
-	public function requsest(){
+	public function request(){
 		
 		return $this->hasMany('App\Request_');
+		
 	}
 	
 }

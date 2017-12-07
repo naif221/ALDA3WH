@@ -39,7 +39,7 @@
                                         <tr class="odd gradeX">
                                         	<td>{{$request->id}}</td>
                                         	<td>{{$request->created_at}}</td>
-                                        	<td>{{$request->user_id}}</td>
+                                        	<td>{{$request->user->department->department_name}}</td>
                                         	<td>{{$request->price}}</td>
                                         	<td>{{$request->title}}</td>
                                         	 <td><a  class="btn btn-info"   href="{{ url('') }}" >
