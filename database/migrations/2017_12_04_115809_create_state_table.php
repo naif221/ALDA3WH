@@ -19,7 +19,6 @@ class CreateStateTable extends Migration
         	
             $table->tinyIncrements('id');
             $table->string('title');
-            $table->timestamps();
         });
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Request_;
 
 class HomeController extends Controller
@@ -24,8 +25,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-    	//$requests = Request_::all();
-    	return Request_::all();
-        return view('home');
+    	if(Auth::check()){
+    		
+    		$req = Request_::all();
+			return view('cpac.newrequests' , ['requests' => $req]);
+    		
+    		
+    	}else {
+    		
+    	return 'not in  !';
+    		
+    	}    
     }
+    
+    
 }

@@ -4,26 +4,23 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Department extends Model
+class Issued extends Model
 {
-    //
-    
+
+
 	
 	// Table Name
-	protected $table = 'department';
+	protected $table = 'issued';
 	// Primary Key
 	public $primaryKey = 'id';
 	// Timestamps
-	public $timestamps = false;
-	
-	
-	
+	public $timestamps = true;
 	
 	
 	public function user(){
 		
-		return $this->hasMany('App\User');
+		return $this->hasOne('App\User');
 	}
-	
-	
+
+
 }

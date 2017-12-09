@@ -48,8 +48,10 @@
                         <h3 class="panel-title">تسجيل الدخول</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
-                            <fieldset>
+                    
+<!--                         <form role="form" action="LoginVerify" method="post" > -->
+								{{ Form::open(array('url' => 'login')) }}                            
+								<fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="اسم المستخدم" name="email" type="email" autofocus>
                                 </div>
@@ -62,9 +64,12 @@
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.html" class="btn btn-lg btn-success btn-block">تسجيل الدخول</a>
+<!--                                 <a href="index.html" class="btn btn-lg btn-success btn-block">تسجيل الدخول</a> -->
+                            
+                            		<input type="submit" value="تسجيل الدخول" class="btn btn-lg btn-success btn-block">
                             </fieldset>
-                        </form>
+<!--                         </form> -->
+							{!! Form::close() !!}
                     </div>
                 </div>
             </div>

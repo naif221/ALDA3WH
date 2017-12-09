@@ -18,7 +18,6 @@ class CreateAuthorTable extends Migration
 	
             $table->increments('id');
 			$table->string('name'); //lara
-            $table->timestamps();
         });
         
         

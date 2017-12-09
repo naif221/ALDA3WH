@@ -24,6 +24,8 @@ class CreateRequestTable extends Migration
             $table->text('title');
             $table->longText('content');
             $table->double('price')->nullable();
+            $table->unsignedInteger('responder_id')->nullable();
+            $table->foreign('responder_id')->references('id')->on('users');
             $table->timestamps();
         });
    

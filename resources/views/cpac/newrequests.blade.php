@@ -33,7 +33,8 @@
          
 
 
-<form method="post" action="">
+<form method="POST" action="store">
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
   <div class="form-group row">
   <label class="col-sm-2 col-form-label">نوع الطلب</label>

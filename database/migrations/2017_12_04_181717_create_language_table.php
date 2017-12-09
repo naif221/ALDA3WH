@@ -17,7 +17,6 @@ class CreateLanguageTable extends Migration
 	
             $table->tinyIncrements('id');
             $table->string('language');
-            $table->timestamps();
         });
         
     }
