@@ -1,6 +1,9 @@
 @include('cpac/style/header')
 @include('cpac/style/slider')
 
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+
+
 <head><link href="{{ url('css/bootstrap-r.css') }}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
@@ -33,13 +36,12 @@
          
 
 
-<form method="POST" action="store">
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
+<!-- <form method="post" action="{{ route('store') }}"> -->
+		{!! Form::open(['url' => 'store' , 'method' => 'POST']) !!}
 
   <div class="form-group row">
   <label class="col-sm-2 col-form-label">نوع الطلب</label>
   <div class="col-sm-10">
-      
 <select name="request"  >
   <option value="1">طلب عادي</option>
   <option value="2">طلب مالي</option>
@@ -60,13 +62,15 @@
     <label class="col-sm-2 col-form-label">المحتوى</label>
     <div class="col-sm-10">
     
-    <div id="summernote" name="content"></div>
-  <script>
-    $(document).ready(function() {
-        $('#summernote').summernote();
-    });
-  </script>
-
+    
+<!--      <div id="summernote" name="content"></div> -->
+<!--    <script> -->
+<!-- //     $(document).ready(function() { -->
+<!-- //         $('#summernote').summernote(); -->
+<!-- //     }); -->
+<!--   </script> -->
+		 <textarea rows="4" cols="50" name="content">
+		</textarea> 
 
     </div>
   </div>
@@ -82,13 +86,15 @@
 
 
 
-
-
 <center>
-  <button name="go" type="submit" class="btn btn-success"> <i class="fa fa-paper-plane" aria-hidden="true"></i> ارسال</button>
-  <button  class="btn btn-muted" onclick="goBack()"><i class="fa fa-ban" aria-hidden="true"></i> الغاء</button>
-  </form>
 
+<!-- 	<input type="hidden" name="_token" value="{{ csrf_token() }}"> -->
+
+<!--   <button name="go" type="submit" class="btn btn-success"> <i class="fa fa-paper-plane" aria-hidden="true"></i> ارسال</button> -->
+  <input type="submit" value="تسجيل الدخول" class="bbtn btn-success">
+  <button  class="btn btn-muted" onclick="goBack()"><i class="fa fa-ban" aria-hidden="true"></i> الغاء</button>
+<!--   </form> -->
+{!! Form::close() !!}
 
 </center>
                             

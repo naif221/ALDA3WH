@@ -15,16 +15,20 @@ Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
 
 Route::get('/requests', 'HomeController@index');
 
-Route::get('/requests', 'HomeController@index');
+
+Route::get('/store', 'HomeController@');
+
+Route::get('/store', function () {
+	return view('cpac.newrequests');
+});
+Route::post('/store', array( 'as' => 'store', 'uses' => 'RequestsController@store'));
 
 
-Route::post('/store', 'RequestsController@store');
-
-
+// Route::post('/store', array( 'as' => 'store', 'uses' => 'RequestsController@store'));
 
 // route to show the login form
 // Route::get('login', 'LoginController@showLogin');

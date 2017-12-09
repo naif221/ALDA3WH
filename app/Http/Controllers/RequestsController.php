@@ -32,24 +32,31 @@ class RequestsController extends Controller
 	
 	public function store(Request $request)
 	{
+		
+		if(Auth::check()){
 		$this->validate($request, [
-				//'user_id'	=> 'required',
-				//'state_id'	=> 'required',
+// 				'user_id'	=> 'required',
+// 				'state_id'	=> 'required',
 				'title' 	=> 'required',
-				'content'	=> 'required',
+// 				'content'	=> 'required',
 				'price'		=> 'nullable',
 				//'responder_id'	=>'nullable'
 		]);
 			
-		$request_ = new Request_;
+		$request_ 			= new Request_;
+		$request_->id 		= Request_::count(); // or use incremtn!
 		$request_->title 	= $request->input('title');
 		$request_->content	= $request->input('content');
 		$request_->price	= $request->input('price');
-		$request_->user_id	= Auth::id();
-		$request_->state_id	= StateCodes::$UnderStudy;
+		$request_->user_id	= 2;//Auth::user()->id();
+		$request_->state_id	= 2;//StateCodes::$UnderStudy;
 		$request_->save();
+		echo 'Helllllllllllllow';
 		
-		return redirect('/home');
+		return 'Hiiii';
+		}else {
+			return 'Hello';
+		}
 		// reminder , i must finsh the valdtion
 		
 		
