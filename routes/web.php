@@ -17,15 +17,27 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+
 Route::get('/requests', 'HomeController@index');
+Route::post('/requests', 'HomeController@index');
 
 
-Route::get('/store', 'HomeController@');
+// Route::get('/store', 'HomeController@');
 
+//To Direct User to New Request Page After Click !
 Route::get('/newrequests', function () {
 	return view('cpac.newrequests');
 });
+
+// To Store The data after posting it from the view !
 Route::post('/store', array( 'as' => 'store', 'uses' => 'RequestsController@store'));
+
+
+Route::get('/logout', function () {
+	//for loging out !!
+	Auth::logout();
+	return view('index');
+});
 
 
 // Route::post('/store', array( 'as' => 'store', 'uses' => 'RequestsController@store'));

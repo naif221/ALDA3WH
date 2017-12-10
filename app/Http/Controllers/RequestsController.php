@@ -52,12 +52,8 @@ class RequestsController extends Controller
 		$request_->user_id	= Auth::id();
 		$request_->state_id	= 2;
 		$request_->save();
-		echo 'Helllllllllllllow';
 		
-		return 'Hiiii';
-		}else {
-			return 'Hello';
-		}
+		return redirect('/requests');}
 		// reminder , i must finsh the valdtion
 		
 		

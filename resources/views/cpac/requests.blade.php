@@ -50,37 +50,8 @@
                                         	<td><a  class="btn btn-info"   href="{{ url('') }}" >
                  <i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> التفاصيل </a></td>
                  @endforeach
-<!--                                             <td>121</td> -->
-
-<!--                                             <td>الجاليات</td> -->
-<!--                                             <td>طلب مالي</td> -->
-<!--                                             <td>طلب طلب طلب جديد جديد طلبات بييبرسرسرس</td> -->
-<!--                                             <td>قيد الانتظار</td> -->
-<!--                                             <td><a  class="btn btn-info"   href="{{ url('') }}" > -->
-<!--                    <i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> التفاصيل </a></td> -->
                                         </tr>
-                                        @else 
-                                        <p>لا توجد طلبات </p>
                                         @endif
-                                        
-                                        <tr class="odd gradeX">
-                                        <td>121</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr class="odd gradeX">
-                                    <td>121</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
                                     </tbody>
                                 </table>
                             </div>

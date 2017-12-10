@@ -18,7 +18,7 @@
                         </li>
                         
                                 <li>
-                                    <a href="{{ url('r') }}"> <i class="fa fa-files-o" aria-hidden="true"></i>  الطلبات</a>
+                                    <a href="{{ url('requests') }}"> <i class="fa fa-files-o" aria-hidden="true"></i>  الطلبات</a>
                                 </li>
                                 
                         <li>
