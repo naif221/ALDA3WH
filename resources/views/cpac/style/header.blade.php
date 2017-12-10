@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>مكتب الدعوة والارشاد</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('css/bootstrap-r.min.css') }}" rel="stylesheet">

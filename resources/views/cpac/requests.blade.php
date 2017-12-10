@@ -7,7 +7,7 @@
                     <h1 class="page-header">الطلبات</h1>
 
                     
-                    <a  class="btn btn-primary"   href="{{ url('n') }}" >
+                    <a  class="btn btn-primary"   href="{{ url('newrequests') }}" >
                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> طلب جديد</a>
 
 
@@ -40,9 +40,14 @@
                                         	<td>{{$request->id}}</td>
                                         	<td>{{$request->created_at}}</td>
                                         	<td>{{$request->user->department->department_name}}</td>
-                                        	<td>{{$request->price}}</td>
+                                        	@if(is_null($request->price))
+                                        	<td>طلب عادي</td>
+											@else 
+                                        	<td>طلب مالي</td>
+                                        	@endif
                                         	<td>{{$request->title}}</td>
-                                        	 <td><a  class="btn btn-info"   href="{{ url('') }}" >
+                                        	<td>{{$request->state->title}}</td>
+                                        	<td><a  class="btn btn-info"   href="{{ url('') }}" >
                  <i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> التفاصيل </a></td>
                  @endforeach
 <!--                                             <td>121</td> -->

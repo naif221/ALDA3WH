@@ -22,7 +22,7 @@ Route::get('/requests', 'HomeController@index');
 
 Route::get('/store', 'HomeController@');
 
-Route::get('/store', function () {
+Route::get('/newrequests', function () {
 	return view('cpac.newrequests');
 });
 Route::post('/store', array( 'as' => 'store', 'uses' => 'RequestsController@store'));
