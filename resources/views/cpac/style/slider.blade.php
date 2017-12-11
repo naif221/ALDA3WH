@@ -18,7 +18,11 @@
                         </li>
                         
                                 <li>
+<<<<<<< HEAD
                                     <a href="requests"> <i class="fa fa-files-o" aria-hidden="true"></i>  الطلبات</a>
+=======
+                                    <a href="{{ url('requests') }}"> <i class="fa fa-files-o" aria-hidden="true"></i>  الطلبات</a>
+>>>>>>> 30abff66c046e40f50a0458a749b975371c8a332
                                 </li>
                                 
                         <li>

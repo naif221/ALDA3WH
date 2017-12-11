@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>مكتب الدعوة والارشاد</title>
 
    
     <link href="{{ url('css/bootstrap-r.min.css') }}" rel="stylesheet">
@@ -52,7 +52,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                <a class="navbar-brand" href="{{ url('home') }}">الدعوة</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -257,7 +257,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out fa-fw"></i> تسجيل الخروج</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
