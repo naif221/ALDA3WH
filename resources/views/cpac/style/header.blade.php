@@ -9,15 +9,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>مكتب الدعوة والارشاد</title>
+    <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
-    <!-- Bootstrap Core CSS -->
+   
     <link href="{{ url('css/bootstrap-r.min.css') }}" rel="stylesheet">
     <link href="{{ url('css/font-awesome.css') }}" rel="stylesheet">
-    <!-- MetisMenu CSS -->
+   
     <link href="{{ url('css/plugins/metisMenu/metisMenu.min.css') }}" rel="stylesheet">
     <link href="{{ url('css/plugins/dataTables.bootstrap.css') }}" rel="stylesheet">
-    <!-- Timeline CSS -->
+  
+    <link href="{{ url('css/plugins/dataTables.responsive.css') }}" rel="stylesheet">
     <link href="{{ url('css/plugins/timeline.css') }}" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -51,7 +52,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url('home') }}">الدعوة</a>
+                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -256,7 +257,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out fa-fw"></i> تسجيل الخروج</a>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

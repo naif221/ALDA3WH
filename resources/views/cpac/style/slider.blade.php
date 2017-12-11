@@ -18,11 +18,11 @@
                         </li>
                         
                                 <li>
-                                    <a href="{{ url('requests') }}"> <i class="fa fa-files-o" aria-hidden="true"></i>  الطلبات</a>
+                                    <a href="requests"> <i class="fa fa-files-o" aria-hidden="true"></i>  الطلبات</a>
                                 </li>
                                 
                         <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> الموظفين</a>
+                            <a href="employees"><i class="fa fa-table fa-fw"></i> الموظفين</a>
                         </li>
                         <li>
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> الاقسام</a>
