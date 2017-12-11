@@ -14,6 +14,8 @@ class Language extends Model
 	// Primary Key
 	public $primaryKey = 'id';
 
+	public $timestamps = false;
+	
 	
 	public function books(){
 		

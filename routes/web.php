@@ -40,6 +40,32 @@ Route::get('/logout', function () {
 });
 
 
+Route::get('/forms', function () {
+		return view('forms');
+	});
+
+
+	// Add Author , it's on LibraryController@AddAuthor. !!
+Route::post('/addauthor', array( 'as' => 'addauthor', 'uses' => 'LibraryController@AddAuthor'));
+	
+// Add Language to the Language Table on LibraryController@AddLanguage.
+Route::post('/addlang', array( 'as' => 'addlang', 'uses' => 'LibraryController@AddLanguage'));
+
+// Add Book To The Library , on LibraryController@AddBook.
+Route::post('/addbook', array( 'as' => 'addbook', 'uses' => 'LibraryController@AddBook'));
+
+// To Update Books
+Route::post('/updatebook', array( 'as' => 'updatebook', 'uses' => 'LibraryController@UpdateBook'));
+
+// To DecraseBookByOne .
+Route::post('/decrasebook', array( 'as' => 'decrasebook', 'uses' => 'LibraryController@DecreaseBookByOne'));
+
+// To IncrementBookByOne.
+Route::post('/incrementbook', array( 'as' => 'incrementbook', 'uses' => 'LibraryController@IncrementBookByOne'));
+
+// To Store Issued.
+Route::post('/storeissue', array( 'as' => 'storeissue', 'uses' => 'IssuedController@StoreIssued'));
+
 // Route::post('/store', array( 'as' => 'store', 'uses' => 'RequestsController@store'));
 
 // route to show the login form

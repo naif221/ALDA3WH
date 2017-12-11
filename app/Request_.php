@@ -16,7 +16,6 @@ class Request_ extends Model
 	// Timestamps
 	public $timestamps = true;
 	
-
 	
 	
 	

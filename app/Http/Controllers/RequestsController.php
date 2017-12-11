@@ -34,18 +34,14 @@ class RequestsController extends Controller
 	public function store(Request $request)
 	{
 		
-		if(Auth::check()){
 		$this->validate($request, [
-// 				'user_id'	=> 'required',
-// 				'state_id'	=> 'required',
 				'title' 	=> 'required',
  				'content'	=> 'required',
 				'price'		=> 'nullable',
-				//'responder_id'	=>'nullable'
 		]);
 			
 		$request_ 			= new Request_;
-		$request_->id 		= Request_::count(); // or use incremtn!
+		$request_->id 		= Request_::count();
 		$request_->title 	= $request->input('title');
 		$request_->content	= $request->input('content');
 		$request_->price	= $request->input('price');
@@ -53,11 +49,10 @@ class RequestsController extends Controller
 		$request_->state_id	= 2;
 		$request_->save();
 		
-		return redirect('/requests');}
-		// reminder , i must finsh the valdtion
-		
-		
+		return redirect('/requests');
 		
 	}
+	
+	
 	
 }
