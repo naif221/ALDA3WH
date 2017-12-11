@@ -7,7 +7,7 @@
                     <h1 class="page-header">الطلبات</h1>
 
                     
-                    <a  class="btn btn-primary"   href="{{ url('n') }}" >
+                    <a  class="btn btn-primary"   href="{{ url('new-requests') }}" >
                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> طلب جديد</a>
 
 

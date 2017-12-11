@@ -11,13 +11,14 @@
 
     <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
-    <!-- Bootstrap Core CSS -->
+   
     <link href="{{ url('css/bootstrap-r.min.css') }}" rel="stylesheet">
     <link href="{{ url('css/font-awesome.css') }}" rel="stylesheet">
-    <!-- MetisMenu CSS -->
+   
     <link href="{{ url('css/plugins/metisMenu/metisMenu.min.css') }}" rel="stylesheet">
     <link href="{{ url('css/plugins/dataTables.bootstrap.css') }}" rel="stylesheet">
-    <!-- Timeline CSS -->
+  
+    <link href="{{ url('css/plugins/dataTables.responsive.css') }}" rel="stylesheet">
     <link href="{{ url('css/plugins/timeline.css') }}" rel="stylesheet">
 
     <!-- Custom CSS -->

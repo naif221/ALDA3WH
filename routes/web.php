@@ -53,9 +53,18 @@ Route::post('/store', array( 'as' => 'store', 'uses' => 'RequestsController@stor
 // });
 				
 				
-// Route::get('n', function () {
-// 	return view('cpac.newrequests');
-// });
+ Route::get('new-requests', function () {
+ 	return view('cpac.new-requests');
+ });
+
+ Route::get('employees', function () {
+	return view('cpac.employees');
+});
+
+Route::get('new-employees', function () {
+	return view('cpac.new-employees');
+});
+
 
 
 // Route::post('LoginVerify', 'LoginController@validateCredentials');
