@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/requests';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -51,7 +51,7 @@ class LoginController extends Controller
     	
     	if (Auth::attempt($dataAttempt)){
     		
-    		return redirect()->intended('/requests');
+    		return redirect()->intended('/');
     		
     	}else {
     		

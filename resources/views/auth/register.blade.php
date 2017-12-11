@@ -1,6 +1,6 @@
-@include('cpac/style/header')
-@include('cpac/style/slider')
+@extends('layouts.app')
 
+@section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -39,38 +39,6 @@
                             </div>
                         </div>
 
-
-
-                        <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-                            <label for="phone" class="col-md-4 control-label">Phone</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="phone" value="{{ old('phone') }}" required autofocus>
-
-                                @if ($errors->has('phone'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('phone') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="form-group{{ $errors->has('department_id') ? ' has-error' : '' }}">
-                            <label for="department_id" class="col-md-4 control-label">department_id</label>
-
-                            <div class="col-md-6">
-                                <input id="department_id" type="text" class="form-control" name="department_id" value="{{ old('department_id') }}" required autofocus>
-
-                                @if ($errors->has('department_id'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('department_id') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        
-                        
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
@@ -92,7 +60,6 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
-                        
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
@@ -107,6 +74,4 @@
         </div>
     </div>
 </div>
-
-
-@include('cpac/style/footer')
+@endsection
