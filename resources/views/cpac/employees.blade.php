@@ -46,8 +46,7 @@
                                         <th>البريد الالكتروني</th>
                                         <th>رقم الجوال</th>
                                         <th>القسم</th>
-                                       
-                                        <th></th>
+                                        <th>تعديل</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -57,16 +56,16 @@
                                     <tr class="odd gradeX">
                                     
                                 
-                                        <td><a target="_blank" href=""><img class="color1" src=""></a></td>
-                                        <td>nanananna</td>
+                                        <td>1</td>
+                                        <td>mohammed</td>
                                       
-                                        <td>aa</td>
-                                        <td>aa</td>
+                                        <td>m.alodyani@gmail.com</td>
+                                        <td>0562781755</td>
                                        
-                                        <td>aa</td>
+                                        <td>الجاليات</td>
                                         <td><center>
-                                            <a href=""><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;
-                                            <a href=""><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+                                            <a href="edit-employee"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+                                            <!-- <a href=""><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a> -->
                                             </center>
                                         </td>
                                     </tr>

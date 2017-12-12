@@ -67,6 +67,12 @@ body {
     -webkit-transition: 1s;
 </style>
 
+<script>
+function deleted() {
+    confirm("تأكيد الحذف!");
+}
+</script>
+
 </div>
 				</div>
 				

@@ -30,4 +30,48 @@ class webController extends Controller
     	return view('web.donate');
     	
     }
+
+    public function employees() {
+        
+             return view('cpac.employees');
+                
+            }
+    public function newemployees() {
+                
+            return view('cpac.new-employees');
+                        
+            }
+                    
+    public function editemployee() {
+                
+            return view('cpac.edit-employee');
+                        
+            }
+    public function detailsrequest() {
+                        
+            return view('cpac.details-request');
+                                
+            }
+    public function newsrequest() {
+                        
+            return view('cpac.new-request');
+                                
+            }
+
+    public function department() {
+                
+            return view('cpac.department');
+                        
+            }
+    public function newdepartment() {
+                
+            return view('cpac.new-department');
+                        
+            }
+    public function editdepartment() {
+                
+            return view('cpac.edit-department');
+                        
+            }
 }
+

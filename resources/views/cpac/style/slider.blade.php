@@ -25,7 +25,7 @@
                             <a href="employees"><i class="fa fa-table fa-fw"></i> الموظفين</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> الاقسام</a>
+                            <a href="department"><i class="fa fa-edit fa-fw"></i> الاقسام</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i>الاعدادات</a>

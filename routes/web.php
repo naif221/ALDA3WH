@@ -76,6 +76,15 @@ Route::get('/web' , function () {
 
 });
 
+Route::get('/new-request', 'webController@newsrequest')->name('cpac.new-request');
+Route::get('/employees', 'webController@employees')->name('cpac.employees');
+Route::get('/edit-employee', 'webController@editemployee')->name('cpac.edit-employee');
+Route::get('/new-employees', 'webController@newemployees')->name('cpac.new-employees');
+Route::get('/details-request', 'webController@detailsrequest')->name('cpac.details-request');
+Route::get('/department', 'webController@department')->name('cpac.department');
+Route::get('/new-department', 'webController@newdepartment')->name('cpac.new-department');
+Route::get('/edit-department', 'webController@editdepartment')->name('cpac.edit-department');
+
 // Route::post('/store', array( 'as' => 'store', 'uses' => 'RequestsController@store'));
 
 // route to show the login form
