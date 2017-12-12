@@ -45,7 +45,7 @@
                                         	<td></td>
                                             <td></td>
                                             <td><center>
-                                            <a href="edit-employee"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+                                            <a href="edit-book"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
                                             <a href="" onclick="deleted()" ><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
                                             </center>
                                         </td>
