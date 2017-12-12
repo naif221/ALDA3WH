@@ -36,7 +36,7 @@ Route::post('/store', array( 'as' => 'store', 'uses' => 'RequestsController@stor
 Route::get('/logout', function () {
 	//for loging out !!
 	Auth::logout();
-	return view('index');
+	return view('/home');
 });
 
 

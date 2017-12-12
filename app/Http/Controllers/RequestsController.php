@@ -41,7 +41,6 @@ class RequestsController extends Controller
 		]);
 			
 		$request_ 			= new Request_;
-		$request_->id 		= Request_::count();
 		$request_->title 	= $request->input('title');
 		$request_->content	= $request->input('content');
 		$request_->price	= $request->input('price');
