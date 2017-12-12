@@ -76,19 +76,24 @@ Route::get('/web' , function () {
 
 });
 
-Route::get('/new-request', 'webController@newsrequest')->name('cpac.new-request');
-Route::get('/employees', 'webController@employees')->name('cpac.employees');
-Route::get('/edit-employee', 'webController@editemployee')->name('cpac.edit-employee');
-Route::get('/new-employees', 'webController@newemployees')->name('cpac.new-employees');
-Route::get('/details-request', 'webController@detailsrequest')->name('cpac.details-request');
-Route::get('/department', 'webController@department')->name('cpac.department');
-Route::get('/new-department', 'webController@newdepartment')->name('cpac.new-department');
-Route::get('/edit-department', 'webController@editdepartment')->name('cpac.edit-department');
+Route::get('/details-request', 'webController@detailsrequest')->name('cpac.requests.details-request');
+Route::get('/new-request', 'webController@newsrequest')->name('cpac.requests.new-request');
+Route::get('/employees', 'webController@employees')->name('cpac.employees.employees');
+Route::get('/edit-employee', 'webController@editemployee')->name('cpac.employees.edit-employee');
+Route::get('/new-employees', 'webController@newemployees')->name('cpac.employees.new-employees');
+Route::get('/department', 'webController@department')->name('cpac.department.department');
+Route::get('/new-department', 'webController@newdepartment')->name('cpac.department.new-department');
+Route::get('/edit-department', 'webController@editdepartment')->name('cpac.department.edit-department');
 Route::get('/books', 'webController@books')->name('cpac.books.books');
 Route::get('/new-book', 'webController@newbook')->name('cpac.books.new-book');
 Route::get('/edit-book', 'webController@editbook')->name('cpac.books.edit-book');
 Route::get('/languge', 'webController@bookslanguge')->name('cpac.books.languge');
 Route::get('/new-languge', 'webController@booksnewlanguge')->name('cpac.books.new-languge');
+Route::get('/profile', 'webController@profile')->name('cpac.profile');
+Route::get('/home1', 'webController@home1')->name('cpac.home1');
+Route::get('/archives', 'webController@archives')->name('cpac.archive.archives');
+Route::get('/new-archive', 'webController@newarchive')->name('cpac.archive.new-archive');
+Route::get('/details-archive', 'webController@detailsarchive')->name('cpac.archive.details-archive');
 
 // Route::post('/store', array( 'as' => 'store', 'uses' => 'RequestsController@store'));
 

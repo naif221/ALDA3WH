@@ -27,7 +27,7 @@ class HomeController extends Controller
     	if(Auth::check()){
     		
     		$req = Request_::all();
-			return view('cpac.requests', ['requests' => $req]);
+			return view('cpac.requests.requests', ['requests' => $req]);
     		
     		
     	}else {

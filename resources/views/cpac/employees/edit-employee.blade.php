@@ -86,7 +86,7 @@
 <button  class="btn btn-muted" onclick="goBack()"> الغاء <i class="fa fa-ban" aria-hidden="true"></i></button>
 <br>
 <br>
-<button  class="btn btn-danger" onclick="deleted()" > حذف الموظف <i class="fa fa-trash" aria-hidden="true"></i></button>
+<button  class="btn btn-danger" onclick="deleted()" > حذف الموظف <i class="fa fa-user-times" aria-hidden="true"></i></button>
 
 
 
