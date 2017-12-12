@@ -65,6 +65,16 @@ Route::post('/incrementbook', array( 'as' => 'incrementbook', 'uses' => 'Library
 
 // To Store Issued.
 Route::post('/storeissue', array( 'as' => 'storeissue', 'uses' => 'IssuedController@StoreIssued'));
+// website 
+Route::get('/about', 'webController@about')->name('web.about');
+Route::get('/donate', 'webController@donate')->name('web.donate');
+Route::get('/events', 'webController@events')->name('web.events');
+Route::get('/library', 'webController@library')->name('web.library');
+
+Route::get('/web' , function () {
+   return view('web.home');
+
+});
 
 // Route::post('/store', array( 'as' => 'store', 'uses' => 'RequestsController@store'));
 
