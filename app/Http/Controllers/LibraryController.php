@@ -46,18 +46,17 @@ class LibraryController extends Controller
 	
 	public function AddAuthor(Request $request)
 	{
- 	if(Auth::user()->department_id == 2){
+ 	if(Auth::user()->department_id == 1){
 		
 		$this->validate($request, [
 			'name' 	=> 'required',
 		]);
 		
 		$author = new Author();
-		$author->id = Author::count();
 		$author->name = $request->input('name');
 		$author->save();
 		
-		return redirect('/requests');
+		return redirect('/home');
 		
  		}else 
  			return redirect('/home');
@@ -75,7 +74,6 @@ class LibraryController extends Controller
 			]);
 			
 			$lang = new Language();
-			$lang->id = Language::count();
 			$lang->language = $request->input('language');
 			$lang->save();
 			
@@ -100,7 +98,6 @@ class LibraryController extends Controller
 			]);
 			
 			$book 				= new Books();
-			$book->id 			= Books::count();
 			$book->barcode 		= $request->input('barcode');
 			$book->name 		= $request->input('name');
 			$book->author_id	= $request->input('author_id');
