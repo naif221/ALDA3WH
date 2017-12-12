@@ -84,6 +84,11 @@ Route::get('/details-request', 'webController@detailsrequest')->name('cpac.detai
 Route::get('/department', 'webController@department')->name('cpac.department');
 Route::get('/new-department', 'webController@newdepartment')->name('cpac.new-department');
 Route::get('/edit-department', 'webController@editdepartment')->name('cpac.edit-department');
+Route::get('/books', 'webController@books')->name('cpac.books.books');
+Route::get('/new-book', 'webController@newbook')->name('cpac.books.new-book');
+Route::get('/edit-book', 'webController@editbook')->name('cpac.books.edit-book');
+Route::get('/languge', 'webController@bookslanguge')->name('cpac.books.languge');
+Route::get('/new-languge', 'webController@booksnewlanguge')->name('cpac.books.new-languge');
 
 // Route::post('/store', array( 'as' => 'store', 'uses' => 'RequestsController@store'));
 

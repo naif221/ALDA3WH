@@ -73,5 +73,31 @@ class webController extends Controller
             return view('cpac.edit-department');
                         
             }
+            
+    public function books() {
+        
+            return view('cpac.books.books');
+                
+    }
+    public function newbook() {
+        
+            return view('cpac.books.new-book');
+                
+    }
+    public function editbook() {
+        
+            return view('cpac.books.edit-book');
+                
+    }
+    public function bookslanguge() {
+        
+            return view('cpac.books.languge');
+                
+    }
+    public function booksnewlanguge() {
+        
+            return view('cpac.books.new-languge');
+                
+    }
 }
 

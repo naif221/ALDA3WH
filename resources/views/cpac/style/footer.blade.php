@@ -36,6 +36,10 @@
 function goBack() {
     window.history.back();
 }
+
+function deleted() {
+   confirm("تأكيد الحذف!");
+}
 </script>
 
 

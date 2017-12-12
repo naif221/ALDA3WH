@@ -25,56 +25,30 @@
                             <a href="employees"><i class="fa fa-table fa-fw"></i> الموظفين</a>
                         </li>
                         <li>
-                            <a href="department"><i class="fa fa-edit fa-fw"></i> الاقسام</a>
+                            <a href="department"><i class="fa fa-list" aria-hidden="true"></i> الاقسام</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i>الاعدادات</a>
-                            </li>
+                        
                                 
                                     
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                        <a href="books"><i class="fa fa-bookmark" aria-hidden="true"></i> المكتبة<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Second Level Item</a>
+                                    <a href="books"><i class="fa fa-book" aria-hidden="true"></i> الكتب</a>
                                 </li>
                                 <li>
-                                    <a href="#">Second Level Item</a>
+                                    <a href="languge"><i class="fa fa-language" aria-hidden="true"></i> اللغات </a>
                                 </li>
-                                <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
+                                
+                                          
+                                       
                                     </ul>
                                     <!-- /.nav-third-level -->
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-camera-retro fa-lg"></i> fa-lg Sample Pages<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="blank.html">Blank Page</a>
-                                </li>
-                                <li>
-                                    <a href="login.html">Login Page</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                    </ul>
+                        
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>
