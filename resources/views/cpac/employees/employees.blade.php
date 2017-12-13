@@ -8,7 +8,7 @@
 
                     
                     <a  class="btn btn-primary"   href="{{ url('new-employees') }}" >
-                   <i class="fa fa-plus" aria-hidden="true"></i> اضافة موظف </a>
+                    <i class="fa fa-user-plus" aria-hidden="true"></i> اضافة موظف </a>
 
 
 <br>

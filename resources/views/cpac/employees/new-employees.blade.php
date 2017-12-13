@@ -82,7 +82,7 @@
 
 <center>
 
-<button  class="btn btn-info" type="submit" > اضافة <i class="fa fa-plus" aria-hidden="true"></i></button>
+<button  class="btn btn-info" type="submit" > اضافة <i class="fa fa-user-plus" aria-hidden="true"></i></button>
   <button  class="btn btn-muted" onclick="goBack()"> الغاء <i class="fa fa-ban" aria-hidden="true"></i></button>
 <!--   </form> -->
 {!! Form::close() !!}

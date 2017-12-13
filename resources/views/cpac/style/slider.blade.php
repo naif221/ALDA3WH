@@ -2,19 +2,9 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
+                       
                         <li>
-                            <a class="active" href="index.html"><i class="fa fa-dashboard fa-fw"></i> الرئيسية</a>
+                            <a  href="home1"><i class="fa fa-dashboard fa-fw"></i> الرئيسية</a>
                         </li>
                         
                                 <li>
@@ -22,7 +12,7 @@
                                 </li>
                                 
                         <li>
-                            <a href="employees"><i class="fa fa-table fa-fw"></i> الموظفين</a>
+                            <a href="employees"><i class="fa fa-users" aria-hidden="true"></i> الموظفين</a>
                         </li>
                         <li>
                             <a href="department"><i class="fa fa-list" aria-hidden="true"></i> الاقسام</a>
@@ -45,10 +35,15 @@
                                     </ul>
                                     <!-- /.nav-third-level -->
                                 </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                      
+                        <li>
+                            <a href="archives"><i class="fa fa-archive" aria-hidden="true"></i> الصادر</a>
                         </li>
-                        
+
+                        <li>
+                            <a href="department"><i class="fa fa-microphone" aria-hidden="true"></i> الاعلام</a>
+                        </li>
+
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>

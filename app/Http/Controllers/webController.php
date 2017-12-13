@@ -33,44 +33,44 @@ class webController extends Controller
 
     public function employees() {
         
-             return view('cpac.employees');
+             return view('cpac.employees.employees');
                 
             }
     public function newemployees() {
                 
-            return view('cpac.new-employees');
+            return view('cpac.employees.new-employees');
                         
             }
                     
     public function editemployee() {
                 
-            return view('cpac.edit-employee');
+            return view('cpac.employees.edit-employee');
                         
             }
     public function detailsrequest() {
                         
-            return view('cpac.details-request');
+            return view('cpac.requests.details-request');
                                 
             }
     public function newsrequest() {
                         
-            return view('cpac.new-request');
+            return view('cpac.requests.new-request');
                                 
             }
 
     public function department() {
                 
-            return view('cpac.department');
+            return view('cpac.department.department');
                         
             }
     public function newdepartment() {
                 
-            return view('cpac.new-department');
+            return view('cpac.department.new-department');
                         
             }
     public function editdepartment() {
                 
-            return view('cpac.edit-department');
+            return view('cpac.department.edit-department');
                         
             }
             
@@ -97,6 +97,31 @@ class webController extends Controller
     public function booksnewlanguge() {
         
             return view('cpac.books.new-languge');
+                
+    }
+    public function profile() {
+        
+            return view('cpac.profile');
+                
+    }
+    public function home1() {
+        
+            return view('cpac.home1');
+                
+    }
+    public function archives() {
+        
+            return view('cpac.archive.archives');
+                
+    }
+    public function newarchive() {
+        
+            return view('cpac.archive.new-archive');
+                
+    }
+    public function detailsarchive() {
+        
+            return view('cpac.archive.details-archive');
                 
     }
 }
