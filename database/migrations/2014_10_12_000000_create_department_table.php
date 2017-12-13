@@ -17,8 +17,23 @@ class CreateDepartmentTable extends Migration
 
         	$table->increments('id');
             $table->string('department_name');
-            $table->text('description');
+            $table->text('description')->nullable();
         });
+        
+        	$this->initializeDepartment('الجاليات');
+        	$this->initializeDepartment('الصادر');
+        	$this->initializeDepartment('المكتبة');
+        	$this->initializeDepartment('مجلس الأدارة');
+        	
+        	
+    }
+    
+    
+    private function initializeDepartment($name){
+    	
+    	DB::table('department')->insert(
+    			['department_name' => $name]
+    			);
     }
 
     /**

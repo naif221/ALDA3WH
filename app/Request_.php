@@ -28,6 +28,7 @@ class Request_ extends Model
 		
 		return $this->belongsTo('App\User');
 	}
+	
 
 
 }

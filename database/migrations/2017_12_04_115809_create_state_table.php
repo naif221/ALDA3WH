@@ -20,8 +20,22 @@ class CreateStateTable extends Migration
             $table->tinyIncrements('id');
             $table->string('title');
         });
+        
+        	$this->initializeState('تحت الدراسة');
+        	$this->initializeState('مقبولة');
+        	$this->initializeState('مرفوضة');
+        	$this->initializeState('تحت الدراسة من المجلس');
+        	$this->initializeState('مقبولة من المجلس');
+        	$this->initializeState('مرفوضة من المجلس');
     }
 
+    
+    private function initializeState($title){
+    	
+    	DB::table('state')->insert(
+    			['title' => $title]
+    			);
+    }
     /**
      * Reverse the migrations.
      *

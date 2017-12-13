@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\Request_;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -12,7 +13,9 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+	
+	
+	public function __construct()
     {
         $this->middleware('auth');
     }
@@ -24,17 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-    	if(Auth::check()){
     		
-    		$req = Request_::all();
-			return view('cpac.requests', ['requests' => $req]);
-    		
-    		
-    	}else {
-    		
-    	return 'not in  !';
-    		
-    	}    
+
+    	return redirect('/requests');
+    	
     }
     
     

@@ -39,14 +39,14 @@
                                         <tr class="odd gradeX">
                                         	<td>{{$request->id}}</td>
                                         	<td>{{$request->created_at}}</td>
-                                        	<td>{{$request->user->department->department_name}}</td>
+                                        	<td>{{$department_name->department_name}}</td>
                                         	@if(is_null($request->price))
                                         	<td>طلب عادي</td>
 											@else 
                                         	<td>طلب مالي</td>
                                         	@endif
                                         	<td>{{$request->title}}</td>
-                                        	<td>{{$request->state->title}}</td>
+                                        	<td>{{$State->title}}</td>
                                         	<td><a  class="btn btn-info"   href="{{ url('details-request') }}" >
                  <i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> التفاصيل </a></td>
                  @endforeach

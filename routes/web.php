@@ -18,8 +18,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 
-Route::get('/requests', 'HomeController@index');
-Route::post('/requests', 'HomeController@index');
+Route::get('/requests', 'RequestsController@Show');
+Route::post('/requests', 'RequestsController@Show');
 
 
 // Route::get('/store', 'HomeController@');
@@ -36,7 +36,7 @@ Route::post('/store', array( 'as' => 'store', 'uses' => 'RequestsController@stor
 Route::get('/logout', function () {
 	//for loging out !!
 	Auth::logout();
-	return view('/home');
+	return view('/web');
 });
 
 
@@ -45,7 +45,7 @@ Route::get('/forms', function () {
 	});
 
 
-	// Add Author , it's on LibraryController@AddAuthor. !!
+// Add Author , it's on LibraryController@AddAuthor. !!
 Route::post('/addauthor', array( 'as' => 'addauthor', 'uses' => 'LibraryController@AddAuthor'));
 	
 // Add Language to the Language Table on LibraryController@AddLanguage.
@@ -65,6 +65,10 @@ Route::post('/incrementbook', array( 'as' => 'incrementbook', 'uses' => 'Library
 
 // To Store Issued.
 Route::post('/storeissue', array( 'as' => 'storeissue', 'uses' => 'IssuedController@StoreIssued'));
+
+
+
+
 // website 
 Route::get('/about', 'webController@about')->name('web.about');
 Route::get('/donate', 'webController@donate')->name('web.donate');
