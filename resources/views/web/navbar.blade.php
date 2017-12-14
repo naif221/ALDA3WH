@@ -8,7 +8,7 @@
         <link href="{{ url('css/bootstrap-rtl.min.css') }}" rel="stylesheet">
         <link href="{{ url('css/style.css') }}" rel="stylesheet">
         <link href="{{ url('css/home.css') }}" rel="stylesheet">
-        <link href="{{ url('https://fonts.googleapis.com/css?family=Cairo') }}" rel="stylesheet">
+        <link href="{{ url('css/cairo-font.css') }}" rel="stylesheet">
 
         <title> </title>
         
@@ -24,7 +24,7 @@
       
             <br>
             <center>
-      <img src="{{ ('images/dawa.png') }}" >
+      <img src="{{ ('images/logo1.png') }}" >
       </center>
       
       <br>
@@ -49,10 +49,8 @@
             <ul class="nav navbar-nav">
             
                <li class="active" > <a href="#"><span class="glyphicon glyphicon-home"></span>&nbspالرئيسية<span class="sr-only">(current)</span></a></li>
-       <li ><a href="{{Route('web.about')}}"><span class="glyphicon glyphicon-film"></span>&nbsp عن المكتب و اعمالة</a></li>
-          <li><a href="{{ route('web.donate') }}"><span class="glyphicon glyphicon-facetime-video"></span>&nbsp تبرع للمكتب</a></li>
-           <li><a href="{{Route('web.events')}}"><span class="glyphicon glyphicon-info-sign"></span>&nbsp روزمانة الفعاليات</a></li>
-          <li><a href="{{Route('web.library')}}"><span class="glyphicon glyphicon-facetime-video"></span>&nbsp المكتبة</a></li>
+       <li ><a href="{{Route('web.about')}}"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp عن المكتب و اعمالة</a></li>
+          <li><a href="{{Route('web.library')}}"><i class="fa fa-bookmark" aria-hidden="true"></i>&nbsp المكتبة</a></li>
               
             </ul>
         </div>

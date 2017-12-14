@@ -26,7 +26,7 @@ Route::post('/requests', 'RequestsController@Show');
 
 //To Direct User to New Request Page After Click !
 Route::get('/newrequests', function () {
-	return view('cpac.newrequests');
+	return view('cpac.requests.newrequest');
 });
 
 // To Store The data after posting it from the view !
@@ -77,6 +77,26 @@ Route::get('/library', 'webController@library')->name('web.library');
 
 Route::get('/web' , function () {
    return view('web.home');
+
+});
+
+ Route::get('home-news', function () {
+ 	return view('cpac.media.home-news');
+ });
+ Route::get('new-news', function () {
+	return view('cpac.media.new-news');
+});
+Route::get('edit-news', function () {
+	return view('cpac.media.edit-news');
+});
+Route::get('media', function () {
+	return view('cpac.media.media');
+
+});Route::get('edit-media', function () {
+	return view('cpac.media.edit-media');
+});
+Route::get('news', function () {
+	return view('web.news');
 
 });
 

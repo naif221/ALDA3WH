@@ -41,8 +41,23 @@
                         </li>
 
                         <li>
-                            <a href="department"><i class="fa fa-microphone" aria-hidden="true"></i> الاعلام</a>
-                        </li>
+                        <a href="media"><i class="fa fa-microphone" aria-hidden="true"></i> الاعلام<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="news"><i class="fa fa-newspaper-o" aria-hidden="true"></i> الاخبار</a>
+                                </li>
+                                <li>
+                                    <a href="media"><i class="fa fa-file-text-o" aria-hidden="true"></i> ادارة المحتوى </a>
+                                </li>
+                                
+                                          
+                                       
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li>
+
+                        <li>
+                             </li>
 
                 </div>
                 <!-- /.sidebar-collapse -->
