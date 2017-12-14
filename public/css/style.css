@@ -1,3 +1,14 @@
 * {
     font-family: 'Cairo', sans-serif;
     }
+ .art_n{
+ 	margin-right: 70px;
+    margin-top: 0px;
+    background: #efefef;
+    border-radius: 4px;
+    margin-bottom: 50px;
+ }
+ .art_s{
+ 	margin-right: 40px;
+    margin-top: 20px;
+ }
