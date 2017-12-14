@@ -11,13 +11,18 @@
                     <h1 class="page-header">الصادر</h1>
 
                     
-
-
-<br>
+                   
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
+                       
                             تفاصيل المعاملة
+                            </span>
+                            <span class="pull-left" style="margin-top: -7px">
+                            <button class="btn btn-danger" onclick="deleted()" > حذف المعاملة <i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                            </span>
+    	
+                         
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
