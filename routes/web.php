@@ -29,6 +29,8 @@ Route::get('/forms', function () {
 	});
 
 
+
+
 // Add Author , it's on LibraryController@AddAuthor. !!
 Route::post('/addauthor', array( 'as' => 'addauthor', 'uses' => 'LibraryController@AddAuthor'));
 	
@@ -102,4 +104,15 @@ Route::get('/home1', 'webController@home1')->name('cpac.home1');
 Route::get('/archives', 'webController@archives')->name('cpac.archive.archives');
 Route::get('/new-archive', 'webController@newarchive')->name('cpac.archive.new-archive');
 Route::get('/details-archive', 'webController@detailsarchive')->name('cpac.archive.details-archive');
-
+Route::get('/media-news', function () {
+	return view('cpac.media.media-news');
+});
+Route::get('/media', function () {
+	return view('cpac.media.media');
+});
+Route::get('/news', function () {
+	return view('web.news');
+});
+Route::get('/new-news', function () {
+	return view('cpac.media.new-news');
+});

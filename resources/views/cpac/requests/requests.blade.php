@@ -54,6 +54,9 @@
                          			<td>
                          			<button type="submit" class="btn btn-info">
                  					<i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> التفاصيل </button>
+                 					
+                                     <span onclick="deleted()" class="btn btn-danger">
+                 					<i class="fa fa-trash-o" aria-hidden="true"></i> حذف </span>
                  					</td>
                          		</form> 
                          		

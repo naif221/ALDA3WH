@@ -28,8 +28,8 @@
                                             <th>الاسم</th>
                                             <th>المؤلف</th>
                                             <th>اللغة</th>
-                                            
                                             <th>العدد المتوفر</th>
+                                          
                                             <th>تعديل/حذف</th>
                                             </tr>
                                     </thead>
@@ -40,10 +40,55 @@
                                         	<td></td>
                                         	<td></td>
                                         	<td></td>
-                                        	
                                         	<td></td>
                                         	<td></td>
-                                            <td></td>
+                                            
+                                            <td>
+                                            {!! Form::open(['url' => '' , 'method' => 'POST']) !!}
+                                            
+<div class="input-group add-minus">
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-danger btn-number"  onclick="minus()" >
+                <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+          <input type="text"  class="form-control input-number"  value="100" id="count">
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-success btn-number"  onclick="plus()" >
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+          <span class="input-group-btn">
+              <button type="button" style="width: 45px; margin-right:5px;" class="btn btn-info btn-number" data-toggle="modal" data-target="#myModal" >
+                  <span class="glyphicon glyphicon-floppy-disk"></span>
+              </button>
+          </span>
+      </div>
+
+
+<!--start confirm save number book in stock	-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <br>
+      </div>
+      <div class="modal-body">
+       هل تريد حفظ التغيرات على العدد المتوفر؟
+      <br>
+      <br>
+        <button type="submit" class="btn btn-primary">حفظ</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">الغاء</button>
+       
+      </div>
+  </div>
+</div>
+</div>
+
+<!--end confirm save number book in stock	-->
+{!! Form::close() !!}
+</td>
                                             <td><center>
                                             <a href="edit-book"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
                                             <a href="" onclick="deleted()" ><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
@@ -61,12 +106,33 @@
                         <!-- /.panel-body -->
                     </div>
 
+<script>
+
+ var count = document.getElementById('count').value;
+
+    var countEl = document.getElementById("count");
+    function plus(){
+        count++;
+        countEl.value = count;
+    }
+    function minus(){
+      if (count > 1) {
+        count--;
+        countEl.value = count;
+      }  
+    }
 
 
+</script>
 
 
-
-
+<style>
+.add-minus{
+    width: 185px;
+    margin: 0px auto;
+    
+  }
+</style>
 
 
                 </div>
