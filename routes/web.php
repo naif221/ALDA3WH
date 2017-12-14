@@ -20,7 +20,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/logout', function () {
 	//for loging out !!
 	Auth::logout();
-	return view('/');
+	return redirect('/');
 });
 
 
