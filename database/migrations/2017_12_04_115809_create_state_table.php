@@ -24,9 +24,16 @@ class CreateStateTable extends Migration
         	$this->initializeState('تحت الدراسة');
         	$this->initializeState('مقبولة');
         	$this->initializeState('مرفوضة');
-        	$this->initializeState('تحت الدراسة من المجلس');
-        	$this->initializeState('مقبولة من المجلس');
-        	$this->initializeState('مرفوضة من المجلس');
+        	$this->initializeState('تحت الدراسة من مجلس الإدارة');
+        	$this->initializeState('مقبولة من مجلس الإدارة');
+        	$this->initializeState('مرفوضة من مجلس الإدارة');
+        	
+        	$this->initializeState('محولة للجاليات');
+        	$this->initializeState('محولة للصادر');
+        	$this->initializeState('محولة للمكتبة');
+        	$this->initializeState('محولة للإعلام');
+        	$this->initializeState('محولة للخدمات');
+        	
     }
 
     

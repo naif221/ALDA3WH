@@ -17,26 +17,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-
-Route::get('/requests', 'RequestsController@Show');
-Route::post('/requests', 'RequestsController@Show');
-
-
-// Route::get('/store', 'HomeController@');
-
-//To Direct User to New Request Page After Click !
-Route::get('/newrequests', function () {
-	return view('cpac.newrequests');
-});
-
-// To Store The data after posting it from the view !
-Route::post('/store', array( 'as' => 'store', 'uses' => 'RequestsController@store'));
-
-
 Route::get('/logout', function () {
 	//for loging out !!
 	Auth::logout();
-	return view('/web');
+	return view('/');
 });
 
 
@@ -67,6 +51,24 @@ Route::post('/incrementbook', array( 'as' => 'incrementbook', 'uses' => 'Library
 Route::post('/storeissue', array( 'as' => 'storeissue', 'uses' => 'IssuedController@StoreIssued'));
 
 
+//Requests Routes
+Route::get('/requests', 'RequestsController@Show');
+Route::post('/requests', 'RequestsController@Show');
+
+//To Direct User to New Request Page After Click !
+Route::get('/new-request', 'RequestsController@NewRequest');
+	
+Route::post('/details-request', 'RequestsController@RequestDetails');
+
+// To Store The data after posting it from the view !
+Route::post('/store', array( 'as' => 'store', 'uses' => 'RequestsController@store'));
+	
+Route::post('/request-accept', 'RequestsController@RequestAccept');
+Route::post('/request-reject', 'RequestsController@RequestReject');
+
+// Transeaction the Requests transact
+Route::post('/transact', 'RequestsController@Transact');
+
 
 
 // website 
@@ -75,13 +77,15 @@ Route::get('/donate', 'webController@donate')->name('web.donate');
 Route::get('/events', 'webController@events')->name('web.events');
 Route::get('/library', 'webController@library')->name('web.library');
 
+
+
+
+
 Route::get('/web' , function () {
    return view('web.home');
 
 });
 
-Route::get('/details-request', 'webController@detailsrequest')->name('cpac.requests.details-request');
-Route::get('/new-request', 'webController@newsrequest')->name('cpac.requests.new-request');
 Route::get('/employees', 'webController@employees')->name('cpac.employees.employees');
 Route::get('/edit-employee', 'webController@editemployee')->name('cpac.employees.edit-employee');
 Route::get('/new-employees', 'webController@newemployees')->name('cpac.employees.new-employees');
@@ -99,44 +103,3 @@ Route::get('/archives', 'webController@archives')->name('cpac.archive.archives')
 Route::get('/new-archive', 'webController@newarchive')->name('cpac.archive.new-archive');
 Route::get('/details-archive', 'webController@detailsarchive')->name('cpac.archive.details-archive');
 
-// Route::post('/store', array( 'as' => 'store', 'uses' => 'RequestsController@store'));
-
-// route to show the login form
-// Route::get('login', 'LoginController@showLogin');
-
-// // // route to process the form
-// Route::post('login', 'LoginController@doLogin');
-
-// Route::get('login', array( 'as' => 'login', 'uses' => 'HomeController@showLogin'));
-
-// Route::get('h', function () {
-// 	return 'hello';
-// 	return view('navbar');
-// });
-		
-// Route::get('cpac', function () {
-// 	return view('cpac.style.header');
-// });
-			
-			
-// Route::get('r', function () {
-// 	return view('cpac.requests');
-// });
-				
-				
-// Route::get('n', function () {
-// 	return view('cpac.newrequests');
-// });
-
-
-// Route::post('LoginVerify', 'LoginController@validateCredentials');
-	
-	
-// Route::post('home', function () {
-// 	return view('cpac.request');
-// 	});
-
-
-// Route::get('login', function () {
-// 	return view('cpac.login');
-// 	});

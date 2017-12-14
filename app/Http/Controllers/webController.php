@@ -47,16 +47,7 @@ class webController extends Controller
             return view('cpac.employees.edit-employee');
                         
             }
-    public function detailsrequest() {
-                        
-            return view('cpac.requests.details-request');
-                                
-            }
-    public function newsrequest() {
-                        
-            return view('cpac.requests.new-request');
-                                
-            }
+
 
     public function department() {
                 

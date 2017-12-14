@@ -1,6 +1,9 @@
 @include('cpac/style/header')
 @include('cpac/style/slider')
 
+
+@foreach($details as $detail)
+
 <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -27,22 +30,22 @@
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">رقم الطلب</label>
     <div class="col-sm-10">
-    <p>11<p>
+    <p>{{$detail->id}}<p>
     </div>
     </div>
 
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">مقدم الطلب</label>
     <div class="col-sm-2">
-    <p>mohammed<p>
+    <p>{{$detail->user->name}}<p>
     </div>
     <label class="col-sm-2 col-form-label">القسم</label>
     <div class="col-sm-2">
-    <p>الجاليات<p>
+    <p>{{$detail->user->department->department_name}}<p>
     </div>
     <label class="col-sm-2 col-form-label">الوقت و التاريخ</label>
     <div class="col-sm-2">
-    <p>2017-12-06 18:14:34<p>
+    <p>{{$detail->created_at}}<p>
     </div>
     </div>
 
@@ -50,11 +53,15 @@
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">نوع الطلب</label>
     <div class="col-sm-2">
-    <p>طلب مالي<p>
+    @if(is_null($detail->price))
+    <p>طلب عادي<p>
     </div>
+    @else
+    <p>طلب مالي<p>
     <label class="col-sm-2 col-form-label">القيمة</label>
     <div class="col-sm-2">
-    <p>525<p>
+    <p>{{$detail->price}}<p>
+    @endif
     </div>
     </div>
 
@@ -65,7 +72,7 @@
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">العنوان</label>
     <div class="col-sm-10">
-    <p>test testtest<p>
+    <p>{{$detail->title}}<p>
     </div>
     </div>
 
@@ -74,16 +81,29 @@
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">المحتوى</label>
     <div class="col-sm-10">
-    <p>At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.<p>
+    <p>
+		{{$detail->content}}
+	<p>
     </div>
     </div>
 
 
 
-
+@if(Auth::user()->department_id == App\Pointer::$Manager | Auth::user()->department_id == App\Pointer::$Council)
+<form  method="POST" action="{{ url('request-accept') }}">
 <center>
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
+<input type="hidden" type="text" name="id" value="{{$detail->id}}">  
 <button  class="btn btn-success" > قبول <i class="fa fa-check-square-o" aria-hidden="true"></i></button>
-<button  class="btn btn-danger"  > رفض <i class="fa fa-times-circle" aria-hidden="true"></i></button>
+</form> 
+
+<form  method="POST" action="{{ url('request-reject') }}">
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
+<input type="hidden" type="text" name="id" value="{{$detail->id}}">  
+<button  class="btn btn-danger" > رفض <i class="fa fa-times-circle" aria-hidden="true"></i></button>
+</form> 
+@endif
+@if(Auth::user()->department_id == App\Pointer::$Manager)
 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">تحويل
 <i class="fa fa-undo" aria-hidden="true"></i>
 </button>
@@ -104,16 +124,26 @@
       <div class="form-group row">
     <label class="col-sm-2 col-form-label">رقم الطلب</label>
     <div class="col-sm-10">
-    <p>11<p>
+    <p>{{$detail->id}}<p>
     </div>
     </div>
+    
+     <form  method="POST" id="trnsform" action="{{ url('transact') }}">
+	 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <input type="hidden" type="text" name="id" value="{{$detail->id}}">  
+    
+
       <div class="form-group row">
   <label class="col-sm-2 col-form-label">تحويل الى </label>
   <div class="col-sm-10">
-<select name="request"  >
-  <option value="1"></option>
-  <option value="2"></option>
-  
+<select name="selected" required >
+	<option value="{{App\Pointer::$Council}}">مجلس الإدارة</option>
+  	<option value="{{App\Pointer::$Jalyat}}">قسم الجاليات</option>
+	<option value="{{App\Pointer::$Issued}}">قسم الصادر</option> 
+	<option value="{{App\Pointer::$Library}}">قسم المكتبة</option>
+	<option value="{{App\Pointer::$Media}}">قسم الإعلام</option>
+	<option value="{{App\Pointer::$Services}}">قسم الخدمات</option>
+	
 </select>
 
 </div>
@@ -123,14 +153,17 @@
 
       </div>
       <div class="modal-footer">
-      <button type="button" class="btn btn-primary">تحويل</button>
+      
+
+      	<button type="submit" class="btn btn-primary">تحويل</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">الغاء</button>
+    </form> 
       </div>
     </div>
   </div>
 </div>
 
-
+@endif
 
                         </div>
                         <!-- /.panel-body -->
@@ -151,5 +184,5 @@
         </div>
 
 
-
+@endforeach
 @include('cpac/style/footer')

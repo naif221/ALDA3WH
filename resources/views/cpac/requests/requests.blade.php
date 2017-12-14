@@ -39,16 +39,27 @@
                                         <tr class="odd gradeX">
                                         	<td>{{$request->id}}</td>
                                         	<td>{{$request->created_at}}</td>
-                                        	<td>{{$department_name->department_name}}</td>
+                                        	<td>{{$request->department_name}}</td>
                                         	@if(is_null($request->price))
                                         	<td>طلب عادي</td>
 											@else 
                                         	<td>طلب مالي</td>
                                         	@endif
                                         	<td>{{$request->title}}</td>
-                                        	<td>{{$State->title}}</td>
-                                        	<td><a  class="btn btn-info"   href="{{ url('details-request') }}" >
-                 <i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> التفاصيل </a></td>
+                                        	<td>{{$request->state}}</td>
+                                        	
+                                <form  method="POST" action="{{ url('details-request') }}">
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+								<input type="hidden" type="text" name="id" value="{{$request->id}}">  
+                         			<td>
+                         			<button type="submit" class="btn btn-info">
+                 					<i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> التفاصيل </button>
+                 					</td>
+                         		</form> 
+                         		
+                         		
+                         		
+											
                  @endforeach
                                         </tr>
                                         @endif
