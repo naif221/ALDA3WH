@@ -123,7 +123,8 @@ Route::get('/about', 'webController@about')->name('web.about');
 Route::get('/donate', 'webController@donate')->name('web.donate');
 Route::get('/events', 'webController@events')->name('web.events');
 Route::get('/library', 'webController@library')->name('web.library');
-
+Route::get('/news', 'newsController@index');
+Route::get('/news/{id}', 'newsController@show');
 
 
 Route::get('/author' , function () {
