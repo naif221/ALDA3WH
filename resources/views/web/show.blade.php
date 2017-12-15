@@ -22,37 +22,25 @@
 
    @foreach($news as $indexKey => $n)
 
-<article class="col-md-9 col-lg-9 art_s " >
+<div class="container">
 <ol class="breadcrumb" class="pull-right">
   <li><a href="{{url('/')}}">الرئسية</a></li>
   <li class="active">{{$n->title}}</li>
 </ol>
-</article>
-<article class="col-md-9 col-lg-9 art_n " >
-	<br />
- <div class="col-lg-12">
- <div class="row">
- <div class="cate_post">
- 
-            <div class="col-md-3">
-           <img src="http://english.republika.mk/wp-content/uploads/2014/08/fountain-pen-writing.jpg" width="100%" />
-                </div>
+</div>
 
-               <div class="col-md-9">
-                  <h2 class="cat_h2">{{ $n->title }}</h2>
-                <p>
-                    {{ $n->content }}
-               </p>
-            </div>
-
-</div> 
-
-
+    <div class="cat_h1">
+<div class="thumbnail post_n">
+  <a href="" >
+<b><h4 style="color:#bd720c;">{{ $n->title }}<img  src="https://pbs.twimg.com/media/DQiDpZuXUAA_si2.jpg"  style="width:115px; "  align="right"> </h4></b>
+</a> <p style="color:gray; font-size:10px;">&nbsp&nbsp<i class="fa fa-calendar" aria-hidden="true" style="padding-right: 5px"></i>&nbsp 2017</p>
+<div id="myhide">
+    <p align="center">{{ $n->content }}</p>
+</div>
+</div>
+</div>
       @endforeach
- </div>
- </div>
 
-</article>
 
     <!-- Scripts -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>

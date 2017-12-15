@@ -14,4 +14,26 @@
  	margin-right: 40px;
     margin-top: 20px;
  }
->>>>>>> 4967aeb65a27d89421034ab0f5f995d26f7b7a0d
+
+.cat_h2{
+background: #b07529;
+    border-radius: 9px;
+}
+.cat_h1{
+	background: #eae8e8;
+    padding: 5px;
+    border-radius: 5px;
+        padding-bottom: 0px;
+}
+.post_n{
+
+    height: 121px;
+    padding-top: 4px;
+    border-top-width: 1px;
+    border-bottom-width: 4px;
+    border-right-width: 1px;
+
+
+}
+
+>>>>>>> 225b6bf0271c9340d9b406ce28450f9368763a30
