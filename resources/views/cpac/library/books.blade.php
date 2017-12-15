@@ -91,7 +91,7 @@
 </td>
                                             <td><center>
                                             <a href="edit-book"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
-                                            <a href="" onclick="deleted()" ><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+                                            <a href="" onclick="return confirm('تأكيد الحذف؟')" ><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
                                             </center>
                                         </td>
                

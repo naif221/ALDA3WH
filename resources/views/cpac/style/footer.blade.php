@@ -15,6 +15,7 @@
 
     <script src="{{ ('js/jquery/jquery.dataTables.min.js') }}"></script>
     <script src="{{ ('js/bootstrap/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ ('js/bootstrap/dataTables.bootstrap.js') }}"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="{{ ('js/sb-admin-2.js') }}"></script>
@@ -38,9 +39,14 @@ function goBack() {
 }
 
 function deleted() {
-   confirm("تأكيد الحذف!");
+    return confirm('تأكيد الحذف؟')
 }
+
+$(document).ready(function() {
+  $('.summernote').summernote();
+});
 </script>
+
 
 
 </body>

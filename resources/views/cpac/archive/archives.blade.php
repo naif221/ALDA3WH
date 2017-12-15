@@ -50,12 +50,12 @@
                  					</td>
                          		</form> 
 
-                                <form  method="get" action="{{ url('delete-archive')}}">
+                                <form  method="get"  action="{{ url('delete-archive')}}">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<input type="hidden" type="text" name="id" value="{{$is->id}}">  
                          			<td>
                          			<center>
-                         			<button type="submit" class="btn btn-danger" >
+                         			<button onclick="return confirm('تأكيد الحذف؟')" type="submit" class="btn btn-danger" >
                  					<i class="fa fa-trash-o" aria-hidden="true"></i></button>
                          			</center>
                  					</td>

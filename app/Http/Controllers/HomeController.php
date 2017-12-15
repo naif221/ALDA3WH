@@ -158,5 +158,13 @@ class HomeController extends Controller
     	
     }
     
-    
+	
+    public function profile(Request $Request){
+    	
+		$users = User::all();
+    	return view('cpac.profile' , ['users' => $users]);
+    	
+    }
+	
+
 }

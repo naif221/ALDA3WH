@@ -59,7 +59,7 @@
                                         	<td>
                  <a  class="btn btn-info"   href="" >
                  <i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> عرض </a>
-                 <a class="btn btn-warning" href="edit-news">
+                 <a class="btn btn-warning" href="edit-media">
                  <i class="fa fa-pencil-square-o " aria-hidden="true"></i> تعديل</a>
                                             </td>
                                         </tr>

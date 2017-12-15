@@ -39,7 +39,7 @@
 <button  class="btn btn-muted" onclick="goBack()"> الغاء <i class="fa fa-ban" aria-hidden="true"></i></button>
 <br>
 <br>
-<button  class="btn btn-danger" onclick="deleted()" > حذف القسم <i class="fa fa-trash" aria-hidden="true"></i></button>
+<button  class="btn btn-danger" onclick="return confirm('تأكيد الحذف؟')" > حذف القسم <i class="fa fa-trash" aria-hidden="true"></i></button>
 
 
 

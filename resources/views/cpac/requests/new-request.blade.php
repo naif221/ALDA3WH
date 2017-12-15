@@ -42,9 +42,9 @@
   <div class="form-group row">
   <label class="col-sm-2 col-form-label">نوع الطلب</label>
   <div class="col-sm-10">
-<select name="request"  >
-  <option value="1">طلب عادي</option>
-  <option value="2">طلب مالي</option>
+<select id="myselect" name="request"  >
+  <option id="id1" value="1">طلب عادي</option>
+  <option id="id2" value="2">طلب مالي</option>
   
 </select>
 
@@ -63,21 +63,23 @@
     <div class="col-sm-10">
     
     
-<!--      <div id="summernote" name="content"></div> -->
-<!--    <script> -->
-<!-- //     $(document).ready(function() { -->
-<!-- //         $('#summernote').summernote(); -->
-<!-- //     }); -->
-<!--   </script> -->
-		 <textarea rows="4" cols="50" name="content">
+
+		 <textarea class="summernote" name="content">
 		</textarea> 
 
+    
+    <script>
+$(document).ready(function() {
+  $('.summernote').summernote();
+});
+    </script>
     </div>
+   
   </div>
 
 
 
-  <div class="form-group row">
+  <div id="price" class="form-group row">
     <label class="col-sm-2 col-form-label">المبلغ المقدر</label>
     <div class="col-sm-10">
       <input type="text" name="price" >
@@ -111,7 +113,19 @@
             <!-- /.row -->
         </div>
 
+<script>
 
+  $(function() {
+    $("#myselect").change(function() {
+      if ($("#id1").is(":selected")) {
+        $("#price").hide();
+      } else {
+        $("#price").show();
+      }
+    }).trigger('change');
+  });
+
+</script>
 
 
 

@@ -143,8 +143,33 @@ Route::get('/web' , function () {
 
 
 
+Route::get('/profile', 'HomeController@profile');
 
-
-Route::get('/profile', 'webController@profile')->name('cpac.profile');
 Route::get('/home1', 'webController@home1')->name('cpac.home1');
 
+Route::get('/media-news' , function () {
+	return view('cpac.media.media-news');
+ 
+ });
+ 
+Route::get('/media' , function () {
+	return view('cpac.media.media');
+ 
+ });
+
+ Route::get('/edit-media' , function () {
+	return view('cpac.media.edit-media');
+ 
+ });
+ 
+Route::get('/new-news' , function () {
+	return view('cpac.media.new-news');
+ 
+ });
+ 
+
+ Route::get('/edit-news' , function () {
+	return view('cpac.media.edit-news');
+ 
+ });
+ 

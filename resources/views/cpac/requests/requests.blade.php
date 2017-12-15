@@ -72,11 +72,12 @@
                          			<td>
                          			<button type="submit" class="btn btn-info">
                  					<i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> التفاصيل </button>
-                 					</td>
+                 					
                          		</form> 
                          		
-                         		
-                         		
+                                 <button class="btn btn-danger"   onclick="return confirm('تأكيد الحذف؟')">
+                                 <i class="fa fa-trash-o" aria-hidden="true"> حذف الطلب</i></button>
+                                                        		</td>
 											
                  @endforeach
                                         </tr>
@@ -125,10 +126,12 @@
                          			<td>
                          			<button type="submit" class="btn btn-info">
                  					<i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> التفاصيل </button>
-                 					</td>
+                 				
                          		</form> 
-                         		
-                         		
+                                 <button class="btn btn-danger"   onclick="return confirm('تأكيد الحذف؟')">
+                                 <i class="fa fa-trash-o" aria-hidden="true"> حذف الطلب</i></button>
+    
+                                 </td>
                          		
 											
                  @endforeach

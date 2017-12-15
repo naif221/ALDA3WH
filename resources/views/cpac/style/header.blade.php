@@ -17,7 +17,7 @@
    
     <link href="{{ url('css/plugins/metisMenu/metisMenu.min.css') }}" rel="stylesheet">
     <link href="{{ url('css/plugins/dataTables.bootstrap.css') }}" rel="stylesheet">
-  
+    <link href="{{ url('css/plugins/dataTables.bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url('css/plugins/dataTables.responsive.css') }}" rel="stylesheet">
     <link href="{{ url('css/plugins/timeline.css') }}" rel="stylesheet">
 
