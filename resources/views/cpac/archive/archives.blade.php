@@ -31,18 +31,17 @@
                                             </tr>
                                     </thead>
                                     <tbody>
-                                    
-                                     
+@foreach($iss as $is)                                     
                                         <tr class="odd gradeX">
-                                        	<td></td>
-                                        	<td></td>
-                                        	<td></td>
-                                        	<td></td>
+                                        	<td>{{$is->id}}</td>
+                                        	<td>{{$is->title}}</td>
+                                        	<td>{{$is->creator_name}}</td>
+                                        	<td>{{$is->done_at}}</td>
                                         	<td><a  class="btn btn-info"   href="{{ url('details-archive') }}" >
                  <i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> التفاصيل </a></td>
                
                                         </tr>
-                                      
+@endforeach
                                     </tbody>
                                 </table>
                             </div>

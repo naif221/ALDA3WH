@@ -37,6 +37,11 @@ class User extends Authenticatable
     	return $this->hasMany('App\Request_');
     }
     
+    public function issued(){
+    	
+    	return $this->hasMany('App\Issued');
+    }
+    
 //     public function getAuthPassword() {
 //     	return $this->password;
 //     }

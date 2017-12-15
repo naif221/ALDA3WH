@@ -21,16 +21,7 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
 
-
-
-         
-
-
-		{!! Form::open(['url' => '' , 'method' => 'POST']) !!}
-
-  
-
-   
+		{!! Form::open(['url' => 'new-archive' , 'method' => 'POST']) !!}
     
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">العنوان</label>
@@ -45,11 +36,6 @@
     </div>
   </div>
 
-
-
-
-
-
 <center>
 
   <button  class="btn btn-success" ><i class="fa fa-upload" aria-hidden="true"></i>  رفع </button>
@@ -62,9 +48,6 @@
                         </div>
                         <!-- /.panel-body -->
                     </div>
-                
-
-
 
                 </div>
                 <!-- /.col-lg-12 -->

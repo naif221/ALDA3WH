@@ -21,15 +21,14 @@
                         <div class="panel-body">
 
 
-                        {!! Form::open(['url' => '' , 'method' => 'POST']) !!}
+{!! Form::open(['url' => 'new-languge' , 'method' => 'POST']) !!}
 
                         <div class="form-group row">
     <label class="col-sm-2 col-form-label">اللغة</label>
     <div class="col-sm-10">
-      <input type="text"  name="name" >
+      <input type="text"  name="language" >
     </div>
   </div>    
-  
 
 <center>
 

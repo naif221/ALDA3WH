@@ -27,7 +27,7 @@
                                     <a href="books"><i class="fa fa-book" aria-hidden="true"></i> الكتب</a>
                                 </li>
                                 <li>
-                                    <a href="languge"><i class="fa fa-language" aria-hidden="true"></i> اللغات </a>
+                                    <a href="languages"><i class="fa fa-language" aria-hidden="true"></i> اللغات </a>
                                 </li>
                                 
                                           

@@ -1,33 +1,28 @@
 @include('cpac/style/header')
 @include('cpac/style/slider')
-
 <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">الاقسام</h1>
-
-                    
-                    
                     <div class="panel panel-default">
                         <div class="panel-heading">
                          اضافة قسم
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                        {!! Form::open(['url' => '' , 'method' => 'POST']) !!}
+                        {!! Form::open(['url' => 'new-department' , 'method' => 'POST']) !!}
 
                         <div class="form-group row">
     <label class="col-sm-2 col-form-label">اسم القسم</label>
     <div class="col-sm-10">
-      <input type="text"  name="name" >
+      <input type="text"  name="department_name" >
     </div>
   </div>
 
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">الوصف</label>
     <div class="col-sm-10">
-    <textarea rows="4" cols="50" name="description">
-		</textarea>
+    <textarea rows="4" cols="50" name="description"></textarea>
     </div>
   </div>
 
@@ -39,26 +34,10 @@
 {!! Form::close() !!}
 
 </center>
-
-
                         </div>
-                        <!-- /.panel-body -->
                     </div>
-
-
-
-
-
-
-
-
-
                 </div>
-                <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
         </div>
-
-
 
 @include('cpac/style/footer')

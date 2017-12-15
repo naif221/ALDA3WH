@@ -70,6 +70,46 @@ Route::post('/request-reject', 'RequestsController@RequestReject');
 Route::post('/transact', 'RequestsController@Transact');
 
 
+// Emplyees Section !
+
+Route::get('/employees', 'HomeController@ShowEmployees');
+Route::get('/new-employees', 'HomeController@GetDepartments');
+Route::post('/new-employees', 'HomeController@AddEmployee');
+
+Route::get('/edit-employee', 'HomeController@GetEditEmployee');
+Route::post('/edit-employee', array( 'as' => 'edit-employee', 'uses' => 'HomeController@EditEmployee'));
+
+
+// Department Section
+Route::get('/department', 'HomeController@GetDepartmentsForD');
+Route::get('/edit-department', 'HomeController@GetEditDepartment');
+Route::post('/edit-department', 'HomeController@EditDepartment');
+Route::get('/new-department', 'HomeController@GetNewDepartmentPage');
+Route::post('/new-department', 'HomeController@AddDepartment');
+
+
+
+// Archive Section
+Route::get('/archives', 'IssuedController@ShowArchive');
+
+Route::get('/new-archive', 'IssuedController@StoreIssued');
+Route::get('/details-archive', 'IssuedController@detailsarchive');
+
+
+// Library Section is Here !
+
+Route::post('/new-languge', 'LibraryController@AddLanguage');
+Route::get('/new-languge', 'LibraryController@AddLanguage');
+Route::get('/languages', 'LibraryController@ShowLanguages');
+
+Route::get('/books', 'LibraryController@ShowBooks');
+Route::get('/new-book', 'LibraryController@AddBook');
+Route::post('/new-book', 'LibraryController@AddBook');
+
+Route::get('/edit-book', 'LibraryController@editbook');
+Route::post('/edit-book', 'LibraryController@editbook');
+
+
 
 // website 
 Route::get('/about', 'webController@about')->name('web.about');
@@ -86,20 +126,10 @@ Route::get('/web' , function () {
 
 });
 
-Route::get('/employees', 'webController@employees')->name('cpac.employees.employees');
-Route::get('/edit-employee', 'webController@editemployee')->name('cpac.employees.edit-employee');
-Route::get('/new-employees', 'webController@newemployees')->name('cpac.employees.new-employees');
-Route::get('/department', 'webController@department')->name('cpac.department.department');
-Route::get('/new-department', 'webController@newdepartment')->name('cpac.department.new-department');
-Route::get('/edit-department', 'webController@editdepartment')->name('cpac.department.edit-department');
-Route::get('/books', 'webController@books')->name('cpac.books.books');
-Route::get('/new-book', 'webController@newbook')->name('cpac.books.new-book');
-Route::get('/edit-book', 'webController@editbook')->name('cpac.books.edit-book');
-Route::get('/languge', 'webController@bookslanguge')->name('cpac.books.languge');
-Route::get('/new-languge', 'webController@booksnewlanguge')->name('cpac.books.new-languge');
+
+
+
+
 Route::get('/profile', 'webController@profile')->name('cpac.profile');
 Route::get('/home1', 'webController@home1')->name('cpac.home1');
-Route::get('/archives', 'webController@archives')->name('cpac.archive.archives');
-Route::get('/new-archive', 'webController@newarchive')->name('cpac.archive.new-archive');
-Route::get('/details-archive', 'webController@detailsarchive')->name('cpac.archive.details-archive');
 

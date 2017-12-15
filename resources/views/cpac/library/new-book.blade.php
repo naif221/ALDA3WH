@@ -58,21 +58,17 @@
   <div class="form-group row">
   <label class="col-sm-2 col-form-label"> اللغة</label>
   <div class="col-sm-10">
-<select name="language_id"  >
-  <option value="1"></option>
-  <option value="2"></option>
-  
+<select name="language_id">
+@foreach($Lang as $lang)
+<option value="{{$lang->id}}">{{$lang->language}}</option>
+@endforeach
 </select>
-
 </div>
-
     </div>
-  
-
 <center>
 
 <button  class="btn btn-info" type="submit" > اضافة <i class="fa fa-plus" aria-hidden="true"></i></button>
-  <button  class="btn btn-muted" onclick="goBack()"> الغاء <i class="fa fa-ban" aria-hidden="true"></i></button>
+<button  class="btn btn-muted" onclick="goBack()"> الغاء <i class="fa fa-ban" aria-hidden="true"></i></button>
 <!--   </form> -->
 {!! Form::close() !!}
 

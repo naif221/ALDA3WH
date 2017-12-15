@@ -10,23 +10,25 @@
                     
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                         اضافة قسم
+                         تعديل قسم
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                        {!! Form::open(['url' => '' , 'method' => 'POST']) !!}
+{!! Form::open(['url' => 'edit-department' , 'method' => 'POST']) !!}
+
+<input type="hidden" type="text" name="id" value="{{$Dep->id}}">  
 
                         <div class="form-group row">
     <label class="col-sm-2 col-form-label">اسم القسم</label>
     <div class="col-sm-10">
-      <input type="text"  name="name" value="" >
+      <input type="text"  name="department_name" value="{{$Dep->department_name}}" >
     </div>
   </div>
 
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">الوصف</label>
     <div class="col-sm-10">
-    <textarea rows="4" cols="50" name="description" > 
+    <textarea rows="4" cols="50" name="description" value="{{$Dep->description}}" > 
 		</textarea>
     </div>
   </div>
@@ -41,7 +43,6 @@
 
 
 
-<!--   </form> -->
 {!! Form::close() !!}
 
 </center>

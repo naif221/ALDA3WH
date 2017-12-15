@@ -24,7 +24,6 @@ class CreateBooksTable extends Migration
         	$table->unsignedTinyInteger('language_id');
         	$table->foreign('language_id')->references('id')->on('language');
         	$table->integer('in_stock');
-        	$table->text('img_path')->nullable();
             $table->timestamps();
         });
         

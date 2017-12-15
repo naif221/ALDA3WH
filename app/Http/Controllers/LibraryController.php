@@ -62,12 +62,13 @@ class LibraryController extends Controller
  			return redirect('/home');
 	}
 	
-	
 	public function AddLanguage(Request $request)
 	{
 		
-		
-		if(Auth::user()->department_id == 1){
+		if ($request->isMethod('get')) {
+			
+			return view('cpac.library.new-language');
+		}else {
 			
 			$this->validate($request, [
 					'language' 	=> 'required',
@@ -77,23 +78,32 @@ class LibraryController extends Controller
 			$lang->language = $request->input('language');
 			$lang->save();
 			
-			return redirect('/requests');
-			
-		}else
-			return redirect('/home');
+			return redirect('/languages');
+		}
 		
+	}
+
+	public function ShowLanguages(){
+		
+		$lang = Language::all()->load('books');
+		
+		return view('cpac.library.language', ['languages' => $lang]);
 	}
 	
 	public function AddBook(Request $request)
 	{
-		if(Auth::user()->department_id == 1){
+
+		if ($request->isMethod('get')) {
 			
+			$Lang = Language::all();
+			return view('cpac.library.new-book', ['Lang' => $Lang]);
+		}else {
+		
 			$this->validate($request, [
 					'name' 			=> 'required',
 					'author_id' 	=> 'required',
 					'barcode' 		=> 'required',
 					'language_id' 	=> 'required',
-					'img_path' 		=> 'required',
 					'in_stock' 		=> 'required',
 			]);
 			
@@ -102,14 +112,10 @@ class LibraryController extends Controller
 			$book->name 		= $request->input('name');
 			$book->author_id	= $request->input('author_id');
 			$book->language_id	= $request->input('language_id');
-			$book->in_stock		= $request->input('in_stock');
-			$book->img_path		= $request->input('img_path');
 			$book->save();
-
+		}
 			return redirect('/library');
 			
-		}else
-			return redirect('/home');
 	}
 	
 	public function UpdateBook(Request $request)
@@ -173,7 +179,12 @@ class LibraryController extends Controller
 			return redirect('/home');
 	}
 	
-	
+	public function ShowBooks(){
+		
+		$books = Books::all();
+		
+		return view('cpac.library.books' , ['books' => $books]);
+	}
 	
 	
 	

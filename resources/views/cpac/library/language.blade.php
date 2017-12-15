@@ -31,18 +31,20 @@
                                     </thead>
                                     <tbody>
                                     
-                                     
+@foreach($languages as $lang)
                                         <tr class="odd gradeX">
-                                        	<td></td>
-                                        	<td></td>
-                                            <td></td>
+                                        	<td>{{$lang->id}}</td>
+                                        	<td>{{$lang->language}}</td>
+                                            <td>{{count($lang->books)}}</td>
+                                       
+                                       
                                            <!-- <td><center>
                                             <a href="" onclick="deleted()" ><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
                                             </center>
                                         </td>-->
                
                                         </tr>
-                                    
+@endforeach
                                     </tbody>
                                 </table>
                             </div>
