@@ -21,7 +21,7 @@
                         <div class="panel-body">
 
 
-                        {!! Form::open(['url' => '' , 'method' => 'POST']) !!}
+                        {!! Form::open(['url' => 'new-book' , 'method' => 'POST']) !!}
 
                         <div class="form-group row">
     <label class="col-sm-2 col-form-label">الاسم</label>
@@ -38,21 +38,21 @@
     </div>
   </div>  
 
+@foreach($Auhtors as $Author)
   <div class="form-group row">
-
   <label class="col-sm-2 col-form-label"> المؤلف</label>
   <div class="col-sm-2">
-<select name="authoe_id">
+<select name="author_id">
 
-<option value=""></option>
+<option value="{{$Author->id}}">{{$Author->name}}</option>
 
 </select>
 </div>
 
 <label class="col-sm-2 col-form-label"> مؤلف جديد؟</label>
-  <input placeholder="اسم المؤلف" type="text"  name="name" >
+  <input placeholder="اسم المؤلف" type="text"  name="author" >
 </div>
-
+@endforeach
     </div>
 
   

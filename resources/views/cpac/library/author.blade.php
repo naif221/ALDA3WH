@@ -30,12 +30,11 @@
                                             </tr>
                                     </thead>
                                     <tbody>
-                          
+@foreach($Author as $author)
                                         <tr class="odd gradeX">
-                                        	<td></td>
-                                        	<td></td>
-                                            <td></td>
-                                       
+                                        	<td>{{$author->id}}</td>
+                                        	<td>{{$author->name}}</td>
+                                            <td>{{count($author->books)}}</td>
                                        
                                            <!-- <td><center>
                                             <a href="" onclick="return confirm('تأكيد الحذف؟')" ><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
@@ -43,7 +42,7 @@
                                         </td>-->
                
                                         </tr>
-
+@endforeach
                                     </tbody>
                                 </table>
                             </div>

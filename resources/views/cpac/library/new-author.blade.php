@@ -21,7 +21,7 @@
                         <div class="panel-body">
 
 
-{!! Form::open(['url' => '' , 'method' => 'POST']) !!}
+{!! Form::open(['url' => 'new-author' , 'method' => 'POST']) !!}
 
 
 

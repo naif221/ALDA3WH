@@ -24,25 +24,24 @@
                                     <thead>
                                         <tr>
                                             <th>رقم الكتاب</th>
-                                            <th>الرقم التسلسلي</th>
+                                            <th>الباركود</th>
                                             <th>الاسم</th>
                                             <th>المؤلف</th>
                                             <th>اللغة</th>
                                             <th>العدد المتوفر</th>
-                                          
                                             <th>تعديل/حذف</th>
                                             </tr>
                                     </thead>
                                     <tbody>
                                     
-                                     
+@foreach($books as $book)
                                         <tr class="odd gradeX">
-                                        	<td></td>
-                                        	<td></td>
-                                        	<td></td>
-                                        	<td></td>
-                                        	<td></td>
-                                            
+                                        	<td>{{$book->id}}</td>
+                                        	<td>{{$book->barcode}}</td>
+                                        	<td>{{$book->name}}</td>
+                                        	<td>{{$book->author->name}}</td>
+                                        	<td>{{$book->language->language}}</td>
+                                        	<td>{{$book->in_stock}}</td>
                                             <td>
 {!! Form::open(['url' => '' , 'method' => 'POST']) !!}
                                             
@@ -96,7 +95,7 @@
                                         </td>
                
                                         </tr>
-                                    
+@endforeach
                                     </tbody>
                                 </table>
                             </div>

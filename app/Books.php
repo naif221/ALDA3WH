@@ -16,11 +16,11 @@ class Books extends Model
 	
 	public function language(){
 		
-		return $this->hasOne('App\Language');
+		return $this->belongsTo('App\Language');
 	}
 	
 	public function author(){
-		return $this->hasOne('App\Author');
+		return $this->belongsTo('App\Author');
 	}
 	
 

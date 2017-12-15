@@ -100,21 +100,23 @@ Route::get('/delete-archive', 'IssuedController@DeleteArchive');
 Route::get('/download-archive', 'IssuedController@DownloadFile');
 
 
-
 // Library Section is Here !
-
 Route::post('/new-languge', 'LibraryController@AddLanguage');
 Route::get('/new-languge', 'LibraryController@AddLanguage');
 Route::get('/languages', 'LibraryController@ShowLanguages');
 
 Route::get('/books', 'LibraryController@ShowBooks');
+
 Route::get('/new-book', 'LibraryController@AddBook');
 Route::post('/new-book', 'LibraryController@AddBook');
 
 Route::get('/edit-book', 'LibraryController@editbook');
 Route::post('/edit-book', 'LibraryController@editbook');
 
+Route::get('/new-author', 'LibraryController@AddAuthor');
+Route::post('/new-author', 'LibraryController@AddAuthor');
 
+Route::get('/author', 'LibraryController@ShowAuthors');
 
 
 
@@ -126,16 +128,6 @@ Route::get('/library', 'webController@library')->name('web.library');
 Route::get('/news', 'newsController@index');
 Route::get('/news/{id}', 'newsController@show');
 
-
-Route::get('/author' , function () {
-	return view('cpac.library.author');
- 
- });
-
- Route::get('/new-author' , function () {
-	return view('cpac.library.new-author');
- 
- });
 
 Route::get('/web' , function () {
    return view('web.home');
