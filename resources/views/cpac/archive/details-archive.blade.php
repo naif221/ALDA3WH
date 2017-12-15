@@ -21,7 +21,10 @@
                             <span class="pull-left" style="margin-top: -7px">
                             <button class="btn btn-danger" onclick="deleted()" > حذف المعاملة <i class="fa fa-trash-o" aria-hidden="true"></i></button>
                             </span>
-    	
+                            </span>
+                            <span class="pull-left" style="margin-top: -7px">
+                            <button class="btn btn-success" href="" > تحميل المرفقات <i class="fa fa-download" aria-hidden="true"></i></button>
+                            </span>
                          
                         </div>
                         <!-- /.panel-heading -->
