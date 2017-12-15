@@ -96,6 +96,10 @@ Route::post('/new-archive', 'IssuedController@StoreIssued');
 
 Route::get('/details-archive', 'IssuedController@Details');
 
+Route::get('/delete-archive', 'IssuedController@DeleteArchive');
+Route::get('/download-archive', 'IssuedController@DownloadFile');
+
+
 
 // Library Section is Here !
 
@@ -109,6 +113,7 @@ Route::post('/new-book', 'LibraryController@AddBook');
 
 Route::get('/edit-book', 'LibraryController@editbook');
 Route::post('/edit-book', 'LibraryController@editbook');
+
 
 
 

@@ -27,7 +27,8 @@
                                             <th>العنوان</th>
                                             <th>بواسطة </th>
                                             <th>التاريخ و الوقت</th>
-                                            <th></th>
+                                            <th>تحميل المرفق</th>
+                                            <th>حذف المعاملة</th>
                                             </tr>
                                     </thead>
                                     <tbody>
@@ -38,12 +39,25 @@
                                         	<td>{{$is->user->name}}</td>
                                         	<td>{{$is->created_at}}</td>
                                         	
-                                <form  method="get" action="{{ url('details-archive')}}">
+                                <form  method="get" action="{{ url('download-archive')}}">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
-								<input type="hidden" type="text" name="id" >  
+								<input type="hidden" type="text" name="id" value="{{$is->id}}">  
                          			<td>
-                         			<button type="submit" class="btn btn-info">
-                 					<i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> التفاصيل </button>
+                         			<center>
+                                        	<button class="btn btn-success" href="{{Storage::url($is->file_path)}}" >
+                                        	<i class="fa fa-download" aria-hidden="true"></i></button>
+                         			</center>
+                 					</td>
+                         		</form> 
+
+                                <form  method="get" action="{{ url('delete-archive')}}">
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+								<input type="hidden" type="text" name="id" value="{{$is->id}}">  
+                         			<td>
+                         			<center>
+                         			<button type="submit" class="btn btn-danger" >
+                 					<i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                         			</center>
                  					</td>
                          		</form> 
                                         </tr>
@@ -56,14 +70,6 @@
                         </div>
                         <!-- /.panel-body -->
                     </div>
-
-
-
-
-
-
-
-
 
                 </div>
                 <!-- /.col-lg-12 -->

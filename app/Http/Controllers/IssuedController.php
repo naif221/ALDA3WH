@@ -73,17 +73,37 @@ class IssuedController extends Controller
 	}
 	
 	
-	public function Details(Request $request){
+	public function DownloadFile(Request $Request){
 		
 		
-		if($request->isMethod('get')){
-			
-			$Iss = Issued::find($request->input('id'));
-			return view('cpac.archive.details-archive', ['Iss' =>$Iss]);
-		}else {
-			
-		}
+		$entry = Issued::find($Request->input('id'));
+		$entry->file_path;
+		
+		//since you want to ouput this photo to your browser, you set the header stuff
+		$headers = array('Content-Type' => 'image/png');
+		
+		//now create your new response here
+		$response = \Response::download(storage_path('app/'.$entry->file_path),'', $headers);
+		
+		//HERE IS THE MAGIC FOLKS
+		ob_end_clean();
+		
+		//now this works like a charm; or whatever you like to call it;
+		return $response;
+		
+		
+		return response()->download();
 		
 	}
 	
+	public function DeleteArchive(Request $Request){
+		
+		$entry = Issued::find($Request->input('id'));
+		Storage::delete('/app/'.$entry->file_path);
+		$entry->delete();
+		Storage::disk('local')->delete($entry->file_path);
+		
+		return redirect('archives');
+		
+	}
 }
