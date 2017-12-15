@@ -102,6 +102,8 @@ class LibraryController extends Controller
 			return view('cpac.library.new-book', ['Lang' => $Lang, 'Auhtors' => $Auhtors]);
 		}else {
 		
+			if(is_null($request->input('author'))){
+			
 			$this->validate($request, [
 					'name' 			=> 'required',
 					'author_id' 	=> 'required',
@@ -118,6 +120,33 @@ class LibraryController extends Controller
 			$book->in_stock		= $request->input('in_stock');
 			
 			$book->save();
+			
+			} else {
+				
+				$this->validate($request, [
+						'name' 			=> 'required',
+						'barcode' 		=> 'required',
+						'language_id' 	=> 'required',
+						'in_stock' 		=> 'required|numeric',
+						'author' 		=> 'required',
+						
+				]);
+				
+				$author = new Author();
+				$author->name = $request->input('author');
+				$author->save();
+				
+				$book 				= new Books();
+				$book->barcode 		= $request->input('barcode');
+				$book->name 		= $request->input('name');
+				$book->author_id	= $author->id;
+				$book->language_id	= $request->input('language_id');
+				$book->in_stock		= $request->input('in_stock');
+				
+				$book->save();
+				
+			}
+
 		}
 			return redirect('/books');
 			
@@ -125,31 +154,33 @@ class LibraryController extends Controller
 	
 	public function UpdateBook(Request $request)
 	{
-		if(Auth::user()->department_id == 1){
 			
+		if($request->isMethod('get')){
+			$book = Books::find($request->input('id'));
+			$author = Author::all();
+			$language = Language::all();
+			return view('cpac.library.edit-book',['Book' => $book , 'Lang' => $language , 'Author' => $author]);
+			
+		}else {
 			$this->validate($request, [
 					'name' 			=> 'required',
 					'author_id' 	=> 'required',
 					'barcode' 		=> 'required',
 					'language_id' 	=> 'required',
-					'img_path' 		=> 'required',
-					'in_stock' 		=> 'required',
+					'in_stock' 		=> 'required|numeric',
 			]);
 			
-			Books::where('barcode', $request->input('barcode'))
-			->update([
-					'name'			=> 	$request->input('name'),
-					'author_id'		=>	$request->input('author_id'),
-					'language_id'	=>	$request->input('language_id'),
-					'img_path'		=>	$request->input('img_path'),
-					'in_stock'		=>	$request->input('in_stock')
-			]);
+			$Book 					= Books::find($request->input('id'));
+			$Book->name 			= $request->input('name');
+			$Book->author_id		= $request->input('author_id');
+			$Book->language_id		= $request->input('language_id');
+			$Book->barcode			= $request->input('barcode');
+			$Book->in_stock			= $request->input('in_stock');
+			$Book->save();
 			
+		}
+			return redirect('/books');
 			
-			return redirect('/library');
-			
-		}else
-			return redirect('/home');
 	}
 	
 	public function DecreaseBookByOne(Request $request)
@@ -178,7 +209,7 @@ class LibraryController extends Controller
 			
 			DB::table('books')->where('barcode', $request->input('barcode'))->increment('in_stock', 1);
 			
-			return redirect('/library');
+			return redirect('/books');
 			
 		}else
 			return redirect('/home');
@@ -196,6 +227,17 @@ class LibraryController extends Controller
 		$Author = Author::all();
 		
 		return view('cpac.library.author' , ['Author' => $Author]);
+	}
+	
+	
+	public function EditInStock(Request $Request){
+		
+		
+		$Book = Books::find($Request->input('id'));
+		$Book->in_stock = $Request->input('in_stock');
+		$Book->save();
+		
+		return redirect('/books');
 	}
 	
 	

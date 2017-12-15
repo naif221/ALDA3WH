@@ -110,14 +110,21 @@ Route::get('/books', 'LibraryController@ShowBooks');
 Route::get('/new-book', 'LibraryController@AddBook');
 Route::post('/new-book', 'LibraryController@AddBook');
 
-Route::get('/edit-book', 'LibraryController@editbook');
-Route::post('/edit-book', 'LibraryController@editbook');
+Route::post('/edit-in-stock', 'LibraryController@EditInStock');
+
 
 Route::get('/new-author', 'LibraryController@AddAuthor');
 Route::post('/new-author', 'LibraryController@AddAuthor');
 
 Route::get('/author', 'LibraryController@ShowAuthors');
 
+Route::get('/edit-book', 'LibraryController@ShowAuthors');
+
+Route::get('/edit-book', 'LibraryController@UpdateBook');
+Route::post('/edit-book', 'LibraryController@UpdateBook');
+
+
+//edit-book
 
 
 // website 

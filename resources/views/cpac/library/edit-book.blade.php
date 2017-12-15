@@ -21,7 +21,7 @@
                         <div class="panel-body">
 
 
-                        {!! Form::open(['url' => '' , 'method' => 'POST']) !!}
+{!! Form::open(['url' => 'edit-book' , 'method' => 'POST']) !!}
 
                        
 
@@ -29,7 +29,7 @@
                         <div class="form-group row">
     <label class="col-sm-2 col-form-label">الاسم</label>
     <div class="col-sm-10">
-      <input type="text"  name="name"  value="" >
+      <input type="text"  name="name"  value="{{$Book->name}}" >
     </div>
   </div>    
 
@@ -37,41 +37,42 @@
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">الرقم التسلسلي</label>
     <div class="col-sm-10">
-      <input type="text"  name="barcode"  value="" >
+      <input type="text"  name="barcode"  value="{{$Book->barcode}}" >
     </div>
   </div>  
-
+@foreach($Author as $author)
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">المؤلف</label>
     <div class="col-sm-10">
-      <input type="text"  name="author"  value="" >
+    <select name="author_id"  >
+  <option value="{{$author->id}}">{{$author->name}}</option>
+</select>
     </div>
   </div>
-
+@endforeach
   
 
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">العدد المتوفر</label>
     <div class="col-sm-10">
-      <input type="text"  name="in_stock" value="">
+      <input type="text"  name="in_stock" value="{{$Book->in_stock}}">
     </div>
   </div>
   
-    
+@foreach($Lang as $lang)
   <div class="form-group row">
   <label class="col-sm-2 col-form-label"> اللغة</label>
   <div class="col-sm-10">
 <select name="language_id"  >
-  <option value="1"></option>
-  <option value="2"></option>
-  
+  <option value="{{$lang->id}}">{{$lang->language}}</option>
 </select>
 
 </div>
 
     </div>
+@endforeach
 <center>
-
+<input type="hidden" type="text" name="id" value="{{$Book->id}}">  
 <button  class="btn btn-success" type="submit" > حفظ <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
 <button  class="btn btn-muted" onclick="goBack()"> الغاء <i class="fa fa-ban" aria-hidden="true"></i></button>
 

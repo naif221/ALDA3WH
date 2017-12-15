@@ -38,21 +38,21 @@
     </div>
   </div>  
 
-@foreach($Auhtors as $Author)
   <div class="form-group row">
   <label class="col-sm-2 col-form-label"> المؤلف</label>
   <div class="col-sm-2">
 <select name="author_id">
 
+@foreach($Auhtors as $Author)
 <option value="{{$Author->id}}">{{$Author->name}}</option>
 
+@endforeach
 </select>
 </div>
 
 <label class="col-sm-2 col-form-label"> مؤلف جديد؟</label>
   <input placeholder="اسم المؤلف" type="text"  name="author" >
 </div>
-@endforeach
     </div>
 
   

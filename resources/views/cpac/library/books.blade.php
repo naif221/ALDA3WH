@@ -41,9 +41,8 @@
                                         	<td>{{$book->name}}</td>
                                         	<td>{{$book->author->name}}</td>
                                         	<td>{{$book->language->language}}</td>
-                                        	<td>{{$book->in_stock}}</td>
                                             <td>
-{!! Form::open(['url' => '' , 'method' => 'POST']) !!}
+{!! Form::open(['url' => 'edit-in-stock' , 'method' => 'POST']) !!}
                                             
 <div class="input-group add-minus">
           <span class="input-group-btn">
@@ -51,7 +50,8 @@
                 <span class="glyphicon glyphicon-minus"></span>
               </button>
           </span>
-          <input type="text"  class="form-control input-number"  value="100" id="count">
+          <input type="text"  class="form-control input-number" name="in_stock"  value="{{$book->in_stock}}" id="count">
+          <input type="hidden" type="text" name="id" value="{{$book->id}}">  
           <span class="input-group-btn">
               <button type="button" class="btn btn-success btn-number"  onclick="plus()" >
                   <span class="glyphicon glyphicon-plus"></span>
@@ -85,14 +85,19 @@
 </div>
 </div>
 
-<!--end confirm save number book in stock	-->
-{!! Form::close() !!}
+{!! Form::close() !!}	
 </td>
-                                            <td><center>
-                                            <a href="edit-book"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
-                                            <a href="" onclick="return confirm('تأكيد الحذف؟')" ><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+                                <form  method="get" action="{{ url('edit-book') }}">
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+								<input type="hidden" type="text" name="id" value="{{$book->id}}">  
+                         		<td><center>
+                         		<button type="submit" class="btn btn-primary">
+                         		<i class="fa fa-pencil-square-o fa-2x" aria-hidden="true">
+                         		        </i></button>
                                             </center>
-                                        </td>
+                                </td>
+                         		</form> 
+
                
                                         </tr>
 @endforeach
