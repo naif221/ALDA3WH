@@ -111,6 +111,7 @@ Route::post('/edit-book', 'LibraryController@editbook');
 
 
 
+
 // website 
 Route::get('/about', 'webController@about')->name('web.about');
 Route::get('/donate', 'webController@donate')->name('web.donate');
@@ -119,7 +120,15 @@ Route::get('/library', 'webController@library')->name('web.library');
 
 
 
+Route::get('/author' , function () {
+	return view('cpac.library.author');
+ 
+ });
 
+ Route::get('/new-author' , function () {
+	return view('cpac.library.new-author');
+ 
+ });
 
 Route::get('/web' , function () {
    return view('web.home');

@@ -29,6 +29,9 @@
                                 <li>
                                     <a href="languages"><i class="fa fa-language" aria-hidden="true"></i> اللغات </a>
                                 </li>
+                                <li>
+                                    <a href="author"><i class="fa fa-pencil" aria-hidden="true"></i> المؤلفين </a>
+                                </li>
                                 
                                           
                                        

@@ -92,17 +92,58 @@
                         </div>
                         <!-- /.panel-body -->
                     </div>
-                
-
-
-
+     
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
         </div>
 
+        <script>
+var password = document.getElementById("password")
+, confirm_password = document.getElementById("confirm_password");
 
+function validatePassword(){
+if(password.value != confirm_password.value) {
+  confirm_password.setCustomValidity("كلمات المرور غير متطابقة!");
+} else {
+  confirm_password.setCustomValidity('');
+}
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+
+function show() {
+    var a = document.getElementById('password');
+    var b = document.getElementById('confirm_password');
+    a.setAttribute('type', 'text');
+    b.setAttribute('type', 'text');
+}
+
+function hide() {
+        var a = document.getElementById('password');
+    var b = document.getElementById('confirm_password');
+    a.setAttribute('type', 'password');
+    b.setAttribute('type', 'password');
+}
+
+var pwShown = 0;
+
+document.getElementById("TogglePassword").addEventListener("click", function () {
+    
+    $(this).find('i').toggleClass('glyphicon glyphicon-eye-close').toggleClass('glyphicon glyphicon-eye-open');
+    if (pwShown == 0) {
+        pwShown = 1;
+        show();
+    } else {
+        pwShown = 0;
+       hide();
+    }
+}, false);
+
+
+</script>
 
 
 

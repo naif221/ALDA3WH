@@ -39,11 +39,21 @@
   </div>  
 
   <div class="form-group row">
-    <label class="col-sm-2 col-form-label">المؤلف</label>
-    <div class="col-sm-10">
-      <input type="text"  name="author" >
+
+  <label class="col-sm-2 col-form-label"> المؤلف</label>
+  <div class="col-sm-2">
+<select name="authoe_id">
+
+<option value=""></option>
+
+</select>
+</div>
+
+<label class="col-sm-2 col-form-label"> مؤلف جديد؟</label>
+  <input placeholder="اسم المؤلف" type="text"  name="name" >
+</div>
+
     </div>
-  </div>
 
   
 
