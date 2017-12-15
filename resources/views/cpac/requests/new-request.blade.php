@@ -91,7 +91,7 @@
 <!-- 	<input type="hidden" name="_token" value="{{ csrf_token() }}"> -->
 
 <!--   <button name="go" type="submit" class="btn btn-success"> <i class="fa fa-paper-plane" aria-hidden="true"></i> ارسال</button> -->
-  <input type="submit" value="تسجيل الدخول" class="bbtn btn-success">
+  <button type="submit"  class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"></i> ارسال </button>
   <button  class="btn btn-muted" onclick="goBack()"><i class="fa fa-ban" aria-hidden="true"></i> الغاء</button>
 <!--   </form> -->
 {!! Form::close() !!}

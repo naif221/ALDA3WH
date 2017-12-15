@@ -54,10 +54,13 @@
     <label class="col-sm-2 col-form-label">نوع الطلب</label>
     <div class="col-sm-2">
     @if(is_null($detail->price))
-    <p>طلب عادي<p>
     </div>
+    <p>طلب عادي<p>
+    
     @else
     <p>طلب مالي<p>
+    </div>
+
     <label class="col-sm-2 col-form-label">القيمة</label>
     <div class="col-sm-2">
     <p>{{$detail->price}}<p>
@@ -65,13 +68,11 @@
     </div>
     </div>
 
-
-
-
-
+<hr>
+<br>
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">العنوان</label>
-    <div class="col-sm-10">
+    <div class="col-sm-2">
     <p>{{$detail->title}}<p>
     </div>
     </div>
