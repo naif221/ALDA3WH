@@ -32,26 +32,26 @@
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">رقم المعاملة</label>
     <div class="col-sm-10">
-    <p>11<p>
+    <p>{{$Iss['id']}}<p>
     </div>
     </div>
 
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">العنوان</label>
     <div class="col-sm-2">
-    <p>تجربة<p>
+    <p>{{$Iss['title']}}<p>
     </div>
 
     
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">بواسطة</label>
     <div class="col-sm-2">
-    <p>mohammed<p>
+    <p>{{$Iss['name']}}<p>
     </div>
 
     <label class="col-sm-2 col-form-label">الوقت و التاريخ</label>
     <div class="col-sm-2">
-    <p>2017-12-06 18:14:34<p>
+    <p>{{$Iss['created_at']}}<p>
     </div>
     </div>
     </div>
@@ -60,25 +60,14 @@
     <label class="col-sm-2 col-form-label"> المحتوى</label>
     <div class="col-sm-10">
     <div class="thumbnail" >
-    <img  src="http://www.format-papier-a0-a1-a2-a3-a4-a5.fr/format-a4/a4.jpg"  >
+    <img  src="$Iss->file_path"  >
     </div>
     </div>
     </div>
-
-    
-
-
 
                         </div>
                         <!-- /.panel-body -->
                     </div>
-
-
-
-
-
-
-
 
 
                 </div>

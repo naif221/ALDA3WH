@@ -44,7 +44,7 @@
                                         	<td></td>
                                             
                                             <td>
-                                            {!! Form::open(['url' => '' , 'method' => 'POST']) !!}
+{!! Form::open(['url' => '' , 'method' => 'POST']) !!}
                                             
 <div class="input-group add-minus">
           <span class="input-group-btn">

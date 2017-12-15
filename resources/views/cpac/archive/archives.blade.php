@@ -35,11 +35,17 @@
                                         <tr class="odd gradeX">
                                         	<td>{{$is->id}}</td>
                                         	<td>{{$is->title}}</td>
-                                        	<td>{{$is->creator_name}}</td>
-                                        	<td>{{$is->done_at}}</td>
-                                        	<td><a  class="btn btn-info"   href="{{ url('details-archive') }}" >
-                 <i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> التفاصيل </a></td>
-               
+                                        	<td>{{$is->user->name}}</td>
+                                        	<td>{{$is->created_at}}</td>
+                                        	
+                                <form  method="get" action="{{ url('details-archive')}}">
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+								<input type="hidden" type="text" name="id" >  
+                         			<td>
+                         			<button type="submit" class="btn btn-info">
+                 					<i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> التفاصيل </button>
+                 					</td>
+                         		</form> 
                                         </tr>
 @endforeach
                                     </tbody>

@@ -91,9 +91,10 @@ Route::post('/new-department', 'HomeController@AddDepartment');
 
 // Archive Section
 Route::get('/archives', 'IssuedController@ShowArchive');
-
 Route::get('/new-archive', 'IssuedController@StoreIssued');
-Route::get('/details-archive', 'IssuedController@detailsarchive');
+Route::post('/new-archive', 'IssuedController@StoreIssued');
+
+Route::get('/details-archive', 'IssuedController@Details');
 
 
 // Library Section is Here !
