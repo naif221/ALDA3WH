@@ -21,7 +21,7 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
 
-		{!! Form::open(['url' => 'new-archive' , 'method' => 'POST']) !!}
+{!! Form::open(['url' => 'new-archive' , 'method' => 'POST' , 'files' => true]) !!}
     
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">العنوان</label>
@@ -32,7 +32,7 @@
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">المحتوى</label>
     <div class="col-sm-10">
-    <input type="file" name="fileToUpload" >
+    <input type="file" name="file_path" >
     </div>
   </div>
 
