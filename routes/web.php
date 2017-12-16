@@ -11,8 +11,6 @@
  |
  */
 
-Route::get('/', 'HomeController@index');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -138,7 +136,7 @@ Route::get('/news', 'newsController@index');
 Route::get('/news/{id}', 'newsController@show');
 
 
-Route::get('/web' , function () {
+Route::get('/' , function () {
    return view('web.home');
 
 });
@@ -147,8 +145,6 @@ Route::get('/web' , function () {
 Route::get('/profile', 'HomeController@profile');
 
 
-
-Route::get('/home1', 'webController@home1')->name('cpac.home1');
 
 Route::get('/media-news' , function () {
 	return view('cpac.media.media-news');
