@@ -50,7 +50,7 @@
             
                <li class="active" > <a href="#"><span class="glyphicon glyphicon-home"></span>&nbspالرئيسية<span class="sr-only">(current)</span></a></li>
        <li ><a href="{{Route('web.about')}}"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp عن المكتب و اعمالة</a></li>
-          <li><a href="{{Route('web.library')}}"><i class="fa fa-bookmark" aria-hidden="true"></i>&nbsp المكتبة</a></li>
+          <li><a href="library"><i class="fa fa-bookmark" aria-hidden="true"></i>&nbsp المكتبة</a></li>
               
             </ul>
         </div>

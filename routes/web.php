@@ -123,14 +123,17 @@ Route::get('/edit-book', 'LibraryController@UpdateBook');
 Route::post('/edit-book', 'LibraryController@UpdateBook');
 
 
-//edit-book
+
+// Public Site library
+
+Route::get('/library', 'webController@ShowBooks');
+
 
 
 // website 
 Route::get('/about', 'webController@about')->name('web.about');
 Route::get('/donate', 'webController@donate')->name('web.donate');
 Route::get('/events', 'webController@events')->name('web.events');
-Route::get('/library', 'webController@library')->name('web.library');
 Route::get('/news', 'newsController@index');
 Route::get('/news/{id}', 'newsController@show');
 
