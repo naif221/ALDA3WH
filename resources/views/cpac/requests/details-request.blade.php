@@ -29,8 +29,12 @@
 
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">رقم الطلب</label>
-    <div class="col-sm-10">
+    <div class="col-sm-2">
     <p>{{$detail->id}}<p>
+    </div>
+    <label class="col-sm-2 col-form-label">الحالة</label>
+    <div class="col-sm-2">
+    <p>{{$detail->state->title}}<p>
     </div>
     </div>
 
@@ -54,7 +58,7 @@
     <label class="col-sm-2 col-form-label">نوع الطلب</label>
     <div class="col-sm-2">
     @if(is_null($detail->price))
-    </div>
+    
     <p>طلب عادي<p>
     
     @else

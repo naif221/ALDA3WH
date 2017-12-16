@@ -48,6 +48,7 @@
                                             <th>العنوان</th>
                                             <th>الحالة</th>
                                             <th></th>
+                                            <th></th>
                                             </tr>
                                     </thead>
                                     <tbody>
@@ -81,7 +82,7 @@
                                 <form  method="POST" action="{{ url('delete-request') }}">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<input type="hidden" type="text" name="id" value="{{$request->id}}">  
-                                 <button class="btn btn-danger" >
+                                 <button class="btn btn-danger" onclick="return confirm('تأكيد الحذف؟')" >
                                  <i class="fa fa-trash-o" aria-hidden="true"> حذف الطلب</i></button>
                  					
                          		</form> 
@@ -110,6 +111,9 @@
                                             <th>نوع الطلب</th>
                                             <th>العنوان</th>
                                             <th>الحالة</th>
+                                            <th></th>
+                                            <th></th>
+                                            
                                             </tr>
                                     </thead>
                                     <tbody>
@@ -126,18 +130,28 @@
                                         	@endif
                                         	<td>{{$request->title}}</td>
                                         	<td>{{$request->state}}</td>
-                                        	
+                                        	<td>
                                         	 <form  method="POST" action="{{ url('details-request') }}">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<input type="hidden" type="text" name="id" value="{{$request->id}}">  
-                         			<td>
+                         			
                          			<center>
                          			<button type="submit" class="btn btn-info">
                  					<i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> التفاصيل </button>
                          			</center>
                  					
                          		</form> 
-                         		
+                         		</td>
+                                 <td>
+                                 <form  method="POST" action="{{ url('delete-request') }}">
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+								<input type="hidden" type="text" name="id" value="{{$request->id}}">  
+                                 <button class="btn btn-danger" onclick="return confirm('تأكيد الحذف؟')" >
+                                 <i class="fa fa-trash-o" aria-hidden="true"> حذف الطلب</i></button>
+                 				
+                         		</form> 
+                         		</center>
+                                 </td>	
 											
                  @endforeach
                                         </tr>

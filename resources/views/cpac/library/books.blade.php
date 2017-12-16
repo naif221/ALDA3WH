@@ -29,7 +29,9 @@
                                             <th>المؤلف</th>
                                             <th>اللغة</th>
                                             <th>العدد المتوفر</th>
-                                            <th>تعديل/حذف</th>
+                                            <th>خصم/اضافة</th>
+                                            <th>تعديل</th>
+                                            <th>حذف</th>
                                             </tr>
                                     </thead>
                                     <tbody>
@@ -41,49 +43,24 @@
                                         	<td>{{$book->name}}</td>
                                         	<td>{{$book->author->name}}</td>
                                         	<td>{{$book->language->language}}</td>
+                                            <td>{{$book->in_stock}}</td>
                                             <td>
 {!! Form::open(['url' => 'edit-in-stock' , 'method' => 'POST']) !!}
                                             
 <div class="input-group add-minus">
           <span class="input-group-btn">
-              <button type="button" class="btn btn-danger btn-number"  onclick="minus()" >
-                <span class="glyphicon glyphicon-minus"></span>
-              </button>
-          </span>
-          <input type="text"  class="form-control input-number" name="in_stock"  value="{{$book->in_stock}}" id="count">
-          <input type="hidden" type="text" name="id" value="{{$book->id}}">  
-          <span class="input-group-btn">
-              <button type="button" class="btn btn-success btn-number"  onclick="plus()" >
-                  <span class="glyphicon glyphicon-plus"></span>
+              <button type="button" class="form-control btn btn-danger btn-number"  onclick="return confirm('هل تريد خصم كتاب واحد من المخزون؟')" >
+                <span class="glyphicon glyphicon-minus"><b> 1</b></span>
               </button>
           </span>
           <span class="input-group-btn">
-              <button type="button" style="width: 45px; margin-right:5px;" class="btn btn-info btn-number" data-toggle="modal" data-target="#myModal" >
-                  <span class="glyphicon glyphicon-floppy-disk"></span>
+              <button type="button"  class="form-control btn btn-success btn-number"  onclick="return confirm('هل تريد اضافة كتاب واحد للمخزون؟')" >
+                  <span class="glyphicon glyphicon-plus"><b> 1</b></span>
               </button>
           </span>
+         
       </div>
 
-
-<!--start confirm save number book in stock	-->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <br>
-      </div>
-      <div class="modal-body">
-       هل تريد حفظ التغيرات على العدد المتوفر؟
-      <br>
-      <br>
-        <button type="submit" class="btn btn-primary">حفظ</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">الغاء</button>
-       
-      </div>
-  </div>
-</div>
-</div>
 
 {!! Form::close() !!}	
 </td>
@@ -92,12 +69,16 @@
 								<input type="hidden" type="text" name="id" value="{{$book->id}}">  
                          		<td><center>
                          		<button type="submit" class="btn btn-primary">
-                         		<i class="fa fa-pencil-square-o fa-2x" aria-hidden="true">
+                         		<i class="fa fa-pencil-square-o " aria-hidden="true">
                          		        </i></button>
                                             </center>
+
                                 </td>
                          		</form> 
-
+                                <td>
+<button class="btn btn-danger" onclick="return confirm('تأكيد الحذف؟')" >
+                                 <i class="fa fa-trash-o " aria-hidden="true"></i></button>
+                 				</td>
                
                                         </tr>
 @endforeach
@@ -110,24 +91,6 @@
                         <!-- /.panel-body -->
                     </div>
 
-<script>
-
- var count = document.getElementById('count').value;
-
-    var countEl = document.getElementById("count");
-    function plus(){
-        count++;
-        countEl.value = count;
-    }
-    function minus(){
-      if (count > 1) {
-        count--;
-        countEl.value = count;
-      }  
-    }
-
-
-</script>
 
 
 <style>
