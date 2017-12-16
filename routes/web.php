@@ -24,11 +24,6 @@ Route::get('/logout', function () {
 });
 
 
-Route::get('/forms', function () {
-		return view('forms');
-	});
-
-
 // // Add Author , it's on LibraryController@AddAuthor. !!
 // Route::post('/addauthor', array( 'as' => 'addauthor', 'uses' => 'LibraryController@AddAuthor'));
 	
@@ -50,7 +45,6 @@ Route::get('/forms', function () {
 
 // To Store Issued.
 // Route::post('/storeissue', array( 'as' => 'storeissue', 'uses' => 'IssuedController@StoreIssued'));
-
 
 //Requests Routes
 Route::get('/requests', 'RequestsController@Show');

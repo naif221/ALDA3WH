@@ -32,7 +32,7 @@ class HomeController extends Controller
     public function index()
     {
     	
-    	return redirect('/requests');
+    	return view('cpac.home');
     	
     }
     
@@ -100,7 +100,6 @@ class HomeController extends Controller
     	$user->name 		= $Request->input('name');
     	$user->phone 		= $Request->input('phone');
     	$user->email 		= $Request->input('email');
-    	$user->password 	= $Request->input('name');
     	$user->department_id= $Request->input('department_id');
     	$user->password		= bcrypt($Request->input('password'));
     	$user->save();
