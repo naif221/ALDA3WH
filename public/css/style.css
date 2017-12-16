@@ -1,8 +1,6 @@
 * {
     font-family: 'Cairo', sans-serif;
     }
-<<<<<<< HEAD
-=======
  .art_n{
  	margin-right: 70px;
     margin-top: 0px;
@@ -27,13 +25,12 @@ background: #b07529;
 }
 .post_n{
 
-    height: 121px;
+    
     padding-top: 4px;
     border-top-width: 1px;
     border-bottom-width: 4px;
     border-right-width: 1px;
+    background-position-x: center;
 
 
 }
-
->>>>>>> 225b6bf0271c9340d9b406ce28450f9368763a30
