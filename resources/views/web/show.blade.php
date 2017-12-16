@@ -31,15 +31,17 @@
 
     <div class="cat_h1">
 <div class="thumbnail post_n">
-  <a href="" >
+
 <b><h4 style="color:#bd720c;">{{ $n->title }}<img  src="https://pbs.twimg.com/media/DQiDpZuXUAA_si2.jpg"  style="width:115px; "  align="right"> </h4></b>
-</a> <p style="color:gray; font-size:10px;">&nbsp&nbsp<i class="fa fa-calendar" aria-hidden="true" style="padding-right: 5px"></i>&nbsp 2017</p>
+ <p style="color:gray; font-size:10px;">&nbsp&nbsp<i class="fa fa-calendar" aria-hidden="true" style="padding-right: 5px"></i>&nbsp 2017</p>
 <div id="myhide">
     <p align="center">{{ $n->content }}</p>
 </div>
 </div>
 </div>
+
       @endforeach
+
 
 
     <!-- Scripts -->
