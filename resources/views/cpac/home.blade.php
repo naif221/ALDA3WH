@@ -17,6 +17,29 @@
                    <br>
                    <hr>
                    
+                   <div class="alert alert-success alert-dismissible" id="myAlert">
+    <a class="close">&times;</a>
+
+    <strong>Success!</strong> This alert box could indicate a successful or positive action.
+
+  </div>
+
+
+
+  <div class="alert alert-danger alert-dismissible" id="myAlert">
+    <a class="close">&times;</a>
+
+    <strong>Success!</strong> This alert box could indicate a successful or positive action.
+    
+  </div>
+
+
+
+
+
+
+</div>
+
                    <a href="profile" > <i class="fa fa-user-circle fa-5x"></i> <br>الملف الشخصي</a>
 
                 </div>

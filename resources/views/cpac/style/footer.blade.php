@@ -49,6 +49,14 @@ $(document).ready(function() {
 
 
 
+<script>
+$(document).ready(function(){
+    $(".close").click(function(){
+        $("#myAlert").alert("close");
+    });
+});
+</script>
+
 </body>
 
 </html>
