@@ -32,7 +32,9 @@
 </div>
  @endforeach
 
-
+<center>
+{{$news->links()}}
+</center>
 
 
 <style>
