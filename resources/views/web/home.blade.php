@@ -7,45 +7,22 @@
     </div>
     <!-- /.panel-heading -->
     <div class="panel-body news-height" >
+
+@foreach($home->take(4) as $n) 
+
+    <div class="cat_h1">
+<div class="thumbnail post_n">
   
-    
-<div class="thumbnail">
-  <a href="" >
-<b><h4 style="color:blue;">     &nbsp&nbsp هنا نضع العنوان   &nbsp<img src="https://pbs.twimg.com/media/DQiDpZuXUAA_si2.jpg"  style="width:115px; " align="right"> </h4></b>
-</a> <p style="color:gray; font-size:10px;">&nbsp&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp 2017</p>
+<b><h4 style="color:#bd720c;">{{ $n->title }}<img  src="https://pbs.twimg.com/media/DQiDpZuXUAA_si2.jpg"  style="width:115px; "  align="right"> </h4></b>
+<p style="color:gray; font-size:10px;"><i class="fa fa-calendar" aria-hidden="true" style="padding-right: 5px"></i>{{$n->created_at}}</p>
 <div id="myhide">
-<p align="center">نوّه وزير النقل الدكتور نبيل بن محمد العامودي، بمضامين خطاب خادم الحرمين الشريفين الملك سلمان بن عبدالعزيز آل سعودة الجادة للمضي قدمًا على طريق التنمية و<a href="">أقراء المزيد...</a></p>
-</div>
-</div>
+    <p align="center">{{ str_limit($n->content , 250 ) }}<a href="news/{{$n->id}}" style="color:blue">أقراء المزيد...</a>
 
-<div class="thumbnail">
-  <a href="" >
-<b><h4 style="color:blue;">     &nbsp&nbsp هنا نضع العنوان   &nbsp<img src="https://pbs.twimg.com/media/DQiDpZuXUAA_si2.jpg" style="width:115px; " align="right"> </h4></b>
-</a> <p style="color:gray; font-size:10px;">&nbsp&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp 2017</p>
-<div id="myhide">
-<p align="center">نوّه وزير النقل الدكتور نبيل بن محمد العامودي، بمضامين خطاب خادم الحرمين الشريفين الملك سلمان بن عبدالعزيز آل سعودة الجادة للمضي قدمًا على طريق التنمية و<a href="">أقراء المزيد...</a></p>
+</p>
 </div>
 </div>
-
-<div class="thumbnail">
-  <a href="" >
-<b><h4 style="color:blue;">     &nbsp&nbsp هنا نضع العنوان   &nbsp<img src="https://pbs.twimg.com/media/DQiDpZuXUAA_si2.jpg"  style="width:115px; " align="right"> </h4></b>
-</a> <p style="color:gray; font-size:10px;">&nbsp&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp 2017</p>
-<div id="myhide">
-<p align="center">نوّه وزير النقل الدكتور نبيل بن محمد العامودي، بمضامين خطاب خادم الحرمين الشريفين الملك سلمان بن عبدالعزيز آل سعودة الجادة للمضي قدمًا على طريق التنمية و<a href="">أقراء المزيد...</a></p>
 </div>
-</div>
-
-
-<div class="thumbnail">
-  <a href="" >
-<b><h4 style="color:blue;">     &nbsp&nbsp هنا نضع العنوان   &nbsp<img src="https://pbs.twimg.com/media/DQiDpZuXUAA_si2.jpg"  style="width:115px; " align="right"> </h4></b>
-</a> <p style="color:gray; font-size:10px;">&nbsp&nbsp<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp 2017</p>
-<div id="myhide">
-<p align="center">نوّه وزير النقل الدكتور نبيل بن محمد العامودي، بمضامين خطاب خادم الحرمين الشريفين الملك سلمان بن عبدالعزيز آل سعودة الجادة للمضي قدمًا على طريق التنمية و<a href="">أقراء المزيد...</a></p>
-</div>
-</div>
-
+ @endforeach
 <a href="news" type="button" class="btn btn-info btn-block"> عرض المزيد <i class="fa fa-caret-down " aria-hidden="true"></i></a>
     </div>
     <!-- /.panel-body -->
@@ -177,15 +154,4 @@
 
 }
 </style>
-
-
-
-
-
 @include('web.footer')
-
-
-
-
-
-
