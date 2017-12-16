@@ -9,7 +9,8 @@ class webController extends Controller
 {
     public function index() 
     {
-    	return view('web.home');
+    	$ns = News::all();
+        return view('web.home', ['home' => $ns]);
     }
     public function about() {
 
