@@ -4,12 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class news extends Model
+class News extends Model
 {
    	protected $table = 'news';
 	// Primary Key
 	protected $primaryKey = 'id';
-	protected $fillable = array('title','content');
 	// Timestamps
 	public $timestamps = true;
+	
+	
+	public function user(){
+		
+		return $this->belongsTo('App\User');
+	}
+	
 }

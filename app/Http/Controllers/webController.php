@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Books;
+use App\News;
 
-class webController extends Controller
+class WebController extends Controller
 {
+	
+	
     public function index() 
     {
     	$ns = News::all();
         return view('web.home', ['home' => $ns]);
     }
-    public function about() {
+    public function About() {
 
     	return view('web.about');
     	
