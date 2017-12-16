@@ -134,13 +134,13 @@ Route::get('/donate', 'webController@donate')->name('web.donate');
 Route::get('/events', 'webController@events')->name('web.events');
 Route::get('/news', 'newsController@index');
 Route::get('/news/{id}', 'newsController@show');
-
-
+Route::get('/web','webController@index');
+/*
 Route::get('/' , function () {
    return view('web.home');
 
 });
-
+*/
 
 Route::get('/profile', 'HomeController@profile');
 
