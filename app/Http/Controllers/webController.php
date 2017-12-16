@@ -14,6 +14,8 @@ class WebController extends Controller
     {
     	$ns = News::latest()->paginate(6);
     	
+    	
+    	
         return view('web.home', ['home' => $ns]);
     }
     public function About() {
