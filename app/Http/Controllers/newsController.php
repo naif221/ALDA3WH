@@ -15,7 +15,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $ns = News::all();
+        $ns = News::latest()->paginate(6);
         
         return view('web.news', ['news' => $ns]);
     }
