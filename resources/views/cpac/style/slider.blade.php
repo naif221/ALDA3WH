@@ -4,7 +4,7 @@
                     <ul class="nav" id="side-menu">
                        
                         <li>
-                            <a  href="home1"><i class="fa fa-dashboard fa-fw"></i> الرئيسية</a>
+                            <a  href="home"><i class="fa fa-dashboard fa-fw"></i> الرئيسية</a>
                         </li>
                         
                                 <li>

@@ -3,6 +3,7 @@
 
 	
 
+<center>
 <div id="page-wrapper">
 
             <div class="row">
@@ -17,11 +18,6 @@
                    <hr>
                    
                    <a href="profile" > <i class="fa fa-user-circle fa-5x"></i> <br>الملف الشخصي</a>
-                               
-                               
-
-
-                
 
                 </div>
                 <!-- /.col-lg-12 -->
@@ -30,7 +26,7 @@
         </div>
 
 
-
+</center>
 
 
 

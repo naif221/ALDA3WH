@@ -25,9 +25,21 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-        
+        	$this->initManager();
     }
 
+    private function initManager(){
+    	
+    	$user 				=  new User();
+    	$user->name 		= 'Admin';
+    	$user->phone 		= '0534567890';
+    	$user->email 		= 'Admin@Admin.com';
+    	$user->department_id= 5;
+    	$user->password		= bcrypt('123456');
+    	$user->save();
+    	
+    }
+    
     /**
      * Reverse the migrations.
      *
