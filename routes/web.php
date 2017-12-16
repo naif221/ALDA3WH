@@ -125,16 +125,37 @@ Route::post('/edit-book', 'LibraryController@UpdateBook');
 // Public Site library
 
 Route::get('/library', 'webController@ShowBooks');
+Route::get('/Home','WebController@index');
+Route::get('/About', 'WebController@About')->name('web.about');
+
+Route::get('/',function (){
+	
+	return redirect('/Home');
+});
+
+
+Route::get('/news', 'NewsController@index');
+
+// Internal Section News
+Route::get('/media-news', 'NewsController@ShowNews');
+Route::get('/new-news', 'NewsController@AddNews');
+Route::post('/new-news', 'NewsController@AddNews');
+
+
+Route::get('/edit-news', 'NewsController@EditPost');
+Route::post('/edit-news', 'NewsController@EditPost');
+
+
+
 
 
 
 // website 
-Route::get('/about', 'webController@about')->name('web.about');
-Route::get('/donate', 'webController@donate')->name('web.donate');
-Route::get('/events', 'webController@events')->name('web.events');
-Route::get('/news', 'newsController@index');
-Route::get('/news/{id}', 'newsController@show');
-Route::get('/web','webController@index');
+Route::get('/donate', 'WebController@donate')->name('web.donate');
+Route::get('/events', 'WebController@events')->name('web.events');
+Route::get('/news/{id}', 'NewsController@show');
+
+
 /*
 Route::get('/' , function () {
    return view('web.home');
@@ -142,14 +163,8 @@ Route::get('/' , function () {
 });
 */
 
-Route::get('/profile', 'HomeController@profile');
+// Route::get('/profile', 'HomeController@profile');
 
-
-
-Route::get('/media-news' , function () {
-	return view('cpac.media.media-news');
- 
- });
  
 Route::get('/media' , function () {
 	return view('cpac.media.media');
@@ -160,15 +175,3 @@ Route::get('/media' , function () {
 	return view('cpac.media.edit-media');
  
  });
- 
-Route::get('/new-news' , function () {
-	return view('cpac.media.new-news');
- 
- });
- 
-
- Route::get('/edit-news' , function () {
-	return view('cpac.media.edit-news');
- 
- });
- 

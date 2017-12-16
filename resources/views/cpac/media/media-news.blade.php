@@ -26,24 +26,43 @@
                                             <th>الرقم</th>
                                             <th>الوقت/التاريخ</th>
                                             <th>بواسطة</th>
-                                            <th> الخبر</th>
-                                         
+                                            <th>الخبر</th>
+                                            <th></th>
                                             </tr>
                                     </thead>
                                     <tbody>
-                                    
+@foreach($posts as $post)
                                         <tr class="odd gradeX">
-                                        	<td></td>
-                                        	<td></td>
-                                        	<td></td>
+                                        	<td>{{$post->id}}</td>
+                                        	<td>{{$post->created_at}}</td>
+                                        	<td>{{$post->user->name}}</td>
+                                            <td>{{$post->title}}</td>
                                         	<td>
-                 <a  class="btn btn-info"   href="" >
-                 <i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> عرض </a>
-                 <a class="btn btn-warning" href="edit-news">
-                 <i class="fa fa-pencil-square-o " aria-hidden="true"></i> تعديل</a>
+
+                 
+                                <form  method="POST" action="{{ url('details-request') }}">
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+								<input type="hidden" type="text" name="id" value="{{$post->id}}">  
+             							  <a  class="btn btn-info"   href="" >
+              						   <i class="glyphicon glyphicon-new-window" aria-hidden="true" ></i> عرض </a>
+                         		</form> 
+									</td>                 
+                 
+                 
+                         			<td>
+                                 <form  method="get" action="{{ url('edit-news') }}">
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+								<input type="hidden" type="text" name="id" value="{{$post->id}}">  
+                					 <button class="btn btn-warning" type="submit">
+               						  <i class="fa fa-pencil-square-o " aria-hidden="true"></i> تعديل</button>
+                 					
+                         		</form> 
+                 
+                 
+
                                             </td>
                                         </tr>
-                                      
+@endforeach
                                     </tbody>
                                 </table>
                             </div>

@@ -10,7 +10,7 @@
         <link href="{{ url('css/home.css') }}" rel="stylesheet">
         <link href="{{ url('css/cairo-font.css') }}" rel="stylesheet">
 
-        <title> </title>
+        <title>مركز الدعوة والإرشاد بعفيف</title>
         
         
         </head>
@@ -48,9 +48,9 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
             
-               <li class="active" > <a href="#"><span class="glyphicon glyphicon-home"></span>&nbspالرئيسية<span class="sr-only">(current)</span></a></li>
-       <li ><a href="{{Route('web.about')}}"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp عن المكتب و اعمالة</a></li>
-          <li><a href="library"><i class="fa fa-bookmark" aria-hidden="true"></i>&nbsp المكتبة</a></li>
+               <li class="active" > <a href="Home"><span class="glyphicon glyphicon-home"></span>&nbspالرئيسية<span class="sr-only">(current)</span></a></li>
+       <li ><a href="About"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp عن المكتب و اعمالة</a></li>
+          <li><a href="Library"><i class="fa fa-bookmark" aria-hidden="true"></i>&nbsp المكتبة</a></li>
               
             </ul>
         </div>
@@ -59,6 +59,4 @@
       
       <div class="container">
         <div class="row">
-      
-    
 

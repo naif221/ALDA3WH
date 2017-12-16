@@ -37,14 +37,12 @@
 
 
 <!-- <form method="post" action="{{ route('store') }}"> -->
-		{!! Form::open(['url' => '' , 'method' => 'POST']) !!}
-
-
+{!! Form::open(['url' => 'edit-news' , 'method' => 'POST']) !!}
     
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">العنوان</label>
     <div class="col-sm-10">
-      <input type="text"  name="title" value="" >
+      <input type="text"  name="title" value="{{$posts['title']}}" >
     </div>
   </div>
   <div class="form-group row">
@@ -52,12 +50,13 @@
     <div class="col-sm-10">
     
     
-      <div id="summernote" name="content"></div> 
-   <script> -->
-    $(document).ready(function() { 
-         $('#summernote').summernote();
-     }); 
-  </script> 
+
+<textarea class="summernote" name="content" value="" >{{$posts['content']}}</textarea> 
+    <script>
+$(document).ready(function() {
+  $('.summernote').summernote();
+});
+    </script>
 		 
 
     </div>
@@ -65,7 +64,7 @@
 
 <center>
 
-  
+  <input type="hidden" type="text" name="id" value="{{$posts['id']}}">  
   <button  class="btn btn-success" ><i class="fa fa-floppy-o" aria-hidden="true"></i> حفظ</button>
   <button  class="btn btn-muted" onclick="goBack()"><i class="fa fa-ban" aria-hidden="true"></i> الغاء</button>
 
