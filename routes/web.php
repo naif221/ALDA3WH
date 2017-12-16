@@ -11,8 +11,6 @@
  |
  */
 
-Route::get('/', 'HomeController@index');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -123,19 +121,22 @@ Route::get('/edit-book', 'LibraryController@UpdateBook');
 Route::post('/edit-book', 'LibraryController@UpdateBook');
 
 
-//edit-book
+
+// Public Site library
+
+Route::get('/library', 'webController@ShowBooks');
+
 
 
 // website 
 Route::get('/about', 'webController@about')->name('web.about');
 Route::get('/donate', 'webController@donate')->name('web.donate');
 Route::get('/events', 'webController@events')->name('web.events');
-Route::get('/library', 'webController@library')->name('web.library');
 Route::get('/news', 'newsController@index');
 Route::get('/news/{id}', 'newsController@show');
 
 
-Route::get('/web' , function () {
+Route::get('/' , function () {
    return view('web.home');
 
 });
@@ -144,8 +145,6 @@ Route::get('/web' , function () {
 Route::get('/profile', 'HomeController@profile');
 
 
-
-Route::get('/home1', 'webController@home1')->name('cpac.home1');
 
 Route::get('/media-news' , function () {
 	return view('cpac.media.media-news');
