@@ -12,7 +12,8 @@ class WebController extends Controller
 	
     public function index() 
     {
-    	$ns = News::all();
+    	$ns = News::latest()->paginate(6);
+    	
         return view('web.home', ['home' => $ns]);
     }
     public function About() {

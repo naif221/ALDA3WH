@@ -15,9 +15,12 @@ class NewsController extends Controller
 	}
 	
 	
+	
+	
 	public function ShowNews(){
 		
-		$Posts = News::all();
+		$Posts = News::all()->latest()->paginate(6);
+		
 		return view('cpac.media.media-news',['posts' => $Posts]);
 	}
 	
