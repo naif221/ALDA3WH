@@ -8,7 +8,8 @@ class news extends Model
 {
    	protected $table = 'news';
 	// Primary Key
-	public $primaryKey = 'id';
+	protected $primaryKey = 'id';
+	protected $fillable = array('title','content');
 	// Timestamps
 	public $timestamps = true;
 }
