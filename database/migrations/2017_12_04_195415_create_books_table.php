@@ -17,7 +17,7 @@ class CreateBooksTable extends Migration
             
  	
         	$table->increments('id');
-        	$table->string('barcode')->unique();
+        	$table->string('barcode')->nullable();
         	$table->string('name');
         	$table->unsignedInteger('author_id');
         	$table->foreign('author_id')->references('id')->on('author');

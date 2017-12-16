@@ -62,10 +62,8 @@
     <label class="col-sm-2 col-form-label">المحتوى</label>
     <div class="col-sm-10">
     
-    
 
-		 <textarea class="summernote" name="content">
-		</textarea> 
+		 <textarea class="summernote" name="content" ></textarea> 
 
     
     <script>
@@ -127,10 +125,6 @@ $(document).ready(function() {
   });
 
 </script>
-
-
-
-
 
 
 

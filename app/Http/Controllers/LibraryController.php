@@ -120,7 +120,7 @@ class LibraryController extends Controller
 			$this->validate($request, [
 					'name' 			=> 'required',
 					'author_id' 	=> 'required',
-					'barcode' 		=> 'required',
+					'barcode' 		=> 'nullable',
 					'language_id' 	=> 'required',
 					'in_stock' 		=> 'required|numeric',
 			]);
@@ -138,7 +138,7 @@ class LibraryController extends Controller
 				
 				$this->validate($request, [
 						'name' 			=> 'required',
-						'barcode' 		=> 'required',
+						'barcode' 		=> 'nullable',
 						'language_id' 	=> 'required',
 						'in_stock' 		=> 'required|numeric',
 						'author' 		=> 'required',
@@ -186,7 +186,7 @@ class LibraryController extends Controller
 			$this->validate($request, [
 					'name' 			=> 'required',
 					'author_id' 	=> 'required',
-					'barcode' 		=> 'required',
+					'barcode' 		=> 'nullable',
 					'language_id' 	=> 'required',
 					'in_stock' 		=> 'required|numeric',
 			]);
