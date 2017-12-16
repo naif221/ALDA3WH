@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Language;
 use App\Books;
 use Illuminate\Support\Facades\DB;
+use App\Pointer;
 
 class LibraryController extends Controller
 {
@@ -47,6 +48,9 @@ class LibraryController extends Controller
 	public function AddAuthor(Request $request)
 	{
 		
+		if(Auth::user()->department_id !== Pointer::$Library)
+			return redirect('/home');
+		
 		if($request->isMethod('get')){
 			
 			return view('cpac.library.new-author');	
@@ -66,6 +70,9 @@ class LibraryController extends Controller
 	
 	public function AddLanguage(Request $request)
 	{
+		
+		if(Auth::user()->department_id !== Pointer::$Library)
+			return redirect('/home');
 		
 		if ($request->isMethod('get')) {
 			
@@ -87,6 +94,9 @@ class LibraryController extends Controller
 
 	public function ShowLanguages(){
 		
+		if(Auth::user()->department_id !== Pointer::$Library)
+			return redirect('/home');
+		
 		$lang = Language::all()->load('books');
 		
 		return view('cpac.library.language', ['languages' => $lang]);
@@ -95,6 +105,9 @@ class LibraryController extends Controller
 	public function AddBook(Request $request)
 	{
 
+		if(Auth::user()->department_id !== Pointer::$Library)
+			return redirect('/home');
+		
 		if ($request->isMethod('get')) {
 			
 			$Lang = Language::all();
@@ -132,9 +145,14 @@ class LibraryController extends Controller
 						
 				]);
 				
+				$author= Author::where('name','=',$request->input('author'))->first();
+				if($author === null){
+					
 				$author = new Author();
 				$author->name = $request->input('author');
 				$author->save();
+					
+				}
 				
 				$book 				= new Books();
 				$book->barcode 		= $request->input('barcode');
@@ -155,6 +173,9 @@ class LibraryController extends Controller
 	public function UpdateBook(Request $request)
 	{
 			
+		if(Auth::user()->department_id !== Pointer::$Library)
+			return redirect('/home');
+		
 		if($request->isMethod('get')){
 			$book = Books::find($request->input('id'));
 			$author = Author::all();
@@ -183,39 +204,42 @@ class LibraryController extends Controller
 			
 	}
 	
-	public function DecreaseBookByOne(Request $request)
-	{
-		if(Auth::user()->department_id == 1){
+// 	public function DecreaseBookByOne(Request $request)
+// 	{
+// 		if(Auth::user()->department_id == 1){
 			
-			$this->validate($request, [
-					'barcode' 		=> 'required',
-			]);
+// 			$this->validate($request, [
+// 					'barcode' 		=> 'required',
+// 			]);
 			
-			DB::table('books')->where('barcode', $request->input('barcode'))->decrement('in_stock', 1);
+// 			DB::table('books')->where('barcode', $request->input('barcode'))->decrement('in_stock', 1);
 			
-			return redirect('/library');
+// 			return redirect('/library');
 			
-		}else
-			return redirect('/home');
-	}
+// 		}else
+// 			return redirect('/home');
+// 	}
 	
-	public function IncrementBookByOne(Request $request)
-	{
-		if(Auth::user()->department_id == 1){
+// 	public function IncrementBookByOne(Request $request)
+// 	{
+// 		if(Auth::user()->department_id == 1){
 			
-			$this->validate($request, [
-					'barcode' 		=> 'required',
-			]);
+// 			$this->validate($request, [
+// 					'barcode' 		=> 'required',
+// 			]);
 			
-			DB::table('books')->where('barcode', $request->input('barcode'))->increment('in_stock', 1);
+// 			DB::table('books')->where('barcode', $request->input('barcode'))->increment('in_stock', 1);
 			
-			return redirect('/books');
+// 			return redirect('/books');
 			
-		}else
-			return redirect('/home');
-	}
+// 		}else
+// 			return redirect('/home');
+// 	}
 	
 	public function ShowBooks(){
+		
+		if(Auth::user()->department_id !== Pointer::$Library)
+			return redirect('/home');
 		
 		$books = Books::all();
 		
@@ -223,6 +247,8 @@ class LibraryController extends Controller
 	}
 	
 	public function ShowAuthors(){
+		if(Auth::user()->department_id !== Pointer::$Library)
+			return redirect('/home');
 		
 		$Author = Author::all();
 		
@@ -232,6 +258,8 @@ class LibraryController extends Controller
 	
 	public function EditInStock(Request $Request){
 		
+		if(Auth::user()->department_id !== Pointer::$Library)
+			return redirect('/home');
 		
 		$Book = Books::find($Request->input('id'));
 		$Book->in_stock = $Request->input('in_stock');

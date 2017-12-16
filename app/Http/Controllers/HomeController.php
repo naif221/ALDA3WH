@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 use Illuminate\Http\Request;
 use App\Department;
+use App\Pointer;
 
 class HomeController extends Controller
 {
@@ -37,12 +38,17 @@ class HomeController extends Controller
     
     public function ShowEmployees(){
     	
+    	if(Auth::user()->department_id !== Pointer::$Manager)
+    		return redirect('/home');
     	
     	$users = User::all();
     	return view('cpac.employees.employees' , ['users' => $users]);
     }
     
     public function GetEditEmployee(Request $Request){
+    	
+    	if(Auth::user()->department_id !== Pointer::$Manager)
+    		return redirect('/home');
     	
     	$User = User::find($Request->input('id'));
     	$Departments = Department::all();
@@ -52,6 +58,9 @@ class HomeController extends Controller
     }
     
     public function EditEmployee(Request $Request){
+    	
+    	if(Auth::user()->department_id !== Pointer::$Manager)
+    		return redirect('/home');
     	
     	$this->validate($Request, [
     			'id'			=> 'required',
@@ -76,6 +85,9 @@ class HomeController extends Controller
     
     public function AddEmployee(Request $Request){
     	
+    	if(Auth::user()->department_id !== Pointer::$Manager)
+    		return redirect('/home');
+    	
     	$this->validate($Request, [
     			'name' 			=> 'required|max:40',
     			'phone'			=> 'required|max:10',
@@ -98,6 +110,9 @@ class HomeController extends Controller
     
     public function GetDepartments(){
     	
+    	if(Auth::user()->department_id !== Pointer::$Manager)
+    		return redirect('/home');
+    	
     	$Departments = Department::all();
     	
     	return view('cpac.employees.new-employees', ['Dep' => $Departments]);
@@ -105,6 +120,9 @@ class HomeController extends Controller
     }
     
     public function GetDepartmentsForD(){
+    	
+    	if(Auth::user()->department_id !== Pointer::$Manager)
+    		return redirect('/home');
     	
     	 $Departments = Department::all()->load('user')->load('request');
     	
@@ -114,6 +132,9 @@ class HomeController extends Controller
     
     public function GetEditDepartment(Request $Request){
     	
+    	if(Auth::user()->department_id !== Pointer::$Manager)
+    		return redirect('/home');
+    	
     	$Departments = Department::find($Request->input('id'));
     	
     	
@@ -121,6 +142,9 @@ class HomeController extends Controller
     }
     
     public function EditDepartment(Request $Request){
+    	
+    	if(Auth::user()->department_id !== Pointer::$Manager)
+    		return redirect('/home');
     	
     	$this->validate($Request, [
     			'department_name'	=> 'required',
@@ -139,10 +163,16 @@ class HomeController extends Controller
 
     public function GetNewDepartmentPage(){
     	
+    	if(Auth::user()->department_id !== Pointer::$Manager)
+    		return redirect('/home');
+    	
     	return view('cpac.department.new-department');
     }
     
     public function AddDepartment(Request $Request){
+    	
+    	if(Auth::user()->department_id !== Pointer::$Manager)
+    		return redirect('/home');
     	
     	$this->validate($Request, [
     			'department_name'	=> 'required',

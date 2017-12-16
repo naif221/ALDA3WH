@@ -25,12 +25,24 @@ class RequestsController extends Controller
 	 * Delete 
 	 * Show
 	 * Update
-	 * And so on !
 	 */
 	
 	public function __construct()
 	{
 		$this->middleware('auth');
+	}
+	
+	
+	public function DeleteRequest(Request $Request){
+		
+		$ID = $Request->input('id');
+		$req = Request_::find($ID);
+		if(Auth::user()->id === $req->user_id){
+			$req->delete();
+		}
+		
+		return redirect('/requests');
+			
 	}
 	
 	
@@ -40,7 +52,6 @@ class RequestsController extends Controller
 			return redirect('/');
 		}
 		
-		$this->CheckIFAuthorize();
 		
 		$this->validate($Request, [
 				'id' 		=> 'required',
@@ -103,37 +114,36 @@ class RequestsController extends Controller
 
 	public function RequestAccept(Request $id){
 		
-		if(Auth::user()->department_id !== Pointer::$Manager){
+			$request = Request_::find($id->input('id'));
+		if(Auth::user()->department_id == Pointer::$Manager ){
+			$request->state_id = Pointer::$Accepted;
+		}else if(Auth::user()->department_id == Pointer::$Council){
+			$request->state_id = Pointer::$AcceptedFromCouncil;
+		}else {
 			return redirect('/');
 		}
 		
-		$this->validate($id, [
-				'id' 	=> 'required',
-		]);
-		
-		$request = Request_::find($id->input('id'));
-		$request->state_id = Pointer::$Accepted;
-		$request->save();
-		
+
+			$request->save();
 		return redirect('/requests');
 		
 	}
 	
 	public function RequestReject(Request $id){
 		
-		if(Auth::user()->department_id !== Pointer::$Manager){
+		$request = Request_::find($id->input('id'));
+		if(Auth::user()->department_id == Pointer::$Manager ){
+			$request->state_id = Pointer::$Rejected;
+		}else if(Auth::user()->department_id == Pointer::$Council){
+			$request->state_id = Pointer::$AcceptedFromCouncil;
+		}else {
 			return redirect('/');
 		}
 		
-		$this->validate($id, [
-				'id' 	=> 'required',
-		]);
 		
-		$request = Request_::find($id->input('id'));
-		$request->state_id = Pointer::$Rejected;
 		$request->save();
-		
 		return redirect('/requests');
+		
 		
 	}
 	
@@ -141,50 +151,77 @@ class RequestsController extends Controller
 		
 		$UserDepartment = Auth::user()->department_id;
 		
+		if($UserDepartment == Pointer::$Manager){
+			
+			$requests= DB::table('users')
+			->join('department', 'users.department_id', '=', 'department.id')
+			->join('request', 'request.user_id', '=', 'users.id')
+			->join('state', 'request.state_id', '=', 'state.id')
+			->select('request.id','request.title','request.price','request.created_at' ,'request.user_id' ,'department.department_name','state.title AS state')
+			->whereIn('state.id', [Pointer::$UnderStudy])
+			->get();
+			
+			
+			$oldrequests= DB::table('users')
+			->join('department', 'users.department_id', '=', 'department.id')
+			->join('request', 'request.user_id', '=', 'users.id')
+			->join('state', 'request.state_id', '=', 'state.id')
+			->select('request.id','request.title','request.price','request.created_at' ,'request.user_id' ,'department.department_name','state.title AS state')
+			->whereIn('state.id', [Pointer::$Accepted , Pointer::$Rejected , Pointer::$AcceptedFromCouncil , Pointer::$RejectedFromCouncil])
+			->get();
+			
+			
+		}else if($UserDepartment == Pointer::$Council){
+			
+			
+			//Show Users Requests all departments
+			$requests= DB::table('users')
+			->join('department', 'users.department_id', '=', 'department.id')
+			->join('request', 'request.user_id', '=', 'users.id')
+			->join('state', 'request.state_id', '=', 'state.id')
+			->select('request.id','request.title','request.price','request.created_at' ,'request.user_id' ,'department.department_name','state.title AS state')
+			->whereIn('state.id', [Pointer::$UnderStudyFromCouncil])
+			->get();
+			
+			
+			$oldrequests= DB::table('users')
+			->join('department', 'users.department_id', '=', 'department.id')
+			->join('request', 'request.user_id', '=', 'users.id')
+			->join('state', 'request.state_id', '=', 'state.id')
+			->select('request.id','request.title','request.price','request.created_at' ,'request.user_id' ,'department.department_name','state.title AS state')
+			->whereIn('state.id', [Pointer::$AcceptedFromCouncil , Pointer::$RejectedFromCouncil])
+			->get();
+			
+			
+		}else {
+		
+		// Show Users Request , it's show his department Only , All states ofcource
 		 $requests= DB::table('users')
 		->join('department', 'users.department_id', '=', 'department.id')
 		->join('request', 'request.user_id', '=', 'users.id')
 		->join('state', 'request.state_id', '=', 'state.id')
-		->select('request.id','request.title','request.price','request.created_at' ,'department.department_name','state.title AS state')
+		->select('request.id','request.title','request.price','request.created_at' ,'request.user_id' ,'department.department_name','state.title AS state')
 		->whereIn('state.id', [Pointer::$UnderStudy , Pointer::$UnderStudyFromCouncil])
 		->where('department.id',$UserDepartment)
 		->get();
+		 
 		
- 		return view('cpac.requests.requests', ['requests' => $requests]);
-	}
-	
-	
-	public function ShowAcceptedRequests(){
-		
-		$UserDepartment = Auth::user()->department_id;
-		
-		$requests= DB::table('users')
+		$oldrequests= DB::table('users')
 		->join('department', 'users.department_id', '=', 'department.id')
 		->join('request', 'request.user_id', '=', 'users.id')
 		->join('state', 'request.state_id', '=', 'state.id')
-		->select('request.id','request.title','request.price','request.created_at' ,'department.department_name','state.title AS state')
-		->whereIn('state.id', $this->GetIDs($UserDepartment))
+		->select('request.id','request.title','request.price','request.created_at' ,'request.user_id' ,'department.department_name','state.title AS state')
+		->whereIn('state.id', [Pointer::$Accepted , Pointer::$Rejected , Pointer::$AcceptedFromCouncil , Pointer::$RejectedFromCouncil])
 		->where('department.id',$UserDepartment)
 		->get();
 		
-		return view('cpac.requests.requests', ['requests' => $requests]);
+		}
+		
+		
+		
+ 		return view('cpac.requests.requests', ['requests' => $requests , 'oldrequests' => $oldrequests]);
 	}
 	
-	public function ShowRejectedRequests(){
-		
-		$UserDepartment = Auth::user()->department_id;
-		
-		 $requests= DB::table('users')
-		->join('department', 'users.department_id', '=', 'department.id')
-		->join('request', 'request.user_id', '=', 'users.id')
-		->join('state', 'request.state_id', '=', 'state.id')
-		->select('request.id','request.title','request.price','request.created_at' ,'department.department_name','state.title AS state')
-		->whereIn('state.id', [Pointer::$UnderStudy , Pointer::$UnderStudyFromCouncil])
-		->where('department.id',$UserDepartment)
-		->get();
-		
-		return view('cpac.requests.requests', ['requests' => $requests]);
-	}
 	
 	public function store(Request $request)
 	{
@@ -200,11 +237,7 @@ class RequestsController extends Controller
 		$request_->content			= $request->input('content');
 		$request_->user_id			= Auth::id();
 		$request_->price			= $request->input('price');
-		
-		if(is_null($request->input('price')))
 		$request_->state_id			= Pointer::$UnderStudy;
-			else
-		$request_->state_id			= Pointer::$UnderStudyFromCouncil;
 			
 		$request_->save();
 		

@@ -52,7 +52,6 @@
                                     </thead>
                                     <tbody>
                                     
-                                     	@if(count($requests) > 0)
                                      		@foreach($requests as $request)
                                         <tr class="odd gradeX">
                                         	<td>{{$request->id}}</td>
@@ -70,18 +69,28 @@
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<input type="hidden" type="text" name="id" value="{{$request->id}}">  
                          			<td>
+                         			<center>
                          			<button type="submit" class="btn btn-info">
                  					<i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> التفاصيل </button>
+                         			</center>
                  					
                          		</form> 
-                         		
-                                 <button class="btn btn-danger"   onclick="return confirm('تأكيد الحذف؟')">
+                         			<td>
+@if(Auth::user()->id === $request->user_id)
+                         		<center>
+                                <form  method="POST" action="{{ url('delete-request') }}">
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+								<input type="hidden" type="text" name="id" value="{{$request->id}}">  
+                                 <button class="btn btn-danger" >
                                  <i class="fa fa-trash-o" aria-hidden="true"> حذف الطلب</i></button>
-                                                        		</td>
+                 					
+                         		</form> 
+@endif
+                         		</center>
+                                     </td>
 											
                  @endforeach
                                         </tr>
-                                        @endif
                                     </tbody>
                                 </table>
                             </div>
@@ -101,13 +110,11 @@
                                             <th>نوع الطلب</th>
                                             <th>العنوان</th>
                                             <th>الحالة</th>
-                                            <th></th>
                                             </tr>
                                     </thead>
                                     <tbody>
                                     
-                                     	@if(count($requests) > 0)
-                                     		@foreach($requests as $request)
+                                     		@foreach($oldrequests as $request)
                                         <tr class="odd gradeX">
                                         	<td>{{$request->id}}</td>
                                         	<td>{{$request->created_at}}</td>
@@ -120,23 +127,20 @@
                                         	<td>{{$request->title}}</td>
                                         	<td>{{$request->state}}</td>
                                         	
-                                <form  method="POST" action="{{ url('details-request') }}">
+                                        	 <form  method="POST" action="{{ url('details-request') }}">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<input type="hidden" type="text" name="id" value="{{$request->id}}">  
                          			<td>
+                         			<center>
                          			<button type="submit" class="btn btn-info">
                  					<i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> التفاصيل </button>
-                 				
+                         			</center>
+                 					
                          		</form> 
-                                 <button class="btn btn-danger"   onclick="return confirm('تأكيد الحذف؟')">
-                                 <i class="fa fa-trash-o" aria-hidden="true"> حذف الطلب</i></button>
-    
-                                 </td>
                          		
 											
                  @endforeach
                                         </tr>
-                                        @endif
                                     </tbody>
                                 </table>
                                 </div>

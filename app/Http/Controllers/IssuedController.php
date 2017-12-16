@@ -25,6 +25,9 @@ class IssuedController extends Controller
 	
 	public function ShowArchive(){
 		
+		
+		if(Auth::user()->department_id !== Pointer::$Issued)
+			return redirect('/home');
 		$issued = Issued::all();
 		
 		return view('cpac.archive.archives', ['iss' =>$issued]);
@@ -32,7 +35,9 @@ class IssuedController extends Controller
 	
 	public function StoreIssued(Request $request)
 	{
-			
+		if(Auth::user()->department_id !== Pointer::$Issued)
+			return redirect('/home');
+		
 		if($request->isMethod('get')){
 			
 			return view('cpac.archive.new-archive');
@@ -76,6 +81,9 @@ class IssuedController extends Controller
 	public function DownloadFile(Request $Request){
 		
 		
+		if(Auth::user()->department_id !== Pointer::$Issued)
+			return redirect('/home');
+		
 		$entry = Issued::find($Request->input('id'));
 		$entry->file_path;
 		
@@ -97,6 +105,9 @@ class IssuedController extends Controller
 	}
 	
 	public function DeleteArchive(Request $Request){
+		
+		if(Auth::user()->department_id !== Pointer::$Issued)
+			return redirect('/home');
 		
 		$entry = Issued::find($Request->input('id'));
 		Storage::delete('/app/'.$entry->file_path);

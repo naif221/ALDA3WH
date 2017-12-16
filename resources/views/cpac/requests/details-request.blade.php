@@ -83,13 +83,13 @@
     <label class="col-sm-2 col-form-label">المحتوى</label>
     <div class="col-sm-10">
     <p>
-		{{$detail->content}}
+		{!! $detail->content !!}
 	<p>
     </div>
     </div>
 
 
-
+@if($detail->state_id == App\Pointer::$UnderStudy | $detail->state_id == App\Pointer::$UnderStudyFromCouncil )
 @if(Auth::user()->department_id == App\Pointer::$Manager | Auth::user()->department_id == App\Pointer::$Council)
 <form  method="POST" action="{{ url('request-accept') }}">
 <center>
@@ -165,7 +165,7 @@
 </div>
 
 @endif
-
+@endif
                         </div>
                         <!-- /.panel-body -->
                     </div>
