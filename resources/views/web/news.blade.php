@@ -1,17 +1,12 @@
-@include('web.navbar')
 
-
-
-
-
-
-      
+@include('web.navbar')      
 <div class="container">
 <ol class="breadcrumb" class="pull-right">
   <li><a href="Home">الرئسية</a></li>
   <li class="active">الأخبار</li>
 </ol>
 </div>
+
 @foreach($news as $indexKey => $n) 
 
     <div class="cat_h1">
@@ -24,18 +19,34 @@
     <i class="fa fa-calendar" aria-hidden="true" style="padding-right: 5px"></i>{{$n->created_at}}</p>
 
 <div id="myhide">
-								<form  method="get" action="news">
-								<input type="hidden" type="text" name="id" value="{{$n->id}}">  
-    							<p align="center">{!! str_limit($n->content , 250) !!}
-    							<button type="submit" style="color:blue">أقراء المزيد...</button>
-    							</p>
-                         		</form> 
+  <form  method="get" action="news">
+    <input type="hidden" name="{{$n->id}}">
+    <p align="center">{{ str_limit($n->content , 250) }}
+    <a href="news?id={{$n->id}}" style="color:blue">أقراء المزيد...</a>
+     </p>
+     </form>
 </div>
-
-
 </div>
 </div>
  @endforeach
+
+<center>
+{{$news->links()}}
+</center>
+
+<style>
+@media screen and (min-width: 0px) and (max-width: 768px) {
+    #myhide { display: none; }  /* show it on small screens */
+  }
+  .thumbnail{
+    max-height: 1800px;
+  }
+</style>
+
+
+@include('web.footer')
+
+
 
 
 
@@ -51,3 +62,5 @@
 
 
 @include('web.footer')
+
+
