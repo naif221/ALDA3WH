@@ -3,13 +3,6 @@
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<head><link href="{{ url('css/bootstrap-r.css') }}" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote-bs4.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote-bs4.js"></script>
-  </head>
 
 <div id="page-wrapper">
 
@@ -37,6 +30,14 @@
       <input type="text"  name="title" >
     </div>
   </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">الصورة الرئيسية للخبر</label>
+    <div class="col-sm-10">
+    <input type="file" name="file_path" >
+    </div>
+  </div>
+
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">المحتوى</label>
     <div class="col-sm-10">
