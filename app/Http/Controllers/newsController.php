@@ -15,11 +15,28 @@ class NewsController extends Controller
 	}
 	
 	
+	// Extrnal
+	public function ShowNewsForPublic(){
+		
+		$Posts = News::latest()->paginate(6);
+		
+		return view('web.news',['news' => $Posts]);
+	}
 	
 	
+	public function ShowPostDetail(Request $Request){
+		
+		$Posts = News::find($Request->input('id'));
+		
+		return view('web.show',['news' => $Posts]);
+	}
+	
+	
+	
+	// intrnal !!
 	public function ShowNews(){
 		
-		$Posts = News::all()->latest()->paginate(6);
+		$Posts = News::all();
 		
 		return view('cpac.media.media-news',['posts' => $Posts]);
 	}

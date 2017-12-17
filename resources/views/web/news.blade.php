@@ -24,17 +24,20 @@
     <i class="fa fa-calendar" aria-hidden="true" style="padding-right: 5px"></i>{{$n->created_at}}</p>
 
 <div id="myhide">
-    <p align="center">{{ str_limit($n->content , 250) }}<a href="news/{{$n->id}}" style="color:blue">أقراء المزيد...</a>
-
-</p>
+								<form  method="get" action="news">
+								<input type="hidden" type="text" name="id" value="{{$n->id}}">  
+    							<p align="center">{!! str_limit($n->content , 250) !!}
+    							<button type="submit" style="color:blue">أقراء المزيد...</button>
+    							</p>
+                         		</form> 
 </div>
+
+
 </div>
 </div>
  @endforeach
 
-<center>
-{{$news->links()}}
-</center>
+
 
 
 <style>

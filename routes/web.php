@@ -124,17 +124,15 @@ Route::post('/edit-book', 'LibraryController@UpdateBook');
 
 // Public Site library
 
-Route::get('/library', 'webController@ShowBooks');
+Route::get('/Library', 'webController@ShowBooks');
 Route::get('/Home','WebController@index');
-Route::get('/About', 'WebController@About')->name('web.about');
+Route::get('/About', 'WebController@About');
 
 Route::get('/',function (){
 	
 	return redirect('/Home');
 });
 
-
-Route::get('/news', 'NewsController@index');
 
 // Internal Section News
 Route::get('/media-news', 'NewsController@ShowNews');
@@ -145,6 +143,7 @@ Route::post('/new-news', 'NewsController@AddNews');
 Route::get('/edit-news', 'NewsController@EditPost');
 Route::post('/edit-news', 'NewsController@EditPost');
 
+Route::get('/more', 'NewsController@ShowNewsForPublic');
 
 
 
@@ -153,7 +152,8 @@ Route::post('/edit-news', 'NewsController@EditPost');
 // website 
 Route::get('/donate', 'WebController@donate')->name('web.donate');
 Route::get('/events', 'WebController@events')->name('web.events');
-Route::get('/news/{id}', 'NewsController@show');
+
+Route::get('/news', 'NewsController@ShowPostDetail');
 
 
 /*

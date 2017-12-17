@@ -16,14 +16,18 @@
 <b><h4 style="color:#bd720c;">{!! str_limit($n->title , 50 ) !!}<img  src="https://pbs.twimg.com/media/DQiDpZuXUAA_si2.jpg"  style="width:115px; "  align="right"> </h4></b>
 <p style="color:gray; font-size:10px;"><i class="fa fa-calendar" aria-hidden="true" style="padding-right: 5px"></i>{{$n->created_at}}</p>
 <div id="myhide">
-<p align="center">{!! str_limit($n->content , 250 ) !!}<a href="news/{{$n->id}}" style="color:blue">أقراء المزيد...</a>
 
-</p>
+								<form  method="get" action="news">
+								<input type="hidden" type="text" name="id" value="{{$n->id}}">  
+    							<p align="center">{!! str_limit($n->content , 250) !!}
+    							<button type="submit" style="color:blue">أقراء المزيد...</button>
+    							</p>
+                         		</form> 
 </div>
 </div>
 </div>
  @endforeach
-<a href="news" type="button" class="btn btn-info btn-block"> عرض المزيد <i class="fa fa-caret-down " aria-hidden="true"></i></a>
+<a href="more" type="button" class="btn btn-info btn-block"> عرض المزيد <i class="fa fa-caret-down " aria-hidden="true"></i></a>
     </div>
     <!-- /.panel-body -->
 </div>
