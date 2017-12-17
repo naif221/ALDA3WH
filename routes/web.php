@@ -145,23 +145,12 @@ Route::post('/edit-news', 'NewsController@EditPost');
 
 Route::get('/more', 'NewsController@ShowNewsForPublic');
 
-
-
-
-
 // website 
 Route::get('/donate', 'WebController@donate')->name('web.donate');
 Route::get('/events', 'WebController@events')->name('web.events');
 
 Route::get('/news', 'NewsController@ShowPostDetail');
 
-
-/*
-Route::get('/' , function () {
-   return view('web.home');
-
-});
-*/
 
 // Route::get('/profile', 'HomeController@profile');
 

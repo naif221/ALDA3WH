@@ -39,12 +39,13 @@
                                             <td>{{$post->title}}</td>
                                         	<td>
 
+
                  
-                                <form  method="POST" action="{{ url('details-request') }}">
+                                <form  method="get" action="news">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<input type="hidden" type="text" name="id" value="{{$post->id}}">  
-             							  <a  class="btn btn-info"   href="" >
-              						   <i class="glyphicon glyphicon-new-window" aria-hidden="true" ></i> عرض </a>
+             							  <button  class="btn btn-info"   >
+              						   <i class="glyphicon glyphicon-new-window" aria-hidden="true" ></i> عرض <button>
                          		</form> 
 									</td>                 
                  

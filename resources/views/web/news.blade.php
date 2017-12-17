@@ -8,7 +8,7 @@
       
 <div class="container">
 <ol class="breadcrumb" class="pull-right">
-  <li><a href="{{url('/')}}">الرئسية</a></li>
+  <li><a href="Home">الرئسية</a></li>
   <li class="active">الأخبار</li>
 </ol>
 </div>

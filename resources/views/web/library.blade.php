@@ -36,5 +36,6 @@
 
         </div>
 
+
 @include('web.footer')
 @include('cpac.style.footer')
