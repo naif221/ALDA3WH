@@ -110,7 +110,7 @@
 
 <style>
 .news-height {
-  max-height: 1800px; 
+  height: 710px; 
   
 }
 
@@ -147,10 +147,7 @@
         display: none; 
     }  
   
-  .thumbnail{
-
-    height: 1800px;
-  }
+  
 
 }
 </style>

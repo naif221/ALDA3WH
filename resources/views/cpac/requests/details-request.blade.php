@@ -97,21 +97,28 @@
 @if(Auth::user()->department_id == App\Pointer::$Manager | Auth::user()->department_id == App\Pointer::$Council)
 <form  method="POST" action="{{ url('request-accept') }}">
 <center>
+<table>
+<td>
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <input type="hidden" type="text" name="id" value="{{$detail->id}}">  
 <button  class="btn btn-success" > قبول <i class="fa fa-check-square-o" aria-hidden="true"></i></button>
 </form> 
-
+</td>
+<td>
 <form  method="POST" action="{{ url('request-reject') }}">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <input type="hidden" type="text" name="id" value="{{$detail->id}}">  
 <button  class="btn btn-danger" > رفض <i class="fa fa-times-circle" aria-hidden="true"></i></button>
 </form> 
+</td>
 @endif
 @if(Auth::user()->department_id == App\Pointer::$Manager)
+<td>
 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">تحويل
 <i class="fa fa-undo" aria-hidden="true"></i>
 </button>
+</td>
+</table>
 </center>
 
 

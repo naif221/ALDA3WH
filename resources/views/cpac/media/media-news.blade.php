@@ -28,6 +28,9 @@
                                             <th>بواسطة</th>
                                             <th>الخبر</th>
                                             <th></th>
+                                            <th></th> 
+                                            <th></th>
+                                            
                                             </tr>
                                     </thead>
                                     <tbody>
@@ -39,13 +42,11 @@
                                             <td>{{$post->title}}</td>
                                         	<td>
 
-
-                 
-                                <form  method="get" action="news">
+                                <form  method="get" action="{{ url('news') }}">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<input type="hidden" type="text" name="id" value="{{$post->id}}">  
-             							  <button  class="btn btn-info"   >
-              						   <i class="glyphicon glyphicon-new-window" aria-hidden="true" ></i> عرض <button>
+             							  <button  class="btn btn-info"  type="submit" >
+              						   <i class="glyphicon glyphicon-new-window" aria-hidden="true" ></i> عرض </button>
                          		</form> 
 									</td>                 
                  
@@ -59,9 +60,21 @@
                  					
                          		</form> 
                  
-                 
-
+                
                                             </td>
+
+                                            <td>
+                                 <form  method="get" action="{{ url('edit-news') }}">
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+								<input type="hidden" type="text" name="id" value="{{$post->id}}">  
+                					 <button class="btn btn-danger" type="submit">
+                                     <i class="fa fa-trash-o" aria-hidden="true"></i> حذف</button>
+                 					
+                         		</form> 
+                 
+                
+                                            </td>
+
                                         </tr>
 @endforeach
                                     </tbody>
