@@ -26,17 +26,19 @@ class IssuedController extends Controller
 	public function ShowArchive(){
 		
 		
-		if(Auth::user()->department_id !== Pointer::$Issued)
-			return redirect('/home');
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+			
 		$issued = Issued::all();
-		
 		return view('cpac.archive.archives', ['iss' =>$issued]);
+		
+		}else 
+			return redirect('/home');
 	}
 	
 	public function StoreIssued(Request $request)
 	{
-		if(Auth::user()->department_id !== Pointer::$Issued)
-			return redirect('/home');
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager)
+		{
 		
 		if($request->isMethod('get')){
 			
@@ -75,14 +77,16 @@ class IssuedController extends Controller
 			
 		}
 			return redirect('archives');
+			
+		} else 
+			return redirect('/home');
 	}
 	
 	
 	public function DownloadFile(Request $Request){
 		
 		
-		if(Auth::user()->department_id !== Pointer::$Issued)
-			return redirect('/home');
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
 		
 		$entry = Issued::find($Request->input('id'));
 		$entry->file_path;
@@ -102,19 +106,24 @@ class IssuedController extends Controller
 		
 		return response()->download();
 		
+			
+		}else 
+			return redirect('/home');
 	}
 	
 	public function DeleteArchive(Request $Request){
 		
-		if(Auth::user()->department_id !== Pointer::$Issued)
-			return redirect('/home');
-		
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
 		$entry = Issued::find($Request->input('id'));
 		Storage::delete('/app/'.$entry->file_path);
 		$entry->delete();
 		Storage::disk('local')->delete($entry->file_path);
 		
 		return redirect('archives');
+			
+		}else
+			return redirect('/home');
+		
 		
 	}
 }

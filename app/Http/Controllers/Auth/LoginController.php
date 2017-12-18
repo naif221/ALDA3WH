@@ -51,7 +51,7 @@ class LoginController extends Controller
     	
     	if (Auth::attempt($dataAttempt)){
     		
-    		return redirect()->intended('/requests');
+    		return redirect()->intended('/home');
     		
     	}else {
     		

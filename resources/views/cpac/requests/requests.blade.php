@@ -9,11 +9,11 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">الطلبات</h1>
 
-                    
+@if(Auth::user()->department_id !== App\Pointer::$Manager)
                     <a  class="btn btn-primary"   href="{{ url('new-request') }}" >
                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> طلب جديد</a>
 
-
+@endif
 <br>
 
                     <div class="panel panel-default">

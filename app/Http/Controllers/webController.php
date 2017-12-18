@@ -36,7 +36,22 @@ class WebController extends Controller
     	return view('web.donate');
     	
     }
-
+    
+    
+    // Extrnal
+    public function ShowNewsForPublic(){
+    	
+    	$Posts = News::latest()->paginate(6);
+    	
+    	return view('web.news',['news' => $Posts]);
+    }
+    
+    public function ShowPostDetail(Request $Request){
+    	
+    	$Posts = News::find($Request->input('id'));
+    	
+    	return view('web.show',['news' => $Posts]);
+    }
 
     public function ShowBooks(){
     	

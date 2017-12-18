@@ -204,37 +204,21 @@ class LibraryController extends Controller
 			
 	}
 	
-// 	public function DecreaseBookByOne(Request $request)
-// 	{
-// 		if(Auth::user()->department_id == 1){
-			
-// 			$this->validate($request, [
-// 					'barcode' 		=> 'required',
-// 			]);
-			
-// 			DB::table('books')->where('barcode', $request->input('barcode'))->decrement('in_stock', 1);
-			
-// 			return redirect('/library');
-			
-// 		}else
-// 			return redirect('/home');
-// 	}
 	
-// 	public function IncrementBookByOne(Request $request)
-// 	{
-// 		if(Auth::user()->department_id == 1){
+	public function DecreaseBookByOne($id)
+	{
+		
+		DB::table('books')->where('id', $id)->decrement('in_stock', 1);
+		return redirect('/books');
+	}
+	
+	public function IncrementBookByOne($id)
+	{
 			
-// 			$this->validate($request, [
-// 					'barcode' 		=> 'required',
-// 			]);
+			DB::table('books')->where('id', $id)->increment('in_stock', 1);
+			return redirect('/books');
 			
-// 			DB::table('books')->where('barcode', $request->input('barcode'))->increment('in_stock', 1);
-			
-// 			return redirect('/books');
-			
-// 		}else
-// 			return redirect('/home');
-// 	}
+	}
 	
 	public function ShowBooks(){
 		
