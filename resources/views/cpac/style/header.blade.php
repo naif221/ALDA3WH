@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title></title>
+    <title>مكتب الدعوة والإرشاد بعفيف</title>
 
    
     <link href="{{ url('css/bootstrap-r.min.css') }}" rel="stylesheet">
@@ -64,7 +64,7 @@
             </div>
             <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-left">
+            <ul class="nav navbar-top-links navbar-left" >
                 <li class="dropdown">
                     
                 <li class="dropdown">

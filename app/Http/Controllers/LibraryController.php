@@ -48,8 +48,8 @@ class LibraryController extends Controller
 	public function AddAuthor(Request $request)
 	{
 		
-		if(Auth::user()->department_id !== Pointer::$Library)
-			return redirect('/home');
+		if(!Auth::user()->department_id === Pointer::$Issued || !Auth::user()->department_id === Pointer::$Manager)
+		return redirect('/home');
 		
 		if($request->isMethod('get')){
 			
@@ -70,9 +70,11 @@ class LibraryController extends Controller
 	
 	public function AddLanguage(Request $request)
 	{
-		
-		if(Auth::user()->department_id !== Pointer::$Library)
+		if(!Auth::user()->department_id === Pointer::$Issued || !Auth::user()->department_id === Pointer::$Manager){
+			
 			return redirect('/home');
+		}
+			
 		
 		if ($request->isMethod('get')) {
 			
@@ -94,8 +96,10 @@ class LibraryController extends Controller
 
 	public function ShowLanguages(){
 		
-		if(Auth::user()->department_id !== Pointer::$Library)
+		if(!Auth::user()->department_id === Pointer::$Issued || !Auth::user()->department_id === Pointer::$Manager){
+			
 			return redirect('/home');
+		}
 		
 		$lang = Language::all()->load('books');
 		
@@ -105,8 +109,10 @@ class LibraryController extends Controller
 	public function AddBook(Request $request)
 	{
 
-		if(Auth::user()->department_id !== Pointer::$Library)
+		if(!Auth::user()->department_id === Pointer::$Issued || !Auth::user()->department_id === Pointer::$Manager){
+			
 			return redirect('/home');
+		}
 		
 		if ($request->isMethod('get')) {
 			
@@ -173,8 +179,8 @@ class LibraryController extends Controller
 	public function UpdateBook(Request $request)
 	{
 			
-		if(Auth::user()->department_id !== Pointer::$Library)
-			return redirect('/home');
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+			
 		
 		if($request->isMethod('get')){
 			$book = Books::find($request->input('id'));
@@ -202,54 +208,66 @@ class LibraryController extends Controller
 		}
 			return redirect('/books');
 			
+		}else 
+			return redirect('/home');
 	}
 	
 	
 	public function DecreaseBookByOne($id)
 	{
-		
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+			
 		DB::table('books')->where('id', $id)->decrement('in_stock', 1);
-		return redirect('/books');
+		}else 
+			return redirect('/books');
 	}
 	
 	public function IncrementBookByOne($id)
 	{
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
 			
 			DB::table('books')->where('id', $id)->increment('in_stock', 1);
+		}else 
 			return redirect('/books');
 			
 	}
 	
 	public function ShowBooks(){
 		
-		if(Auth::user()->department_id !== Pointer::$Library)
-			return redirect('/home');
-		
+
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+			
 		$books = Books::all();
 		
 		return view('cpac.library.books' , ['books' => $books]);
+		}else 
+			return redirect('/home');
+		
 	}
 	
 	public function ShowAuthors(){
-		if(Auth::user()->department_id !== Pointer::$Library)
-			return redirect('/home');
-		
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+			
 		$Author = Author::all();
 		
 		return view('cpac.library.author' , ['Author' => $Author]);
+		}else 
+			return redirect('/home');
+		
 	}
 	
 	
 	public function EditInStock(Request $Request){
-		
-		if(Auth::user()->department_id !== Pointer::$Library)
-			return redirect('/home');
-		
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
 		$Book = Books::find($Request->input('id'));
 		$Book->in_stock = $Request->input('in_stock');
 		$Book->save();
 		
 		return redirect('/books');
+			
+		}else 
+			return redirect('/home');
+		
 	}
 	
 	
