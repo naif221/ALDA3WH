@@ -9,7 +9,7 @@
 
 @foreach($news as $indexKey => $n) 
 
-    <div class="cat_h1">
+    <div class="cat_h">
 <div class="thumbnail post_n">
 
 <b>
