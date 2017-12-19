@@ -18,6 +18,7 @@ class CreateNewsTable extends Migration
         	$table->increments('id');
             $table->string('title', 200);
             $table->text('content');
+            $table->text('file_path')->nullable();
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

@@ -64,7 +64,7 @@
                                             </td>
 
                                             <td>
-                                 <form  method="get" action="{{ url('edit-news') }}">
+                                 <form  method="get" action="{{ url('delete-news') }}">
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<input type="hidden" type="text" name="id" value="{{$post->id}}">  
                 					 <button class="btn btn-danger" type="submit">

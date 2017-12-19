@@ -81,8 +81,6 @@
     </div>
     </div>
 
-
-
     <div class="form-group row">
     <label class="col-xs-2 col-form-label">المحتوى</label>
     <div class="col-xs-10">
@@ -156,12 +154,15 @@ function PrintMe(printthis) {
 </table>
 </center>
 
+<<<<<<< HEAD
 
 </div>
 </div>
 <!-- panel -->
 
 
+=======
+>>>>>>> c664855f6d5accb68ad8a3202f5f5c651eecb355
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -218,6 +219,7 @@ function PrintMe(printthis) {
                         </div>
                         <!-- /.col-lg-12" -->
                     </div>
+<<<<<<< HEAD
  <!-- /.row -->
 
 
@@ -226,6 +228,8 @@ function PrintMe(printthis) {
 
 
 
+=======
+>>>>>>> c664855f6d5accb68ad8a3202f5f5c651eecb355
 
                 </div>
                 <!-- /.page-wrapper -->

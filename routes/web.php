@@ -35,10 +35,9 @@ Route::get('/logout', function () {
 // Route::post('/updatebook', array( 'as' => 'updatebook', 'uses' => 'LibraryController@UpdateBook'));
 
 // To DecraseBookByOne .
-// Route::post('/decrasebook', array( 'as' => 'decrasebook', 'uses' => 'LibraryController@DecreaseBookByOne'));
-
-// // To IncrementBookByOne.
-// Route::post('/incrementbook', array( 'as' => 'incrementbook', 'uses' => 'LibraryController@IncrementBookByOne'));
+Route::get('/incrementbook/{id}', 'LibraryController@IncrementBookByOne');
+// To IncrementBookByOne.
+Route::get('/decrasebook/{id}', 'LibraryController@DecreaseBookByOne');
 
 
 // To Store Issued.
@@ -122,11 +121,14 @@ Route::post('/edit-book', 'LibraryController@UpdateBook');
 
 
 
-// Public Site library
+// Public Site.
 
-Route::get('/Library', 'webController@ShowBooks');
+Route::get('/Library', 'WebController@ShowBooks');
 Route::get('/Home','WebController@index');
 Route::get('/About', 'WebController@About');
+Route::get('/news', 'WebController@ShowPostDetail');
+Route::get('/more', 'WebController@ShowNewsForPublic');
+
 
 Route::get('/',function (){
 	
@@ -138,18 +140,17 @@ Route::get('/',function (){
 Route::get('/media-news', 'NewsController@ShowNews');
 Route::get('/new-news', 'NewsController@AddNews');
 Route::post('/new-news', 'NewsController@AddNews');
+Route::get('/delete-news', 'NewsController@DeleteNews');
 
 
 Route::get('/edit-news', 'NewsController@EditPost');
 Route::post('/edit-news', 'NewsController@EditPost');
 
-Route::get('/more', 'NewsController@ShowNewsForPublic');
 
 // website 
 Route::get('/donate', 'WebController@donate')->name('web.donate');
 Route::get('/events', 'WebController@events')->name('web.events');
 
-Route::get('/news', 'NewsController@ShowPostDetail');
 
 
  Route::get('/profile', 'HomeController@profile');

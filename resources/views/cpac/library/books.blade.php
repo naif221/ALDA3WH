@@ -5,14 +5,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">المكتبة</h1>
-
-                    
                     <a  class="btn btn-primary"   href="new-book" >
                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> اضافة كتاب جديد </a>
-
-
 <br>
-
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             الكتب
@@ -49,14 +44,15 @@
                                             
 <div class="input-group add-minus">
           <span class="input-group-btn">
-              <button type="button" class="form-control btn btn-danger btn-number"  onclick="return confirm('هل تريد خصم كتاب واحد من المخزون؟')" >
+          
+              <a type="button"  href="{{ url('decrasebook/'.$book->id) }}" class="form-control btn btn-danger btn-number" action="" onclick="return confirm('هل تريد خصم كتاب واحد من المخزون؟')" >
                 <span class="glyphicon glyphicon-minus"><b> 1</b></span>
-              </button>
+              </a>
           </span>
           <span class="input-group-btn">
-              <button type="button"  class="form-control btn btn-success btn-number"  onclick="return confirm('هل تريد اضافة كتاب واحد للمخزون؟')" >
+              <a type="button"   href="{{ url('incrementbook/'.$book->id) }}"  class="form-control btn btn-success btn-number"  onclick="return confirm('هل تريد اضافة كتاب واحد للمخزون؟')" >
                   <span class="glyphicon glyphicon-plus"><b> 1</b></span>
-              </button>
+              </a>
           </span>
          
       </div>
