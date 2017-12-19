@@ -11,27 +11,27 @@
                
                     <h3 class="page-header">الرئيسية</h3>
                    
-                <h4> مرحبا بك</h4>
+                <h4>مرحبا بك يا {{Auth::user()->name}}</h4>
 
                 
                    <br>
                    <hr>
                    
-                   <div class="alert alert-success alert-dismissible" id="myAlert">
-    <a class="close">&times;</a>
+<!--                    <div class="alert alert-success alert-dismissible" id="myAlert"> -->
+<!--     <a class="close">&times;</a> -->
 
-    <strong>Success!</strong> This alert box could indicate a successful or positive action.
+<!--     <strong>Success!</strong> This alert box could indicate a successful or positive action. -->
 
-  </div>
+<!--   </div> -->
 
 
 
-  <div class="alert alert-danger alert-dismissible" id="myAlert">
-    <a class="close">&times;</a>
+<!--   <div class="alert alert-danger alert-dismissible" id="myAlert"> -->
+<!--     <a class="close">&times;</a> -->
 
-    <strong>Success!</strong> This alert box could indicate a successful or positive action.
+<!--     <strong>Success!</strong> This alert box could indicate a successful or positive action. -->
     
-  </div>
+<!--   </div> -->
 
 
 

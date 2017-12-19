@@ -81,8 +81,6 @@
     </div>
     </div>
 
-
-
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">المحتوى</label>
     <div class="col-sm-10">
@@ -120,9 +118,6 @@
 </td>
 </table>
 </center>
-
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -180,14 +175,6 @@
                         </div>
                         <!-- /.panel-body -->
                     </div>
-
-
-
-
-
-
-
-
 
                 </div>
                 <!-- /.col-lg-12 -->

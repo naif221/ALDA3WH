@@ -42,14 +42,19 @@
                     </div>
                     <div class="panel-body">
                    		    <form  method="POST" action="{{ route('login') }}">
-                    
 								<fieldset>
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <div class="form-group">
                                     <input class="form-control" placeholder="اسم المستخدم" name="email" type="email" autofocus>
+                                
+                                @if ($errors->has('email'))
+                                        <strong colore ="">{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="كلمة المرور" name="password" type="password" value="">
+
                                 </div>
                                 <div class="checkbox">
                                     <label>

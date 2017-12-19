@@ -140,6 +140,7 @@ Route::get('/',function (){
 Route::get('/media-news', 'NewsController@ShowNews');
 Route::get('/new-news', 'NewsController@AddNews');
 Route::post('/new-news', 'NewsController@AddNews');
+Route::get('/delete-news', 'NewsController@DeleteNews');
 
 
 Route::get('/edit-news', 'NewsController@EditPost');

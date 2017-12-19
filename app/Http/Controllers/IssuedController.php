@@ -117,7 +117,7 @@ class IssuedController extends Controller
 		$entry = Issued::find($Request->input('id'));
 		Storage::delete('/app/'.$entry->file_path);
 		$entry->delete();
-		Storage::disk('local')->delete($entry->file_path);
+ 		Storage::disk('local')->delete($entry->file_path);
 		
 		return redirect('archives');
 			

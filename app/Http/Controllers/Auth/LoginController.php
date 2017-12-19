@@ -53,10 +53,6 @@ class LoginController extends Controller
     		
     		return redirect()->intended('/home');
     		
-    	}else {
-    		
-   			return 'Not Loged in !';
-    		
     	}
 			    	
 
