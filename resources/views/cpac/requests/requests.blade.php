@@ -1,8 +1,6 @@
 @include('cpac/style/header')
 @include('cpac/style/slider')
 
-<script src="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/af-2.2.0/b-1.3.1/b-colvis-1.3.1/b-flash-1.3.1/b-html5-1.3.1/b-print-1.3.1/cr-1.3.3/fc-3.2.2/fh-3.1.2/kt-2.2.1/r-2.1.1/rg-1.0.0/rr-1.2.0/sc-1.4.2/se-1.2.2/datatables.js"></script>
-
 
 <div id="page-wrapper">
             <div class="row">
@@ -38,7 +36,7 @@
 
     <br>
     <div class="table-responsive">
-                                <table class="display table table-striped table-bordered" >
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example" >
                                     <thead>
                                         <tr>
                                             <th>رقم الطلب</th>
@@ -102,7 +100,7 @@
     
     <br>
     <div class="table-responsive">
-    <table class="display table table-striped table-bordered" >
+    <table class="table table-striped table-bordered table-hover" id="dataTables-example2" >
                                     <thead>
                                         <tr>
                                             <th>رقم الطلب</th>

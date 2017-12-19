@@ -152,7 +152,7 @@ Route::get('/events', 'WebController@events')->name('web.events');
 Route::get('/news', 'NewsController@ShowPostDetail');
 
 
-// Route::get('/profile', 'HomeController@profile');
+ Route::get('/profile', 'HomeController@profile');
 
  
 Route::get('/media' , function () {

@@ -16,15 +16,13 @@
     <script src="{{ ('js/jquery/jquery.dataTables.min.js') }}"></script>
     <script src="{{ ('js/bootstrap/dataTables.bootstrap.min.js') }}"></script>
     <script src="{{ ('js/bootstrap/dataTables.bootstrap.js') }}"></script>
+    
 
     <!-- Custom Theme JavaScript -->
     <script src="{{ ('js/sb-admin-2.js') }}"></script>
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
-   
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
     <script src="{{ ('js/dataTables.responsive.js') }}"></script>
-
-
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 
     <script>
         $(document).ready(function() {

@@ -6,7 +6,7 @@
 
 <div id="page-wrapper">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 ">
                 <br>
                 
 <a  class="btn btn-default" onclick="goBack()"> <i class="fa fa-chevron-right" aria-hidden="true"></i> رجوع</a>
@@ -23,39 +23,39 @@
                             تفاصيل الطلب
                         </div>
                         <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            
-
-
+                        <div class="panel-body" id="printthis">
+  
     <div class="form-group row">
-    <label class="col-sm-2 col-form-label">رقم الطلب</label>
-    <div class="col-sm-2">
+    <label class="col-xs-2 col-form-label">رقم الطلب</label>
+    <div class="col-xs-2">
     <p>{{$detail->id}}<p>
     </div>
-    <label class="col-sm-2 col-form-label">الحالة</label>
-    <div class="col-sm-2">
+    </td>
+    <td>
+    <label class="col-xs-2 col-form-label">الحالة</label>
+    <div class="col-xs-2">
     <p>{{$detail->state->title}}<p>
     </div>
     </div>
 
     <div class="form-group row">
-    <label class="col-sm-2 col-form-label">مقدم الطلب</label>
-    <div class="col-sm-2">
+    <label class="col-xs-2 col-form-label">مقدم الطلب</label>
+    <div class="col-xs-2">
     <p>{{$detail->user->name}}<p>
     </div>
-    <label class="col-sm-2 col-form-label">القسم</label>
-    <div class="col-sm-2">
+    <label class="col-xs-2 col-form-label">القسم</label>
+    <div class="col-xs-2">
     <p>{{$detail->user->department->department_name}}<p>
     </div>
-    <label class="col-sm-2 col-form-label">الوقت و التاريخ</label>
-    <div class="col-sm-2">
+    <label class="col-xs-2 col-form-label">الوقت و التاريخ</label>
+    <div class="col-xs-2">
     <p>{{$detail->created_at}}<p>
     </div>
     </div>
 
 
     <div class="form-group row">
-    <label class="col-sm-2 col-form-label">نوع الطلب</label>
+    <label class="col-xs-2 col-form-label">نوع الطلب</label>
     <div class="col-sm-2">
     @if(is_null($detail->price))
     
@@ -65,8 +65,8 @@
     <p>طلب مالي<p>
     </div>
 
-    <label class="col-sm-2 col-form-label">القيمة</label>
-    <div class="col-sm-2">
+    <label class="col-xs-2 col-form-label">القيمة</label>
+    <div class="col-xs-2">
     <p>{{$detail->price}}<p>
     @endif
     </div>
@@ -75,8 +75,8 @@
 <hr>
 <br>
     <div class="form-group row">
-    <label class="col-sm-2 col-form-label">العنوان</label>
-    <div class="col-sm-2">
+    <label class="col-xs-2 col-form-label">العنوان</label>
+    <div class="col-xs-2">
     <p>{{$detail->title}}<p>
     </div>
     </div>
@@ -84,20 +84,48 @@
 
 
     <div class="form-group row">
-    <label class="col-sm-2 col-form-label">المحتوى</label>
-    <div class="col-sm-10">
+    <label class="col-xs-2 col-form-label">المحتوى</label>
+    <div class="col-xs-10">
     <p>
 		{!! $detail->content !!}
 	<p>
     </div>
     </div>
 
+</div>
+
+<script language="javascript">
+function PrintMe(printthis) {
+
+  var divElements = document.getElementById(printthis).innerHTML;
+            //Get the HTML of whole page
+            var oldPage = document.body.innerHTML;
+
+            //Reset the page's HTML with div's HTML only
+            document.body.innerHTML = 
+              " <style media='print'>@page {size: auto;margin: 20px 20px 20px 20px;}</style><html><head><title></title></head><body> <center><img src=images/logo1.png ></center><br><br>" + 
+              divElements + "<img style='position: absolute; left: 0; bottom: 0;' src='images/.png'  ></body>";
+
+            //Print Page
+            window.print();
+
+           
+            document.body.innerHTML = oldPage;
+            document.title = "الطلبات"; 
+            
+            
+        }
+
+</script>
+
 
 @if($detail->state_id == App\Pointer::$UnderStudy | $detail->state_id == App\Pointer::$UnderStudyFromCouncil )
 @if(Auth::user()->department_id == App\Pointer::$Manager | Auth::user()->department_id == App\Pointer::$Council)
 <form  method="POST" action="{{ url('request-accept') }}">
 <center>
+
 <table>
+
 <td>
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <input type="hidden" type="text" name="id" value="{{$detail->id}}">  
@@ -111,17 +139,27 @@
 <button  class="btn btn-danger" > رفض <i class="fa fa-times-circle" aria-hidden="true"></i></button>
 </form> 
 </td>
+
 @endif
 @if(Auth::user()->department_id == App\Pointer::$Manager)
+
 <td>
-<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">تحويل
-<i class="fa fa-undo" aria-hidden="true"></i>
+<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">تحويل <i class="fa fa-undo" aria-hidden="true"></i>
 </button>
 </td>
+<td>
+<button  class="btn btn-info" onclick="javascript:PrintMe('printthis')"/>طباعة <i class="fa fa-print" aria-hidden="true"></i></button>
+</td>
+
+
+
 </table>
 </center>
 
 
+</div>
+</div>
+<!-- panel -->
 
 
 <!-- Modal -->
@@ -178,9 +216,9 @@
 @endif
 @endif
                         </div>
-                        <!-- /.panel-body -->
+                        <!-- /.col-lg-12" -->
                     </div>
-
+ <!-- /.row -->
 
 
 
@@ -190,11 +228,8 @@
 
 
                 </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-        </div>
-
+                <!-- /.page-wrapper -->
+        
 
 @endforeach
 @include('cpac/style/footer')
