@@ -216,9 +216,9 @@ class LibraryController extends Controller
 	public function DecreaseBookByOne($id)
 	{
 		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
-			
 		DB::table('books')->where('id', $id)->decrement('in_stock', 1);
-		}else 
+		}
+		
 			return redirect('/books');
 	}
 	
@@ -227,7 +227,7 @@ class LibraryController extends Controller
 		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
 			
 			DB::table('books')->where('id', $id)->increment('in_stock', 1);
-		}else 
+		}
 			return redirect('/books');
 			
 	}

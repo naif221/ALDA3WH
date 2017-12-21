@@ -99,11 +99,9 @@ class NewsController extends Controller
 	public function DeleteNews(Request $Request){
 		
 		if($Request->isMethod('get')){
-			
 			$post = News::find($Request->input('id'));
-			if($post->file_path !== 'public/imgs/a.png'){
-				Storage::delete('/app/'.$post->file_path);
-				Storage::disk('local')->delete($post->file_path);
+			if($post->file_path !== asset('storage/news_logo/default.png')){
+				unlink(str_replace(asset(''),"",$post->file_path));
 			}
 			$post->delete();
 			return redirect('media-news');
