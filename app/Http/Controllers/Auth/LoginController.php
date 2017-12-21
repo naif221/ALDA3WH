@@ -53,6 +53,9 @@ class LoginController extends Controller
     		
     		return redirect()->intended('/home');
     		
+    	}else {
+    		return 'Error!';
+    		
     	}
 			    	
 
