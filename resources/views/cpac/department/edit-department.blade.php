@@ -3,6 +3,15 @@
 
 <div id="page-wrapper">
             <div class="row">
+            
+            
+@if($errors->has('department_name'))
+
+@include('cpac.style.error' , ['Error' => "اسم القسم يجب الا يكون خالي."])		
+	
+@endif
+
+
                 <div class="col-lg-12">
                     <h1 class="page-header">الاقسام</h1>
 

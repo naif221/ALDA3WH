@@ -23,7 +23,16 @@
 
                     <h1 class="page-header">الطلبات</h1>
 
-                    
+@if($errors->has('title'))
+
+@include('cpac.style.error' , ['Error' => "يجب الا يكون عنوان الطلب فارغ."])		
+	
+@endif  
+@if($errors->has('content'))
+
+@include('cpac.style.error' , ['Error' => "يجب الا يكون محتوى الطلب فارغ."])		
+	
+@endif                    
                     <div class="panel panel-default">
                         <div class="panel-heading">
                           طلب جديد
