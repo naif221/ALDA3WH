@@ -194,6 +194,24 @@ class HomeController extends Controller
     	return view('cpac.profile' , ['users' => $users]);
     	
     }
+    
+    public function DeleteDepartment($id){
+    	
+    	if( $id != Pointer::$Media   &&
+    	    $id != Pointer::$Jalyat  &&
+    		$id != Pointer::$Council &&
+    		$id != Pointer::$Library &&
+    		$id != Pointer::$Manager &&
+    		$id != Pointer::$Issued	 &&
+    		$id != Pointer::$Services){
+    		
+    	$dep = Department::find($id);
+    	$dep->delete();
+    	return redirect('department')->with('success','تم حذف هذا القسم بنجاح.');
+    	}else {
+    		return redirect('department')->with('error','لا يمكنك حذف هذا القسم.');
+    	}
+    }
 	
 
 }

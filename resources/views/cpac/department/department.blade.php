@@ -8,6 +8,12 @@
 
 @include('cpac.style.success', ['success' => session('success')])
 @endif
+
+@if(session('error'))
+
+@include('cpac.style.error', ['Error' => session('error')])
+@endif
+
                 <div class="col-lg-12">
                     <h1 class="page-header">الاقسام</h1>
 

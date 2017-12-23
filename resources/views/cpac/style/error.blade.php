@@ -2,7 +2,7 @@
 
     <a class="close">&times;</a>
 
-    <strong>*</strong> {{$Error}}
+    <strong>⦁</strong> {{$Error}}
 
   </div>
 
