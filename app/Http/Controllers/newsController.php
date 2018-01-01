@@ -49,12 +49,12 @@ class NewsController extends Controller
 				// Upload Image
 // 				 $path = $Request->file('file_path')->storeAs('/imgs', $fileNameToStore);
 // 				Storage::put('/public/storage/imgs/', $fileNameToStore);
-				$path = Storage::putFile('photos', new File($Request->file('file_path')) , 'public');
+				$path = Storage::putFile('public/news_logo', new File($Request->file('file_path')) , 'public');
 // 				 '/public/storage/imgs/'.$fileNameToStore;
+			 	$path = str_replace("public","storage",$path);
 			}else {
-				$path = '/imgs/a.png';
+				$path = 'storage/news_logo/default.png';
 			}
-			
 			
 			
 			$post 			= new News();
@@ -99,11 +99,9 @@ class NewsController extends Controller
 	public function DeleteNews(Request $Request){
 		
 		if($Request->isMethod('get')){
-			
 			$post = News::find($Request->input('id'));
-			if($post->file_path !== 'public/imgs/a.png'){
-				Storage::delete('/app/'.$post->file_path);
-				Storage::disk('local')->delete($post->file_path);
+			if($post->file_path !== asset('storage/news_logo/default.png')){
+				unlink(str_replace(asset(''),"",$post->file_path));
 			}
 			$post->delete();
 			return redirect('media-news');

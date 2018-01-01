@@ -64,7 +64,7 @@ class LibraryController extends Controller
 		$author->name = $request->input('name');
 		$author->save();
 		}
-		return redirect('/author');
+		return redirect('/author')->with('success','تم أضافة المؤلف بنجاح.');
 		
 	}
 	
@@ -89,7 +89,7 @@ class LibraryController extends Controller
 			$lang->language = $request->input('language');
 			$lang->save();
 			
-			return redirect('/languages');
+			return redirect('/languages')->with('success','تم اضافة اللغة بنجاح');
 		}
 		
 	}
@@ -172,7 +172,7 @@ class LibraryController extends Controller
 			}
 
 		}
-			return redirect('/books');
+			return redirect('/books')->with('success','تم اضافة الكتاب بنجاح.');
 			
 	}
 	
@@ -206,7 +206,7 @@ class LibraryController extends Controller
 			$Book->save();
 			
 		}
-			return redirect('/books');
+			return redirect('/books')->with('success','تم تعديل الكتاب بنجاح.');
 			
 		}else 
 			return redirect('/home');
@@ -216,10 +216,10 @@ class LibraryController extends Controller
 	public function DecreaseBookByOne($id)
 	{
 		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
-			
 		DB::table('books')->where('id', $id)->decrement('in_stock', 1);
-		}else 
-			return redirect('/books');
+		}
+		
+		return redirect('/books')->with('success','تم الخصم من الكتاب بنجاح.');
 	}
 	
 	public function IncrementBookByOne($id)
@@ -227,9 +227,9 @@ class LibraryController extends Controller
 		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
 			
 			DB::table('books')->where('id', $id)->increment('in_stock', 1);
-		}else 
-			return redirect('/books');
-			
+		}
+		return redirect('/books')->with('success','تم زيادة عدد الكتاب بنجاح.');
+		
 	}
 	
 	public function ShowBooks(){
@@ -263,8 +263,8 @@ class LibraryController extends Controller
 		$Book->in_stock = $Request->input('in_stock');
 		$Book->save();
 		
-		return redirect('/books');
-			
+		return redirect('/books')->with('success','تم تعديل عدد الكتب بنجاح.');
+		
 		}else 
 			return redirect('/home');
 		

@@ -13,7 +13,32 @@
 
                     <h1 class="page-header">المكتبة</h1>
 
-                    
+@if($errors->has('name'))
+
+@include('cpac.style.error' , ['Error' => "يجب ان لا يكون حقل اسم الكتاب فارغ."])		
+	
+@endif
+@if($errors->has('author_id'))
+
+@include('cpac.style.error' , ['Error' => "يجب ان لا يكون حقل المولف فارغ."])		
+	
+@endif
+@if($errors->has('author'))
+
+@include('cpac.style.error' , ['Error' => "يجب ان لا يكون حقل المولف فارغ."])		
+	
+@endif
+@if($errors->has('language_id'))
+
+@include('cpac.style.error' , ['Error' => "يجب الا يكون حقل اللغة فارغ."])		
+	
+@endif 
+@if($errors->has('in_stock'))
+
+@include('cpac.style.error' , ['Error' => "يجب ان لا يكون حقل العدد المتوفر فارغ."])		
+	
+@endif 
+        
                     <div class="panel panel-default">
                         <div class="panel-heading">
 تعديل بيانات كتاب                         </div>

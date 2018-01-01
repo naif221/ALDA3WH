@@ -11,6 +11,12 @@
                 
 <a  class="btn btn-default" onclick="goBack()"> <i class="fa fa-chevron-right" aria-hidden="true"></i> رجوع</a>
 
+
+@if($errors->has('language'))
+
+@include('cpac.style.error' , ['Error' => "يجب ان لا يكون حقل اللغة فارغ."])		
+	
+@endif
                     <h1 class="page-header">المكتبة</h1>
 
                     

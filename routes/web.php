@@ -83,6 +83,8 @@ Route::post('/edit-department', 'HomeController@EditDepartment');
 Route::get('/new-department', 'HomeController@GetNewDepartmentPage');
 Route::post('/new-department', 'HomeController@AddDepartment');
 
+Route::get('/delete-department/{id}', 'HomeController@DeleteDepartment');
+
 
 
 // Archive Section

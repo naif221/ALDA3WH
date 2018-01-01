@@ -3,6 +3,15 @@
 
 <div id="page-wrapper">
             <div class="row">
+            
+            
+@if($errors->has('department_name'))
+
+@include('cpac.style.error' , ['Error' => "اسم القسم يجب الا يكون خالي."])		
+	
+@endif
+
+
                 <div class="col-lg-12">
                     <h1 class="page-header">الاقسام</h1>
 
@@ -39,7 +48,7 @@
 <button  class="btn btn-muted" onclick="goBack()"> الغاء <i class="fa fa-ban" aria-hidden="true"></i></button>
 <br>
 <br>
-<button  class="btn btn-danger" onclick="return confirm('تأكيد الحذف؟')" > حذف القسم <i class="fa fa-trash" aria-hidden="true"></i></button>
+<a  class="btn btn-danger" href ="{{url('delete-department/'.$Dep->id) }}" onclick="return confirm('تأكيد الحذف؟')" > حذف القسم <i class="fa fa-trash" aria-hidden="true"></i></a>
 
 
 

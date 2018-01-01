@@ -120,12 +120,12 @@ class RequestsController extends Controller
 		}else if(Auth::user()->department_id == Pointer::$Council){
 			$request->state_id = Pointer::$AcceptedFromCouncil;
 		}else {
-			return redirect('/');
+			return redirect('/home');
 		}
 		
 
 			$request->save();
-		return redirect('/requests');
+		return redirect('/requests')->with('success','تم قبول الطلب بنجاح.');
 		
 	}
 	
@@ -137,12 +137,12 @@ class RequestsController extends Controller
 		}else if(Auth::user()->department_id == Pointer::$Council){
 			$request->state_id = Pointer::$AcceptedFromCouncil;
 		}else {
-			return redirect('/');
+			return redirect('/home');
 		}
 		
 		
 		$request->save();
-		return redirect('/requests');
+		return redirect('/requests')->with('success','تم رفض الطلب بنجاح.');
 		
 		
 	}
@@ -241,7 +241,7 @@ class RequestsController extends Controller
 			
 		$request_->save();
 		
-		return redirect('/requests');
+		return redirect('/requests')->with('success','تم رفع الطلب بنجاح.');
 		
 	}
 	

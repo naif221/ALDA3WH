@@ -80,7 +80,7 @@ class HomeController extends Controller
     	$user->password		= bcrypt($Request->input('password'));
     	$user->save();
     	
-    	return redirect('employees');
+    	return redirect('employees')->with('success','تم تعديل بيانات الموظف بنجاح.');
     }
     
     public function AddEmployee(Request $Request){
@@ -104,7 +104,7 @@ class HomeController extends Controller
     	$user->password		= bcrypt($Request->input('password'));
     	$user->save();
     	
-    	return redirect('employees');
+    	return redirect('employees')->with('success','ثم اضافة الموظف بنجاح.');
     }
     
     public function GetDepartments(){
@@ -157,7 +157,7 @@ class HomeController extends Controller
     	
     	$Departments->save();
     	
-    	return redirect('department');
+    	return redirect('department')->with('success','تم تعديل القسم');
     }
 
     public function GetNewDepartmentPage(){
@@ -183,7 +183,7 @@ class HomeController extends Controller
     	$Departments->description 		= $Request->input('description');
     	$Departments->save();
     	
-    	return redirect('department');
+    	return redirect('department')->with('success','تم أضافة القسم');
     	
     }
     
@@ -193,6 +193,24 @@ class HomeController extends Controller
 		$users = User::all();
     	return view('cpac.profile' , ['users' => $users]);
     	
+    }
+    
+    public function DeleteDepartment($id){
+    	
+    	if( $id != Pointer::$Media   &&
+    	    $id != Pointer::$Jalyat  &&
+    		$id != Pointer::$Council &&
+    		$id != Pointer::$Library &&
+    		$id != Pointer::$Manager &&
+    		$id != Pointer::$Issued	 &&
+    		$id != Pointer::$Services){
+    		
+    	$dep = Department::find($id);
+    	$dep->delete();
+    	return redirect('department')->with('success','تم حذف هذا القسم بنجاح.');
+    	}else {
+    		return redirect('department')->with('error','لا يمكنك حذف هذا القسم.');
+    	}
     }
 	
 

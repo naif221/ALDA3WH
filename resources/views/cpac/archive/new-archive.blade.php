@@ -2,7 +2,6 @@
 @include('cpac/style/slider')
 
 
-
 <div id="page-wrapper">
 
             <div class="row">
@@ -10,6 +9,20 @@
                 <br>
                 
 <a  class="btn btn-default" onclick="goBack()"> <i class="fa fa-chevron-right" aria-hidden="true"></i> رجوع</a>
+
+</br>
+</br>
+@if($errors->has('title'))
+
+@include('cpac.style.error' , ['Error' => "يجب أن لا يكون عنوان الملف فارغ."])		
+	
+@endif
+@if($errors->has('file_path'))
+
+@include('cpac.style.error' , ['Error' => "يجب أن ترفق ملف."])		
+	
+@endif
+
 
                     <h1 class="page-header">الصادر</h1>
 
@@ -27,8 +40,10 @@
     <label class="col-sm-2 col-form-label">العنوان</label>
     <div class="col-sm-10">
       <input type="text"  name="title" >
+
     </div>
   </div>
+  
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">المحتوى</label>
     <div class="col-sm-10">

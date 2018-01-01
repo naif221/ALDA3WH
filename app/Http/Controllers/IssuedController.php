@@ -73,6 +73,7 @@ class IssuedController extends Controller
 			$iss->user_id		= Auth::user()->id;
 			$iss->file_path		= $path;
 			$iss->save();
+			return redirect('archives')->with('success','تم بنجاح اضافة المستند');
 			
 			
 		}
@@ -119,8 +120,8 @@ class IssuedController extends Controller
 		$entry->delete();
  		Storage::disk('local')->delete($entry->file_path);
 		
-		return redirect('archives');
-			
+ 		return redirect('archives')->with('success','تم بنجاح حذف المستند');
+ 		
 		}else
 			return redirect('/home');
 		

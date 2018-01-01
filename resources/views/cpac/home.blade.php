@@ -20,27 +20,6 @@
                 
                    <br>
                    <hr>
-                   
-<!--                    <div class="alert alert-success alert-dismissible" id="myAlert"> -->
-<!--     <a class="close">&times;</a> -->
-
-<!--     <strong>Success!</strong> This alert box could indicate a successful or positive action. -->
-
-<!--   </div> -->
-
-
-
-<!--   <div class="alert alert-danger alert-dismissible" id="myAlert"> -->
-<!--     <a class="close">&times;</a> -->
-
-<!--     <strong>Success!</strong> This alert box could indicate a successful or positive action. -->
-    
-<!--   </div> -->
-
-
-
-
-
 
 </div>
 

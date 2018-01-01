@@ -69,8 +69,14 @@
     <div class="cat_h">
 <div class="thumbnail post_n">
   
+<<<<<<< HEAD
 <b>
 <a href="news?id={{$n->id}}" ><h4 style="color:#bd720c;"><img  src="https://pbs.twimg.com/media/DQiDpZuXUAA_si2.jpg"  style="width:115px; "  align="right"> {!! $n->title !!}</h4></b></a>
+=======
+<b><h4 style="color:#bd720c;">{!! str_limit($n->title , 50 ) !!}<img height="42" width="42" src="{{$n->file_path}}"  style="width:115px; "  align="right"> </h4></b>
+<b><h4 style="color:#bd720c;">{!! $n->title !!}<img  src="{{$n->file_path}}"  style="width:115px; "  align="right"> </h4></b>
+
+>>>>>>> 1fbf06fdee89e867888ee0302d6932d4f7bbc94c
 <p style="color:gray; font-size:10px;"><i class="fa fa-calendar" aria-hidden="true" style="padding-right: 5px"></i>{{$n->created_at}}</p>
 <div id="myhide">
     <p align="center" >{!! str_limit($n->content , 250 ) !!}<a href="news?id={{$n->id}}" style="color:blue">أقراء المزيد...</a>

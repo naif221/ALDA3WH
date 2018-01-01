@@ -4,13 +4,38 @@
 <div id="page-wrapper">
 
             <div class="row">
+
                 <div class="col-lg-12">
                 <br>
                 
 <a  class="btn btn-default" onclick="goBack()"> <i class="fa fa-chevron-right" aria-hidden="true"></i> رجوع</a>
 
                     <h1 class="page-header">الموظفين</h1>
+@if($errors->has('name'))
 
+@include('cpac.style.error' , ['Error' => "يجب ان لا يكون اسم الموظف فارغ."])		
+	
+@endif
+@if($errors->has('phone'))
+
+@include('cpac.style.error' , ['Error' => "يجب الا يحتوي رقم الهاتف احرف او مسافات او ان يكون اكثر من 10 ارقام"])		
+	
+@endif            
+@if($errors->has('email'))
+
+@include('cpac.style.error' , ['Error' => "يجب ادخال البريد الالكتروني بشكل صحيح."])		
+	
+@endif  
+@if($errors->has('password'))
+
+@include('cpac.style.error' , ['Error' => "تأكد من كلمة المرور"])		
+	
+@endif  
+@if($errors->has('department_id'))
+
+@include('cpac.style.error' , ['Error' => "توجد مشكلة في القسم."])		
+	
+@endif  
                     
                     <div class="panel panel-default">
                         <div class="panel-heading">
