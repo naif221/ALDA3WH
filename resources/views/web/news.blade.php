@@ -21,7 +21,7 @@
 <div id="myhide">
   <form  method="get" action="news">
     <input type="hidden" name="{{$n->id}}">
-    <p align="center">{!! str_limit($n->content , 250) !!}
+    <p align="center">{!! str_limit($n->content , 150) !!}
     <a href="news?id={{$n->id}}" style="color:blue">أقراء المزيد...</a>
      </p>
      </form>

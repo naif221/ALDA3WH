@@ -64,22 +64,16 @@
     <!-- /.panel-heading -->
     <div class="panel-body news-height" >
 
-@foreach($home->take(6) as $n) 
+@foreach($home->take(4) as $n) 
 
     <div class="cat_h">
 <div class="thumbnail post_n">
   
-<<<<<<< HEAD
 <b>
-<a href="news?id={{$n->id}}" ><h4 style="color:#bd720c;"><img  src="https://pbs.twimg.com/media/DQiDpZuXUAA_si2.jpg"  style="width:115px; "  align="right"> {!! $n->title !!}</h4></b></a>
-=======
-<b><h4 style="color:#bd720c;">{!! str_limit($n->title , 50 ) !!}<img height="42" width="42" src="{{$n->file_path}}"  style="width:115px; "  align="right"> </h4></b>
-<b><h4 style="color:#bd720c;">{!! $n->title !!}<img  src="{{$n->file_path}}"  style="width:115px; "  align="right"> </h4></b>
-
->>>>>>> 1fbf06fdee89e867888ee0302d6932d4f7bbc94c
+<a href="news?id={{$n->id}}" ><h4 style="color:#bd720c;"><img  src="https://pbs.twimg.com/media/DQiDpZuXUAA_si2.jpg"  style="width:130px; "  align="right"> {!! $n->title !!}</h4></b></a>
 <p style="color:gray; font-size:10px;"><i class="fa fa-calendar" aria-hidden="true" style="padding-right: 5px"></i>{{$n->created_at}}</p>
 <div id="myhide">
-    <p align="center" >{!! str_limit($n->content , 250 ) !!}<a href="news?id={{$n->id}}" style="color:blue">أقراء المزيد...</a>
+    <p align="center" >{!! str_limit($n->content , 150 ) !!}<a href="news?id={{$n->id}}" style="color:blue">أقراء المزيد...</a>
 
 </p>
 </div>
@@ -143,7 +137,9 @@
     <!-- /.panel-heading -->
     <div class="panel-body bank-height" >
         <div class="table-responsive">
-        <div style="text-align: center;"><b><br>نسعد بتلقي تبرعاتكم المالية عبر الحسابات التالية</b></div><div style="text-align: center;"><b><br></b></div><div style="text-align: center;"><b><br></b></div><div style="text-align: center;"><b>&nbsp;- البنك الراجحي -</b></div><div style="text-align: center;"><b><br></b></div><div style="text-align: center;"><img src="https://www.saudi-banks.info/image/image_gallery?uuid=3c1cb702-30a2-4dec-984c-ebaddc96d549&amp;groupId=18&amp;t=1324122579749" style="width: 105.866px; height: 52.1189px; float: none;">&nbsp; رقم الحساب: 1326080010234004</div><div style="text-align: center;"><br></div><div style="text-align: center;"><br></div><div style="text-align: center;"><b>- البنك الاهلي -&nbsp;</b></div><div style="text-align: center;"><b><br></b><img src="https://www.saudi-banks.info/image/image_gallery?uuid=7b706786-195a-4cde-83cb-ae2ffa01d847&amp;groupId=18&amp;t=1440502406353" style="width: 109.043px; height: 53.6825px; float: none;">&nbsp; &nbsp; &nbsp;رقم الحساب: 39261275000110</div><div style="text-align: center;"><br></div><h6 style="text-align: center;"></h6><br><br>
+        <div style="text-align: center;"><b><br>نسعد بتلقي تبرعاتكم المالية عبر الحسابات التالية</b><div style="text-align: center;"><b><br></b></div><div style="text-align: center;"><b style="background-color: rgb(255, 255, 255);"><br></b></div><div style="text-align: center;"><b style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 255);">&nbsp;- البنك الراجحي -</b></div><div style="text-align: center;"><b style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 255);"><br></b></div><div style="text-align: center;"><span style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 255);"><span style="width: 105.866px; height: 52.1189px;"><img src="https://www.saudi-banks.info/image/image_gallery?uuid=3c1cb702-30a2-4dec-984c-ebaddc96d549&amp;groupId=18&amp;t=1324122579749" style="width: 105.866px; height: 52.1189px; float: none;"></span>&nbsp; رقم الحساب: 1326080010234004</span></div><div style="text-align: center;"><br></div><div style="text-align: center;"><br></div><div style="text-align: center;"><b style="color: rgb(107, 165, 74);">- البنك الاهلي -&nbsp;</b></div><div style="text-align: center;"><span style="color: rgb(107, 165, 74);"><b style=""><br></b><span style="width: 109.043px; height: 53.6825px;"><img src="https://www.saudi-banks.info/image/image_gallery?uuid=7b706786-195a-4cde-83cb-ae2ffa01d847&amp;groupId=18&amp;t=1440502406353" style="width: 109.043px; height: 53.6825px; float: none;"></span>&nbsp; &nbsp; &nbsp;رقم الحساب: 39261275000110</span></div><div style="text-align: center;"><br></div><h6 style="text-align: center;"></h6><br><br>
+
+      </div>
 
         </div>
         <!-- /.table-responsive -->
@@ -209,7 +205,7 @@
   
   .thumbnail{
 
-    height: 110px;
+    height: 115px;
   }
 
 }
