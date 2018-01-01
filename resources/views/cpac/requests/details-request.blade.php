@@ -56,7 +56,7 @@
 
     <div class="form-group row">
     <label class="col-xs-2 col-form-label">نوع الطلب</label>
-    <div class="col-sm-2">
+    <div class="col-xs-2">
     @if(is_null($detail->price))
     
     <p>طلب عادي<p>
@@ -145,6 +145,10 @@ function PrintMe(printthis) {
 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">تحويل <i class="fa fa-undo" aria-hidden="true"></i>
 </button>
 </td>
+
+@endif
+@endif
+<center>
 <td>
 <button  class="btn btn-info" onclick="javascript:PrintMe('printthis')"/>طباعة <i class="fa fa-print" aria-hidden="true"></i></button>
 </td>
@@ -154,15 +158,12 @@ function PrintMe(printthis) {
 </table>
 </center>
 
-<<<<<<< HEAD
 
 </div>
 </div>
 <!-- panel -->
 
 
-=======
->>>>>>> c664855f6d5accb68ad8a3202f5f5c651eecb355
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -214,12 +215,9 @@ function PrintMe(printthis) {
   </div>
 </div>
 
-@endif
-@endif
                         </div>
                         <!-- /.col-lg-12" -->
                     </div>
-<<<<<<< HEAD
  <!-- /.row -->
 
 
@@ -228,8 +226,6 @@ function PrintMe(printthis) {
 
 
 
-=======
->>>>>>> c664855f6d5accb68ad8a3202f5f5c651eecb355
 
                 </div>
                 <!-- /.page-wrapper -->

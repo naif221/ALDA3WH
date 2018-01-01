@@ -27,16 +27,16 @@ body {
     color: #4099FF;
 }
 
-.fa-facebook {
-    color: #3B5998;
+.fa-instagram {
+    color: #FE2E9A;
 }
 
 .fa-youtube-play {
     color: #e52d27;
 }
 
-.fa-rss {
-    color: #FF6600;
+.fa-whatsapp {
+    color: #00FF00;
 }
 
 .fa-vine {
@@ -73,13 +73,20 @@ body {
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
     <div class="footer">
+    
       <div class="asas">
+      
 	         <h4></h4>
-              <a href=''><i class="fa fa-facebook fa-2x fa-fw"></i></a>
+              <a href=''><i class="fa fa-instagram fa-2x fa-fw"></i></a>
               <a href=''><i class="fa fa-twitter fa-2x fa-fw"></i></a>
-              <a href=''><i class="fa fa-linkedin fa-2x fa-fw"></i></a>
+              <a href=''><i class="fa fa-youtube-play fa-2x fa-fw"></i></a>
+             
             </span>
-			<h6>&copy;  <?php echo date('Y'); ?></h6>
+            <h6>
+            المكتب التعاوني للدعوة و الارشاد بمحافظة عفيف
+            <br>
+        <br>
+            &copy;  <?php echo date('Y'); ?> </h6>
 			
       </div>
     </div>

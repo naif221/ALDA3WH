@@ -21,34 +21,38 @@
                         <div class="panel-body">
 
 
-                        {!! Form::open(['url' => '' , 'method' => 'POST']) !!}
+                        
+{!! Form::open(['url' => 'profile' , 'method' => 'POST']) !!}
 
                         <div class="form-group row">
     <label class="col-sm-2 col-form-label">الاسم</label>
     <div class="col-sm-10">
-      <input type="text"  name="name" value="">
+      <input type="text"  name="name" value="{{Auth::user()->name}}" >
     </div>
   </div>    
+
+
+<input type="hidden" type="text" name="id" value="{{Auth::user()->هي}}">  
 
 
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">رقم الجوال</label>
     <div class="col-sm-10">
-      <input type="text"  name="phone" value="" >
+      <input type="text"  name="phone" value="{{Auth::user()->phone}}" >
     </div>
   </div>  
 
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">البريد الالكتروني</label>
     <div class="col-sm-10">
-      <input type="email"  name="email" value="" >
+      <input type="email"  name="email" value="{{Auth::user()->email}}">
     </div>
   </div>
 
   <div class="form-group row">
     <label class="col-sm-2 col-form-label" >كلمة المرور </label>
     <div class="col-sm-10">
-  <input type="password"  id="password" required>
+  <input type="password" name="password"  id="password" required >
   
   <button type="button" id="TogglePassword" class="btn btn-default btn-xs"><i class="glyphicon glyphicon-eye-close"></i> 
    
@@ -64,14 +68,14 @@
   
     </div>
   </div>  
-  
+
     
   
 
 <center>
-
-<button  class="btn btn-success" type="submit" > حفظ <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+<button  class="btn btn-info" type="submit" > حفظ <i class="fa fa-user-plus" aria-hidden="true"></i></button>
 <button  class="btn btn-muted" onclick="goBack()"> الغاء <i class="fa fa-ban" aria-hidden="true"></i></button>
+<!--   </form> -->
 {!! Form::close() !!}
 
 </center>

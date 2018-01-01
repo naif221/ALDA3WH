@@ -13,7 +13,7 @@
 <div class="thumbnail post_n">
 
 <b>
-<h4 style="color:#bd720c;">{!! str_limit($n->title , 50) !!}<img  src="https://pbs.twimg.com/media/DQiDpZuXUAA_si2.jpg"  style="width:115px; "  align="right"> </h4>
+<a href="news?id={{$n->id}}" ><h4 style="color:#bd720c;">{!! str_limit($n->title , 50) !!}<img  src="https://pbs.twimg.com/media/DQiDpZuXUAA_si2.jpg"  style="width:115px; "  align="right"> </h4></a>
 </b>
 <p style="color:gray; font-size:10px;">
     <i class="fa fa-calendar" aria-hidden="true" style="padding-right: 5px"></i>{{$n->created_at}}</p>
@@ -56,7 +56,7 @@
     #myhide { display: none; }  /* show it on small screens */
   }
   .thumbnail{
-    max-height: 1800px;
+    height: 110px;
   }
 </style>
 

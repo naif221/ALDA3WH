@@ -11,7 +11,11 @@
                
                     <h3 class="page-header">الرئيسية</h3>
                    
-                <h4>مرحبا بك يا {{Auth::user()->name}}</h4>
+                <h4>مرحبا بك يا {{Auth::user()->name}}
+                
+                <br>
+                القسم :  {{Auth::user()->department_id}}
+                </h4>
 
                 
                    <br>

@@ -1,6 +1,12 @@
 * {
     font-family: 'Cairo', sans-serif;
     }
+    body {
+        background-image: url("https://www.islamic-ef.org/sites/all/themes/alhamra/images/hamraback.jpg");
+        background-repeat: repeat-x;
+    }
+
+   
  .art_n{
  	margin-right: 70px;
     margin-top: 0px;
@@ -37,44 +43,67 @@ background: #b07529;
 .front3 {
 
     border-radius: 100px;
-    margin-right: 22px;
+   
     margin-bottom: 23px;
     background-color: #e9e9e9;
     height: 40px;
     margin-top: 20px;
-    width: 1130px;
-}
-.front31{
-
-    background-image: url("../images/n2.jpg");
-    float: left;
-    height: 40px;
-    width: 20px;
+    
 
 }
-.front32{
-    float: left;
-    height: 40px;
-    width: 1030px;
-}
-.front33{
-    background-image: url("../images/n.jpg");
-    float: left;
-    height: 40px;
-    width: 80px;
-}
+
+
+
 .s2 {
-    background-image: url("../images/n3.jpg");
+    background-image: url("../images/logo-small.png");
     background-position: 0 0;
     background-repeat: no-repeat;
     color: black;
     display: inline-block;
-    height: 28px;
+    height: 40px;
+    width: 60px;
     margin-left: 40px;
     margin-right: 40px;
-    margin-top: 6px;
-    padding-left: 100px;
+    margin-top: 10px;
+    padding-left: 436px;
 }
+
+
+.front33{
+    background-image: url("../images/n.jpg");
+    float: right;
+    width: 80px;
+    height: 40px;
+    margin-top: -40px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+   
+    .front33{
+        background-image: url("../images/n.jpg");
+        float: right;
+        width: 80px;
+        height: 40px;
+        margin-right: 0px;
+        margin-top: -40px;
+    }
+    
+   .s2 {
+    background-image: url("../images/logo-small.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    color: black;
+    display: inline-block;
+    height: 40px;
+    width: 60px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 10px;
+    padding-left: 436px;
+}
+   
+   }
+
 .front42 {
 
     background-color: white;

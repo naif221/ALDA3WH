@@ -51,9 +51,6 @@ body {
     color: #6441A5;
 }
 
-.fa-linkedin {
-    color: #007bb6;
-}
 
 .fa {
     opacity: 0.7;
@@ -81,9 +78,10 @@ function deleted() {
     <div class="footer">
       <div class="asas">
 	         <h4></h4>
-              <a href=''><i class="fa fa-facebook fa-2x fa-fw"></i></a>
+              <a href=''><i class="fa fa-instagram fa-2x fa-fw"></i></a>
               <a href=''><i class="fa fa-twitter fa-2x fa-fw"></i></a>
-              <a href=''><i class="fa fa-linkedin fa-2x fa-fw"></i></a>
+              <a href=''><i class="fa fa-twitter fa-2x fa-fw"></i></a>
+              
             </span>
 			<h6>&copy;  <?php echo date('Y'); ?></h6>
 			
