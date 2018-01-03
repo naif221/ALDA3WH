@@ -35,7 +35,7 @@ body {
     color: #e52d27;
 }
 
-.fa-whatsapp {
+.fa-whatapp {
     color: #00FF00;
 }
 
@@ -80,6 +80,7 @@ body {
               <a href=''><i class="fa fa-instagram fa-2x fa-fw"></i></a>
               <a href=''><i class="fa fa-twitter fa-2x fa-fw"></i></a>
               <a href=''><i class="fa fa-youtube-play fa-2x fa-fw"></i></a>
+             
              
             </span>
             <h6>

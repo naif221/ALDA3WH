@@ -1,11 +1,11 @@
 
 @include('web.navbar')      
-<div class="container">
+
 <ol class="breadcrumb" class="pull-right">
   <li><a href="Home">الرئسية</a></li>
   <li class="active">الأخبار</li>
 </ol>
-</div>
+
 
 @foreach($news as $indexKey => $n) 
 
@@ -21,8 +21,7 @@
 <div id="myhide">
   <form  method="get" action="news">
     <input type="hidden" name="{{$n->id}}">
-    <p align="center">{!! str_limit($n->content , 150) !!}
-    <a href="news?id={{$n->id}}" style="color:blue">أقراء المزيد...</a>
+    <p >{!! str_limit($n->content , 150) !!}<a href="news?id={{$n->id}}" style="color:blue">أقراء المزيد...</a>
      </p>
      </form>
 </div>

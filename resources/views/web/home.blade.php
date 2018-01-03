@@ -41,21 +41,18 @@
       
 
 <div class="front3">
-    <div class="front31">
-      
-    </div> 
-    <div class="front32">
-      <marquee width="100%" height="34px" id="last_feed" class="" behavior="scroll" direction="right" scrolldelay="70" scrollamount="7" align="top" onmouseover="this.setAttribute('scrollamount', 1, 0);" onmouseout="this.setAttribute('scrollamount', 3, 0);">
+    
+      <marquee width="100%" height="34px"  behavior="scroll" direction="right" scrolldelay="100" scrollamount="5" align="top" onmouseover="this.setAttribute('scrollamount', 1, 0);" onmouseout="this.setAttribute('scrollamount', 3, 0);">
         @foreach($home->take(6) as $n)  
-    <a href="news?id={{$n->id}}" class="s2">{{ $n->title }}</a>
+    <a href="news?id={{$n->id}}" class="s2">{{ $n->title }}</a><img src="images/logo-small.png" style=" margin: -5px 8px 0px 8px;">
  @endforeach
   </marquee>
 
 
 </div> 
-    <a class="front33"></a> 
+  <a class="front33"></a> 
 </div>
-</div>
+
 <div class="col-lg-8 col-md-8 col-sm-8">
 <div class="panel panel-default">
     <div class="panel-heading">
