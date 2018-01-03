@@ -143,15 +143,15 @@ Route::get('/media-news', 'NewsController@ShowNews');
 Route::get('/new-news', 'NewsController@AddNews');
 Route::post('/new-news', 'NewsController@AddNews');
 Route::get('/delete-news', 'NewsController@DeleteNews');
-
-
+Route::get('/banner', 'NewsController@banner');
+Route::get('/events', 'NewsController@events');
+Route::get('/muslims', 'NewsController@muslims');
 Route::get('/edit-news', 'NewsController@EditPost');
 Route::post('/edit-news', 'NewsController@EditPost');
 
 
 // website 
-Route::get('/donate', 'WebController@donate')->name('web.donate');
-Route::get('/events', 'WebController@events')->name('web.events');
+Route::get('/islam', 'WebController@islam')->name('web.islam');
 
 
 

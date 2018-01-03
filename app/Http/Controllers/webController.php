@@ -31,9 +31,9 @@ class WebController extends Controller
     	return view('web.library');
     	
     }
-    public function donate() {
+    public function islam() {
 
-    	return view('web.donate');
+    	return view('web.islam');
     	
     }
     

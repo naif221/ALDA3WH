@@ -25,44 +25,71 @@
                                             </tr>
                                     </thead>
                                     <tbody>
-                                    
-                                        <tr class="odd gradeX">
+                                    <tr class="odd gradeX">
                                         	
                                             <td>1</td>
-                                        	<td>فعاليات المكتب</td>
-
+                                        	<td>البنرات في الصفحة الرئيسية</td>
+                                            
                                         	<td>
-                 <a  class="btn btn-info"   href="" >
+                 <a  class="btn btn-info"   href="home" >
                  <i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> عرض </a>
-                 <a class="btn btn-warning" href="edit-news">
+                 <a class="btn btn-warning" href="banner">
                  <i class="fa fa-pencil-square-o " aria-hidden="true"></i> تعديل</a>
                                             </td>
                                         </tr>
-
                                         <tr class="odd gradeX">
                                         	
                                             <td>2</td>
-                                        	<td>تبرع للمكتب</td>
-                                            
-                                        	<td>
-                 <a  class="btn btn-info"   href="" >
-                 <i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> عرض </a>
-                 <a class="btn btn-warning" href="edit-news">
-                 <i class="fa fa-pencil-square-o " aria-hidden="true"></i> تعديل</a>
-                                            </td>
-                                        </tr>
-                                        <tr class="odd gradeX">
-                                        	
-                                            <td>3</td>
                                         	<td>عن المكتب و اعمالة</td>
                                             
                                         	<td>
-                 <a  class="btn btn-info"   href="" >
+                 <a  class="btn btn-info"   href="home" >
                  <i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> عرض </a>
                  <a class="btn btn-warning" href="edit-media">
                  <i class="fa fa-pencil-square-o " aria-hidden="true"></i> تعديل</a>
                                             </td>
                                         </tr>
+                                       
+                                        <td>2</td>
+                                        	<td>عدد المسلمين الجدد</td>
+                                            
+                                        	<td>
+                 <a  class="btn btn-info"   href="home" >
+                 <i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> عرض </a>
+                 <a class="btn btn-warning" href="muslims">
+                 <i class="fa fa-pencil-square-o " aria-hidden="true"></i> تعديل</a>
+                                            </td>
+                                        </tr>
+
+                                       
+                                        <tr class="odd gradeX">
+                                        	
+                                            <td>3</td>
+                                        	<td>تبرع للمكتب</td>
+                                            
+                                        	<td>
+                 <a  class="btn btn-info"   href="home" >
+                 <i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> عرض </a>
+                 <a class="btn btn-warning" href="edit-news">
+                 <i class="fa fa-pencil-square-o " aria-hidden="true"></i> تعديل</a>
+                                            </td>
+                                        </tr>
+                                       
+                                        <tr class="odd gradeX">
+                                        	
+                                            <td>4</td>
+                                        	<td>فعاليات المكتب</td>
+
+                                        	<td>
+                 <a  class="btn btn-info"   href="home" >
+                 <i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> عرض </a>
+                 <a class="btn btn-warning" href="events">
+                 <i class="fa fa-pencil-square-o " aria-hidden="true"></i> تعديل</a>
+                                            </td>
+                                        </tr>
+
+                                       
+                                        
                                       
                                       
                                     </tbody>

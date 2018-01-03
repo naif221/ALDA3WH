@@ -22,6 +22,31 @@ class NewsController extends Controller
 		return view('cpac.media.media-news',['posts' => $Posts]);
 	}
 	
+
+
+	public function banner() {
+		
+		
+		return view('cpac.media.banner');
+	}
+
+	
+	public function events() {
+		
+		
+		return view('cpac.media.events');
+	}
+	
+
+	public function muslims() {
+		
+		
+		return view('cpac.media.muslims');
+	}
+	
+
+
+
 	public function AddNews(Request $Request){
 		
 		if($Request->isMethod('get')){

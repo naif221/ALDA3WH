@@ -1,29 +1,34 @@
 @include('web.navbar')
 
-
 <div id="myCarousel" class="carousel slide" data-ride="carousel"  >
   <!-- Indicators -->
-  <ol class="carousel-indicators" style="max-height:300px;" >
+  <ol class="carousel-indicators" style="max-height:400px;" >
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
     <li data-target="#myCarousel" data-slide-to="1"></li>
     <li data-target="#myCarousel" data-slide-to="2"></li>
   </ol>
 
   <!-- Wrapper for slides -->
-  <div class="carousel-inner " style="max-height:300px;  border-style: solid;
+  <div class="carousel-inner " style="max-height:400px;  border-style: solid;
     border-width: 5px;  border-color: #cc7a0a; border-top: none;">
+    
     <div class="item active" >
-      <img src="https://pbs.twimg.com/media/DR1CGXiX0AIUSDu.jpg" >
+    <a href="images/im1.png">
+      <img src="images/im1.png" >
     </div>
+</a>
+<div class="item" >
+  
+<a href="images/im1.png">
+  <img src="images/im1.png" >
+</div>
+</a>
 
-    <div class="item">
-      <img src="https://pbs.twimg.com/media/DRY1Kf6WsAAVhbw.jpg" >
-    </div>
-
-    <div class="item">
-      <img src="https://pbs.twimg.com/media/DRY1Kf6WsAAVhbw.jpg" >
-    </div>
-  </div>
+<div class="item" >
+<a href="images/im1.png">
+  <img src="images/im1.png" >
+</div>
+</a>
 
   <!-- Left and right controls -->
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -53,7 +58,47 @@
   <a class="front33"></a> 
 </div>
 
-<div class="col-lg-8 col-md-8 col-sm-8">
+<script type="text/javascript">
+</script>
+
+<div class="ico" style="margin-bottom:40px;">
+<div class="thumbnail-img col-lg-4 col-md-4 col-sm-4" >
+<p style="margin-bottom:0px; margin-top:30px; max-width:100%;"> 
+<center>
+<span class="fa fa-group fa-3x"></span>
+<br>
+<span id="count" style=" color: #000000; font-size:20px;">200</span>
+<br>
+<span style="color:#000000;" > المسلمين الجدد منذ بداية هذا العام </span>
+</center>
+</p>
+</div>
+<a href="https://www.youtube.com/channel/UC9hpW8CcpL2dKptiQR8Go2Q">
+<div class="thumbnail-img col-lg-4 col-md-4 col-sm-4">
+<p style="margin-bottom:10px; margin-top:30px; max-width:100%;"> 
+<center>
+<span class="fa fa-youtube-play fa-5x fa-fw"></span>
+<br>
+<span style="color:#000000;">قناة المكتب على اليوتيوب</span>
+</center>
+</p>
+</div>
+</a>
+<a href="islam">
+<div class="thumbnail-img col-lg-4 col-md-4 col-sm-4">
+<p style="margin-bottom:10px; margin-top:30px; max-width:100%;"> 
+<center>
+<img src="images/hand.png" style="margin-bottom: 5px;">
+<br>
+<span style="color:#000000;"> لديك شخص تريد دعوته للأسلام؟</span>
+</center>
+</p>
+</div>
+</a>
+</div>
+
+
+<div class="col-lg-8 col-md-8 col-sm-12">
 <div class="panel panel-default">
     <div class="panel-heading">
        اخبار المكتب
@@ -87,7 +132,7 @@
 
 
 
-<div class="col-lg-4 col-md-4 col-sm-4">
+<div class="col-lg-4 col-md-4 col-sm-12">
 <div class="panel panel-primary">
     <div class="panel-heading">
        Twitter <b>@afifdh</b>
@@ -106,7 +151,7 @@
 
 
 
-<div class="col-lg-4 col-md-4 col-sm-4">
+<div class="col-lg-4 col-md-4 col-sm-12">
 <div class="panel panel-default">
     <div class="panel-heading">
      الموقع و اوقات العمل
@@ -126,7 +171,7 @@
 </div>
 </div>
 
-<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="col-lg-6 col-md-6 col-sm-12">
 <div class="panel panel-default">
     <div class="panel-heading">
      <b>الحسابات البنكية</b>
@@ -145,7 +190,7 @@
 </div>
 </div>
 
-<div class="col-lg-6 col-md-6 col-sm-6">
+<div class="col-lg-6 col-md-6 col-sm-12">
 <div class="panel panel-default">
     <div class="panel-heading">
       المحاضرات القادمة
@@ -154,7 +199,7 @@
     <div class="panel-body rosa-height">
         
 <div class="thumbnail-img">
-        <img style="max-width:100%;" src="https://pbs.twimg.com/media/DQiDpZuXUAA_si2.jpg" />
+        <img style="max-width:100%; " src="https://pbs.twimg.com/media/DQiDpZuXUAA_si2.jpg" />
     </div>
     </div>
     <!-- /.panel-body -->
@@ -207,4 +252,6 @@
 
 }
 </style>
+
+
 @include('web.footer')

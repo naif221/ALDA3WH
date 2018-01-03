@@ -32,7 +32,7 @@ body {
 }
 
 .fa-youtube-play {
-    color: #e52d27;
+    color: #fc0505;
 }
 
 .fa-whatapp {
@@ -78,8 +78,8 @@ body {
       
 	         <h4></h4>
               <a href=''><i class="fa fa-instagram fa-2x fa-fw"></i></a>
-              <a href=''><i class="fa fa-twitter fa-2x fa-fw"></i></a>
-              <a href=''><i class="fa fa-youtube-play fa-2x fa-fw"></i></a>
+              <a href="https://twitter.com/afifdh"><i class="fa fa-twitter fa-2x fa-fw"></i></a>
+              <a href="https://www.youtube.com/channel/UC9hpW8CcpL2dKptiQR8Go2Q"><i class="fa fa-youtube-play fa-2x fa-fw"></i></a>
              
              
             </span>

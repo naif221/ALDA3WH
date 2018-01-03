@@ -2,11 +2,24 @@
     font-family: 'Cairo', sans-serif;
     }
     body {
-        background-image: url("../images/background.png");
+        background-image: url("../images/hamraback.jpg");
         background-repeat: repeat-x;
+
     }
 
-   
+  
+.fa-youtube-play {
+    color: #cf0909;
+} 
+
+.fa-group {
+
+    color: #044e61
+}
+.fa-hand-pointer-o {
+
+    color: #000000
+}
  .art_n{
  	margin-right: 70px;
     margin-top: 0px;
@@ -14,6 +27,7 @@
     border-radius: 4px;
     margin-bottom: 50px;
  }
+ 
  .art_s{
  	margin-right: 40px;
     margin-top: 20px;
@@ -66,32 +80,9 @@ background: #b07529;
 
 
 .front33{
-    background-image: url("../images/n.jpg");
+    background-image: url("../images/n1.png");
     float: right;
     width: 80px;
     height: 40px;
     margin-top: -63px;
 }
-
-@media screen and (min-width: 0px) and (max-width: 768px) {
-   
-    .front33{
-        background-image: url("../images/n.jpg");
-        float: right;
-        width: 80px;
-        height: 40px;
-        margin-right: 0px;
-        margin-top: -63px;
-    }
-    
-   .s2 {
-   
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    color: black;
-    display: inline-block;
-    height: 40px;
-    margin-top: 10px;
-}
-   
-   }
