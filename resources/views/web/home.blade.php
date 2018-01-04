@@ -41,7 +41,7 @@
   </a>
 </div>
 
-
+</div>
 <div class="col-lg-12 ">
       
 
@@ -58,24 +58,26 @@
   <a class="front33"></a> 
 </div>
 
-<script type="text/javascript">
-</script>
 
-<div class="ico" style="margin-bottom:40px;">
+
 <div class="thumbnail-img col-lg-4 col-md-4 col-sm-4" >
-<p style="margin-bottom:0px; margin-top:30px; max-width:100%;"> 
+<div class="col_fourth" >
+<p style=" margin-top:-20px; max-width:100%;"> 
 <center>
 <span class="fa fa-group fa-3x"></span>
 <br>
-<span id="count" style=" color: #000000; font-size:20px;">200</span>
+<span id="count" style=" color: #000000; font-size:25px;">200</span>
 <br>
 <span style="color:#000000;" > المسلمين الجدد منذ بداية هذا العام </span>
 </center>
 </p>
 </div>
+</div>
+
 <a href="https://www.youtube.com/channel/UC9hpW8CcpL2dKptiQR8Go2Q">
 <div class="thumbnail-img col-lg-4 col-md-4 col-sm-4">
-<p style="margin-bottom:10px; margin-top:30px; max-width:100%;"> 
+<div class="col_fourth" >
+<p style=" margin-top:-20px; max-width:100%;"> 
 <center>
 <span class="fa fa-youtube-play fa-5x fa-fw"></span>
 <br>
@@ -83,10 +85,13 @@
 </center>
 </p>
 </div>
+</div>
 </a>
+
 <a href="islam">
-<div class="thumbnail-img col-lg-4 col-md-4 col-sm-4">
-<p style="margin-bottom:10px; margin-top:30px; max-width:100%;"> 
+<div class="thumbnail-img col-lg-4 col-md-4 col-sm-4 ">
+<div class="col_fourth" >
+<p style=" margin-top:-20px;  max-width:100%;"> 
 <center>
 <img src="images/hand.png" style="margin-bottom: 5px;">
 <br>
@@ -94,8 +99,12 @@
 </center>
 </p>
 </div>
-</a>
 </div>
+</a>
+
+
+
+
 
 
 <div class="col-lg-8 col-md-8 col-sm-12">
@@ -179,7 +188,7 @@
     <!-- /.panel-heading -->
     <div class="panel-body bank-height" >
         <div class="table-responsive">
-        <div style="text-align: center;"><b><br>نسعد بتلقي تبرعاتكم المالية عبر الحسابات التالية</b><div style="text-align: center;"><b><br></b></div><div style="text-align: center;"><b style="background-color: rgb(255, 255, 255);"><br></b></div><div style="text-align: center;"><b style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 255);">&nbsp;- البنك الراجحي -</b></div><div style="text-align: center;"><b style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 255);"><br></b></div><div style="text-align: center;"><span style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 255);"><span style="width: 105.866px; height: 52.1189px;"><img src="https://www.saudi-banks.info/image/image_gallery?uuid=3c1cb702-30a2-4dec-984c-ebaddc96d549&amp;groupId=18&amp;t=1324122579749" style="width: 105.866px; height: 52.1189px; float: none;"></span>&nbsp; رقم الحساب: 1326080010234004</span></div><div style="text-align: center;"><br></div><div style="text-align: center;"><br></div><div style="text-align: center;"><b style="color: rgb(107, 165, 74);">- البنك الاهلي -&nbsp;</b></div><div style="text-align: center;"><span style="color: rgb(107, 165, 74);"><b style=""><br></b><span style="width: 109.043px; height: 53.6825px;"><img src="https://www.saudi-banks.info/image/image_gallery?uuid=7b706786-195a-4cde-83cb-ae2ffa01d847&amp;groupId=18&amp;t=1440502406353" style="width: 109.043px; height: 53.6825px; float: none;"></span>&nbsp; &nbsp; &nbsp;رقم الحساب: 39261275000110</span></div><div style="text-align: center;"><br></div><h6 style="text-align: center;"></h6><br><br>
+        <div style="text-align: center;"><b><br>نسعد بتلقي تبرعاتكم المالية عبر الحسابات التالية</b><div style="text-align: center;"><b><br></b></div><div style="text-align: center;"><b style="background-color: rgb(255, 255, 255);"><br></b></div><div style="text-align: center;"><b style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 255);">&nbsp;- البنك الراجحي -</b></div><div style="text-align: center;"><b style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 255);"><br></b></div><div style="text-align: center;"><span style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 255);"><span style="width: 105.866px; height: 52.1189px;"><img src="https://www.saudi-banks.info/image/image_gallery?uuid=3c1cb702-30a2-4dec-984c-ebaddc96d549&amp;groupId=18&amp;t=1324122579749" style="width: 105.866px; height: 52.1189px; float: none;"></span>&nbsp; رقم الحساب: 1326080010234004</span></div><div style="text-align: center;"><br></div><div style="text-align: center;"><br></div><div style="text-align: center;"><b style="color: rgb(107, 165, 74);">- البنك الاهلي -&nbsp;</b></div><div style="text-align: center;"><span style="color: rgb(107, 165, 74);"><b style=""><br></b><span style="width: 109.043px; height: 53.6825px;"><img src="https://www.saudi-banks.info/image/image_gallery?uuid=7b706786-195a-4cde-83cb-ae2ffa01d847&amp;groupId=18&amp;t=1440502406353" style="width: 109.043px; height: 53.6825px; float: none;"></span>&nbsp; &nbsp; &nbsp;رقم الحساب: 39261275000110</span></div><div style="text-align: center;"><br></div><h6 style="text-align: center;"></h6><br>
 
       </div>
 
@@ -221,8 +230,19 @@
   max-height: 400px; 
   
 }
-
-
+.col_fourth { 
+    
+font-family: Arial;
+padding: 25px;
+background-color: #ffffff;
+border-radius: 15px;
+text-align: center;	
+width: 100%;
+height: 130px;
+margin-bottom: 10px; 
+border: 1px solid #c7c6c6;
+}
+   
 @media screen and (min-width: 0px) and (max-width: 768px) {
  
 .news-height {
