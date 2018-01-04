@@ -205,11 +205,11 @@
       المحاضرات القادمة
     </div>
     <!-- /.panel-heading -->
-    <div class="panel-body rosa-height">
+    
         
 <div class="thumbnail-img">
         <img style="max-width:100%; " src="https://pbs.twimg.com/media/DQiDpZuXUAA_si2.jpg" />
-    </div>
+   
     </div>
     <!-- /.panel-body -->
 </div>
@@ -255,10 +255,6 @@ border: 1px solid #c7c6c6;
   
 }
 
-.rosa-height {
-  max-height: auto; 
-  
-}
 
 
     #myhide { 
