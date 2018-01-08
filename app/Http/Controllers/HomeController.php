@@ -29,6 +29,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+	public function notifications()
+    {
+    	
+    	return view('cpac.notifications');
+    	
+    }
+	
+
     public function index()
     {
     	

@@ -65,6 +65,10 @@
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-left" >
+
+            <a  href="notifications"><span class="badge">9</span><i class="fa fa-bell fa-fw"></i></a>
+
+
                 <li class="dropdown">
                     
                 <li class="dropdown">
@@ -84,3 +88,18 @@
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
+<style>
+.badge {
+    font-size: .15em;
+ display: block;
+ margin-top: 10px;
+ margin-right: 7px;
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    text-align: center;
+    border-radius: 50%;
+    color: white;
+    background: red;
+}
+</style>

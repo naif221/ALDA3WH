@@ -156,6 +156,7 @@ Route::get('/islam', 'WebController@islam')->name('web.islam');
 
 
  Route::get('/profile', 'HomeController@profile');
+ Route::get('/notifications', 'HomeController@notifications');
 
  
 Route::get('/media' , function () {
