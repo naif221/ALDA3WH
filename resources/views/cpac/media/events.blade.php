@@ -49,8 +49,12 @@
     <input type="file" name="file_path" >
     </div>
     </div>
+    
+  <div class="col-sm-12">
+      <p >الحجم المتناسق 380x538 </p>
+    </div>
     <div class="thumbnail-img">
-        <img style="max-width:100%; " src="https://pbs.twimg.com/media/DQiDpZuXUAA_si2.jpg" />
+        <img style="max-width:100%; " src="images/a.png" />
     </div>
 
     

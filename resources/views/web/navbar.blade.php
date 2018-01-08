@@ -172,7 +172,7 @@
         <br>
             <center>
             <div class="col-md-3 col-sm-4 col-xs-12   ">
-                  <img src="{{ ('images/logo1.png') }}"  >
+                  <img src="{{ ('images/logo.png') }}" width="303px;" >
                  </div>
             
                  <div class="col-md-6 col-sm-3 col-xs-12 ">

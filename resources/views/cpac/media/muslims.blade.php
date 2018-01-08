@@ -42,10 +42,15 @@
   </div> 
 
 
-
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">العدد الحالي</label>
+    <div class="col-sm-10">
+    <input type="text"  name="numberM" >
+    </div>
+  </div>
 
 <div class="form-group row">
-    <label class="col-sm-2 col-form-label"> العد الحالي 355   </label>
+    <label class="col-sm-2 col-form-label">اضافة/حذف</label>
     <div class="col-sm-2">
     <div class="input-group add-minus">
           <span class="input-group-btn">
@@ -63,8 +68,6 @@
       </div>
     </div>
   </div> 
-</div>
-
 
 
 

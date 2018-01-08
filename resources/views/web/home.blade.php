@@ -118,7 +118,7 @@
 @foreach($home->take(4) as $n) 
 
     <div class="cat_h">
-<div class="thumbnail post_n">
+<div class="thumbnail ">
   
 <b>
 <a href="news?id={{$n->id}}" ><h4 style="color:#bd720c;"><img  src="https://pbs.twimg.com/media/DQiDpZuXUAA_si2.jpg"  style="width:130px; "  align="right"> {!! $n->title !!}</h4></b></a>
@@ -174,7 +174,7 @@
             
     </div>
     <!-- /.panel-body -->
-    <h6 style="text-align: center; "><b>الشارع العام - جامع مطلق الغويري</b> </h6><h6 style="text-align: center; ">الدور العلوي</h6><h5>ا<b><u>وقات العمل:</u></b></h5><ul><li>8 صباحاً الى 12 ظهراً</li><li>4 مساءً الى 8 مساءً</li></ul>
+    <h6 style="text-align: center; "><b>الشارع العام - جامع مطلق الغويري</b> </h6><h6 style="text-align: center; ">الدور العلوي</h6><h5>ا<b><u>وقات العمل:</u></b></h5><ul><li>9 صباحاً الى 12 ظهراً</li><li>4 مساءً الى 8 مساءً</li></ul><p style="text-align: center; "><b>هاتف: 0117240608</b></p>
           
             
 </div>
@@ -188,7 +188,7 @@
     <!-- /.panel-heading -->
     <div class="panel-body bank-height" >
         <div class="table-responsive">
-        <div style="text-align: center;"><b><br>نسعد بتلقي تبرعاتكم المالية عبر الحسابات التالية</b><div style="text-align: center;"><b><br></b></div><div style="text-align: center;"><b style="background-color: rgb(255, 255, 255);"><br></b></div><div style="text-align: center;"><b style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 255);">&nbsp;- البنك الراجحي -</b></div><div style="text-align: center;"><b style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 255);"><br></b></div><div style="text-align: center;"><span style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 255);"><span style="width: 105.866px; height: 52.1189px;"><img src="https://www.saudi-banks.info/image/image_gallery?uuid=3c1cb702-30a2-4dec-984c-ebaddc96d549&amp;groupId=18&amp;t=1324122579749" style="width: 105.866px; height: 52.1189px; float: none;"></span>&nbsp; رقم الحساب: 1326080010234004</span></div><div style="text-align: center;"><br></div><div style="text-align: center;"><br></div><div style="text-align: center;"><b style="color: rgb(107, 165, 74);">- البنك الاهلي -&nbsp;</b></div><div style="text-align: center;"><span style="color: rgb(107, 165, 74);"><b style=""><br></b><span style="width: 109.043px; height: 53.6825px;"><img src="https://www.saudi-banks.info/image/image_gallery?uuid=7b706786-195a-4cde-83cb-ae2ffa01d847&amp;groupId=18&amp;t=1440502406353" style="width: 109.043px; height: 53.6825px; float: none;"></span>&nbsp; &nbsp; &nbsp;رقم الحساب: 39261275000110</span></div><div style="text-align: center;"><br></div><h6 style="text-align: center;"></h6><br>
+        <div style="text-align: center;"><b><br>نسعد بتلقي تبرعاتكم المالية عبر الحسابات التالية</b><div style="text-align: center;"><b><br></b></div><div style="text-align: center;"><b style="background-color: rgb(255, 255, 255);"><br></b></div><div style="text-align: center;"><b style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 255);">&nbsp;- البنك الراجحي -</b></div><div style="text-align: center;"><b style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 255);"><br></b></div><div style="text-align: center;"><span style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 255);"><span style="width: 105.866px; height: 52.1189px;"><img src="https://www.saudi-banks.info/image/image_gallery?uuid=3c1cb702-30a2-4dec-984c-ebaddc96d549&amp;groupId=18&amp;t=1324122579749" style="width: 105.866px; height: 52.1189px; float: none;"></span>&nbsp; رقم الحساب: 1326080010234004</span></div><div style="text-align: center;"><br></div><div style="text-align: center;"><br></div><div style="text-align: center;"><b style="color: rgb(107, 165, 74);">- البنك الاهلي -&nbsp;</b></div><div style="text-align: center;"><span style="color: rgb(107, 165, 74);"><b style=""><br></b><span style="width: 109.043px; height: 53.6825px;"><img src="https://www.saudi-banks.info/image/image_gallery?uuid=7b706786-195a-4cde-83cb-ae2ffa01d847&amp;groupId=18&amp;t=1440502406353" style="width: 109.043px; height: 53.6825px; float: none;"></span>&nbsp; &nbsp; &nbsp;رقم الحساب: 39261275000110</span></div><div style="text-align: center;"><br></div><h6 style="text-align: center;"></h6>
 
       </div>
 
@@ -200,16 +200,15 @@
 </div>
 
 <div class="col-lg-6 col-md-6 col-sm-12">
-<div class="panel panel-default">
+<div class="panel panel-default" style="margin-bottom: 40px;">
     <div class="panel-heading">
       المحاضرات القادمة
     </div>
     <!-- /.panel-heading -->
     
         
-<div class="thumbnail-img">
-        <img style="max-width:100%; " src="https://pbs.twimg.com/media/DQiDpZuXUAA_si2.jpg" />
-   
+<div class="thumbnail-img" >
+        <img style="max-width:100%; " src="images/a.png" />
     </div>
     <!-- /.panel-body -->
 </div>
@@ -217,7 +216,7 @@
 
 <style>
 .news-height {
-  height: 710px; 
+  height: 743px; 
   
 }
 
@@ -227,7 +226,7 @@
 }
 
 .rosa-height {
-  max-height: 400px; 
+  max-height: 380px; 
   
 }
 .col_fourth { 

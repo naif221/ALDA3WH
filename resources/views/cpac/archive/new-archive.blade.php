@@ -43,6 +43,22 @@
 
     </div>
   </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">الرقم</label>
+    <div class="col-sm-10">
+      <input type="text"  name="numberA" >
+
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">الجهه المرسل لها</label>
+    <div class="col-sm-10">
+      <input type="text"  name="destination" >
+
+    </div>
+  </div>
   
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">المحتوى</label>
