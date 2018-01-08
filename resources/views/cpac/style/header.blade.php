@@ -59,7 +59,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <p class="navbar-brand">
-                    <img src="images/logo1.png" height="40px;" />
+                    <img src="images/logo.png" height="40px;" />
                 </p>
             </div>
             <!-- /.navbar-header -->

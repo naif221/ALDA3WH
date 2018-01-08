@@ -35,10 +35,14 @@
 
     <div class="container">
         <div class="row">
+<br>
             <div class="col-md-4 col-md-offset-4">
+            
+        <center><img src="images/logo.png" width="303px;" style="margin-bottom: -60px;"></center>
+       
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">تسجيل الدخول</h3>
+                        <h3 class="panel-title">  دخول الموظفين</h3>
                     </div>
                     <div class="panel-body">
                    		    <form  method="POST" action="{{ route('login') }}">
