@@ -109,7 +109,7 @@ function PrintMe(printthis) {
             setTimeout(function(){
       //Print Page 
       mywindow.print();
-    }, 1000);
+    }, 2000);
             
              
         }
