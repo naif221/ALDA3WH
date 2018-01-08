@@ -23,7 +23,7 @@
                             تفاصيل الطلب
                         </div>
                         <!-- /.panel-heading -->
-                        <div class="panel-body" id="printthis">
+                        <div class="panel-body" id="printthis" >
   
     <div class="form-group row">
     <label class="col-xs-2 col-form-label">رقم الطلب</label>
@@ -36,6 +36,10 @@
     <div class="col-xs-2">
     <p>{{$detail->state->title}}<p>
     </div>
+    <label class="col-xs-2 col-form-label">الوقت و التاريخ</label>
+    <div class="col-xs-2">
+    <p>{{$detail->created_at}}<p>
+    </div>
     </div>
 
     <div class="form-group row">
@@ -47,9 +51,9 @@
     <div class="col-xs-2">
     <p>{{$detail->user->department->department_name}}<p>
     </div>
-    <label class="col-xs-2 col-form-label">الوقت و التاريخ</label>
+    <label class="col-xs-2 col-form-label">المشفوعات</label>
     <div class="col-xs-2">
-    <p>{{$detail->created_at}}<p>
+    <p>-----------<p>
     </div>
     </div>
 
@@ -93,29 +97,38 @@
 </div>
 
 <script language="javascript">
+
 function PrintMe(printthis) {
 
+  var mywindow = window.open('', '', 'height=600,width=700');
   var divElements = document.getElementById(printthis).innerHTML;
             //Get the HTML of whole page
-            var oldPage = document.body.innerHTML;
+         
+            mywindow.document.write('<html><head><meta name="viewport" content="width=device-width, initial-scale=1"><link href="css/bootstrap.css" rel="stylesheet"><link href="css/bootstrap-rtl.min.css" rel="stylesheet"><link href="css/cairo-font.css" rel="stylesheet"><title></title></head><body> <style media="print">  * {font-family: "Cairo", sans-serif; } .borderprint { margin-top:150px; padding: 15px; height: 850px;  border: 2px solid black; border-radius: 5px;} @page {  size: auto;margin: 0px 20px 10px 20px;}</style> <div class="col-xs-12"> <img src="images/header.png" width="100%" > </div><br><br> <div class="borderprint">' + divElements + '</div><div class="col-xs-12" style="position: absolute; left: 0; bottom: 0;" > <img src="images/footer.png" width="100%"></div></body></html>');
 
-            //Reset the page's HTML with div's HTML only
-            document.body.innerHTML = 
-              " <style media='print'>@page {size: auto;margin: 20px 20px 20px 20px;}</style><html><head><title></title></head><body> <center><img src=images/logo1.png ></center><br><br>" + 
-              divElements + "<img style='position: absolute; left: 0; bottom: 0;' src='images/.png'  ></body>";
-
-            //Print Page
-            window.print();
-
-           
-            document.body.innerHTML = oldPage;
-            document.title = "الطلبات"; 
+            setTimeout(function(){
+      //Print Page 
+      mywindow.print();
+    }, 1000);
             
-            
+             
         }
 
-</script>
 
+/*
+function PrintMe(printthis) {
+  var divElements = document.getElementById(printthis).innerHTML;
+            var oldPage = document.body.innerHTML;
+            document.body.innerHTML =             
+            "<style media='print'> .borderprint { margin-top:150px; padding: 15px; height: 850px;  border: 2px solid black; border-radius: 5px;} @page {  size: auto;margin: 0px 20px 10px 20px;}</style><html><head><title></title></head><body> <div class='col-xs-12'> <img src='images/header.png' width='100%' > </div><br><br> <div class='borderprint'> " + 
+            divElements + " </div><div class='col-xs-12' style='position: absolute; left: 0; bottom: 0;' > <img src='images/footer.png' width='100%'></div></body>";
+            //Print Page
+            window.print();
+            document.body.innerHTML = oldPage;
+            document.title = "الطلبات"; 
+        }
+/** */
+</script>
 
 @if($detail->state_id == App\Pointer::$UnderStudy | $detail->state_id == App\Pointer::$UnderStudyFromCouncil )
 @if(Auth::user()->department_id == App\Pointer::$Manager | Auth::user()->department_id == App\Pointer::$Council)

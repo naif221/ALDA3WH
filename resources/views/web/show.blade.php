@@ -31,7 +31,7 @@
 <div class="thumbnail post_n">
 
 <b><h4 style="color:#bd720c;">{!! $news['title'] !!}  </h4></b>
-<img  src="https://pbs.twimg.com/media/DQiDpZuXUAA_si2.jpg"   style="max-height:420px; align:right;" >
+<img  src="{!! $news['file_path'] !!}"   style="max-height:420px; align:right;" >
  <p style="color:gray; font-size:13px;">&nbsp&nbsp<i class="fa fa-calendar" aria-hidden="true" style="padding-right: 5px"></i>{{$news['created_at']}}</p>
 <div id="myhide" style="font-size:16px;">
     <p align="center" >{!! $news['content'] !!}</p>

@@ -45,6 +45,15 @@
       <input type="text"  name="title" value="{{$posts['title']}}" >
     </div>
   </div>
+
+
+  <div class="form-group row">
+<label class="col-sm-2 col-form-label">الصورة الرئيسية للخبر</label>
+    <div class="col-sm-10">
+    <input type="file" name="file_path" >
+    </div>
+</div>
+
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">المحتوى</label>
     <div class="col-sm-10">
