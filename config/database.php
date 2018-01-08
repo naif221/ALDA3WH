@@ -52,6 +52,7 @@ return [
             'prefix' => '',
             'strict' => true,
         	'engine' => 'InnoDB ROW_FORMAT=DYNAMIC',
+        		
         ],
 
         'pgsql' => [
