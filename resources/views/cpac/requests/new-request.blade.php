@@ -41,10 +41,6 @@
                         <div class="panel-body">
 
 
-
-         
-
-
 <!-- <form method="post" action="{{ route('store') }}"> -->
 		{!! Form::open(['url' => 'store' , 'method' => 'POST']) !!}
 

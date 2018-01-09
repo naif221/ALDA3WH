@@ -31,6 +31,8 @@ class WebController extends Controller
     	return view('web.library');
     	
     }
+    
+    
     public function islam() {
 
     	return view('web.islam');
