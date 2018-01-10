@@ -39,13 +39,13 @@
     <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="notifications">
         
-    <a href="#" class="list-group-item">    
+    <a href="details-notifications" class="list-group-item">    
                                 <p>اشعار جديد</p>
                                 <p align="left" class="pull-right text-muted small">2018-01-07 15:48:08	
                                 </p>
                             <br>
                             </a>
-                            <a href="#" class="list-group-item">    
+                            <a href="details-notifications" class="list-group-item">    
                                 <p>اشعار جديد</p>
                                 <p align="left" class="pull-right text-muted small">2018-01-07 15:48:08	
                                 </p>

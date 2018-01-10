@@ -145,6 +145,7 @@ function PrintMe(printthis) {
 <button  class="btn btn-success" > قبول <i class="fa fa-check-square-o" aria-hidden="true"></i></button>
 </form> 
 </td>
+
 <td>
 <form  method="POST" action="{{ url('request-reject') }}">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -152,12 +153,16 @@ function PrintMe(printthis) {
 <button  class="btn btn-danger" > رفض <i class="fa fa-times-circle" aria-hidden="true"></i></button>
 </form> 
 </td>
+<td>
+<button type="button"  class="btn btn-success"  data-toggle="modal" data-target="#myModal2"> قبول مع اشعار قسم<i class="fa fa-check-square-o" aria-hidden="true"></i>
+</button> 
 
+</td>
 @endif
 @if(Auth::user()->department_id == App\Pointer::$Manager)
 
 <td>
-<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">تحويل <i class="fa fa-undo" aria-hidden="true"></i>
+<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">تحويل <i class="fa fa-undo" aria-hidden="true"></i>
 </button>
 </td>
 
@@ -180,7 +185,7 @@ function PrintMe(printthis) {
 
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -229,6 +234,68 @@ function PrintMe(printthis) {
     </div>
   </div>
 </div>
+
+
+
+
+
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">قبول مع اشعار قسم </h4>
+      </div>
+      <div class="modal-body">
+      <div class="form-group row">
+    <label class="col-sm-2 col-form-label">رقم الطلب</label>
+    <div class="col-sm-10">
+    <p>{{$detail->id}}<p>
+    </div>
+    </div>
+    
+     <form  method="POST" id="trnsform" action="{{ url('transact') }}">
+	 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <input type="hidden" type="text" name="id" value="{{$detail->id}}">  
+    
+
+      <div class="form-group row">
+  <label class="col-sm-2 col-form-label">اشعار قسم</label>
+  <div class="col-sm-10">
+  <label class="checkbox-inline">
+      <input type="checkbox" value="{{App\Pointer::$Council}}">مجلس الإدارة</label><br>
+      <label class="checkbox-inline">
+      <input type="checkbox"  value="{{App\Pointer::$Jalyat}}">قسم الجاليات</label><br>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="{{App\Pointer::$Issued}}">قسم الصادر</label><br>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="{{App\Pointer::$Library}}">قسم المكتبة</label><br>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="{{App\Pointer::$Media}}">قسم الإعلام</label><br>
+    <label class="checkbox-inline">
+      <input type="checkbox" value="{{App\Pointer::$Services}}">قسم الخدمات</label><br>
+
+
+</div>
+
+    </div>
+    
+
+      </div>
+      <div class="modal-footer">
+      
+
+      	<button type="submit" class="btn btn-primary">ارسال</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">الغاء</button>
+    </form> 
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
                         </div>
                         <!-- /.col-lg-12" -->

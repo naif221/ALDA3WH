@@ -134,7 +134,7 @@ if(password.value != confirm_password.value) {
 } else {
   confirm_password.setCustomValidity('');
 }
-}
+
 
 password.onchange = validatePassword;
 confirm_password.onkeyup = validatePassword;

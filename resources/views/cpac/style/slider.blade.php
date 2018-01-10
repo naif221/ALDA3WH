@@ -18,7 +18,9 @@
                             <a href="department"><i class="fa fa-list" aria-hidden="true"></i> الاقسام</a>
                         </li>
                         
-                                
+                        <li>
+                                    <a href="price"> <i class="fa fa-money" aria-hidden="true"></i> المالية</a>
+                                </li>      
                                     
                         <li>
                         <a href="books"><i class="fa fa-bookmark" aria-hidden="true"></i> المكتبة<span class="fa arrow"></span></a>

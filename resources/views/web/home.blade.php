@@ -50,7 +50,7 @@
       <marquee width="100%" height="34px"  behavior="scroll" direction="right" scrolldelay="100" scrollamount="5" align="top" onmouseover="this.setAttribute('scrollamount', 1, 0);" onmouseout="this.setAttribute('scrollamount', 3, 0);">
         @foreach($home->take(6) as $n)  
     <a href="news?id={{$n->id}}" class="s2">{{ $n->title }}</a><img src="images/logo-small.png" style=" margin: -5px 8px 0px 8px;">
- @endforeach
+    @endforeach
   </marquee>
 
 
@@ -66,7 +66,7 @@
 <center>
 <span class="fa fa-group fa-3x"></span>
 <br>
-<span id="count" style=" color: #000000; font-size:25px;">{{$Count->count}}</span>
+<span id="count" style=" color: #000000; font-size:25px;">{{ $Count->count }}</span>
 <br>
 <span style="color:#000000;" > المسلمين الجدد منذ بداية هذا العام </span>
 </center>

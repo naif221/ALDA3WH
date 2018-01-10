@@ -153,7 +153,6 @@ Route::post('/store-muslims-count', 'NewsController@muslims');
 Route::get('/decrase-count', 'NewsController@Decrase');
 Route::get('/increase-count', 'NewsController@Incrase');
 
-
 // website 
 Route::get('/islam', 'WebController@islam')->name('web.islam');
 
@@ -161,7 +160,10 @@ Route::get('/islam', 'WebController@islam')->name('web.islam');
 
  Route::get('/profile', 'HomeController@profile');
  Route::get('/notifications', 'HomeController@notifications');
-
+ Route::get('/details-notifications', 'HomeController@detailsnotifications');
+ Route::get('/price', 'homeController@price');
+ Route::get('/editprice', 'homeController@editprice');
+ 
  
 Route::get('/media' , function () {
 	return view('cpac.media.media');

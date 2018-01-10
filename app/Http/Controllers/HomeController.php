@@ -30,6 +30,31 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+
+
+
+	public function price()
+    {
+    	
+    	return view('cpac.finance.price');
+    	
+	}
+	
+	public function editprice()
+    {
+    	
+    	return view('cpac.finance.editprice');
+    	
+    }
+
+
+	public function detailsnotifications()
+    {
+    	
+    	return view('cpac.details-notifications');
+    	
+    }
+	
 	public function notifications()
     {
     	
