@@ -3,9 +3,6 @@
 
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
-
-
-
 <div id="page-wrapper">
 
             <div class="row">
@@ -30,7 +27,7 @@
 
 
 <!-- <form method="post" action="{{ route('store') }}"> -->
-		{!! Form::open(['url' => '' , 'method' => 'POST']) !!}
+		{!! Form::open(['url' => 'store-muslims-count' , 'method' => 'POST']) !!}
 
 
     
@@ -45,7 +42,7 @@
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">العدد الحالي</label>
     <div class="col-sm-10">
-    <input type="text"  name="numberM" >
+    <input type="text"  name="numberM"  value="{{$Count->count}}">
     </div>
   </div>
 
@@ -55,12 +52,12 @@
     <div class="input-group add-minus">
           <span class="input-group-btn">
           
-              <a type="button"  href="" class="form-control btn btn-danger btn-number" onclick="return confirm('تاكيد الحذف')" >
+              <a type="button"  href="/decrase-count" class="form-control btn btn-danger btn-number" onclick="return confirm('تاكيد الحذف')" >
                 <span class="glyphicon glyphicon-minus"><b> 1</b></span>
               </a>
           </span>
           <span class="input-group-btn">
-              <a type="button"   href=""  class="form-control btn btn-success btn-number"  onclick="return confirm('تاكيد الاضافة')" >
+              <a type="button"   href="/increase-count"  class="form-control btn btn-success btn-number"  onclick="return confirm('تاكيد الاضافة')" >
                   <span class="glyphicon glyphicon-plus"><b> 1</b></span>
               </a>
           </span>

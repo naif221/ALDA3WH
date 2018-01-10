@@ -148,6 +148,10 @@ Route::get('/events', 'NewsController@events');
 Route::get('/muslims', 'NewsController@muslims');
 Route::get('/edit-news', 'NewsController@EditPost');
 Route::post('/edit-news', 'NewsController@EditPost');
+Route::post('/store-muslims-count', 'NewsController@muslims');
+
+Route::get('/decrase-count', 'NewsController@Decrase');
+Route::get('/increase-count', 'NewsController@Incrase');
 
 
 // website 
@@ -168,3 +172,10 @@ Route::get('/media' , function () {
 	return view('cpac.media.edit-media');
  
  });
+ 
+	
+ 	
+ 
+ 
+ 
+ 

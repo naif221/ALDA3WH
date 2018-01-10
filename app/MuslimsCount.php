@@ -8,7 +8,7 @@ class MuslimsCount extends Model
 {
     //
 	// Table Name
-	protected $table = 'newMuslims';
+	protected $table = 'newmuslims';
 	
 	public $timestamps = true;
 	

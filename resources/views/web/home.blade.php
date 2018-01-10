@@ -66,7 +66,7 @@
 <center>
 <span class="fa fa-group fa-3x"></span>
 <br>
-<span id="count" style=" color: #000000; font-size:25px;">200</span>
+<span id="count" style=" color: #000000; font-size:25px;">{{$Count->count}}</span>
 <br>
 <span style="color:#000000;" > المسلمين الجدد منذ بداية هذا العام </span>
 </center>

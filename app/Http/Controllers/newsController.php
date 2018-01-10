@@ -5,6 +5,8 @@ use App\News;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\File;
+use App\MuslimsCount;
+
 class NewsController extends Controller
 {
 
@@ -38,14 +40,42 @@ class NewsController extends Controller
 	}
 	
 
-	public function muslims() {
+	public function muslims(Request $Request) {
+		
+		if($Request->isMethod('get')){
+			$M = MuslimsCount::find(1);
+			
+			return view('cpac.media.muslims', ['Count' => $M]);
+		}else {
+			
+			$M = MuslimsCount::find(1);
+			$M->count = $Request->input('numberM');
+			$M->save();
+			return redirect('/media');
+		}
+
 		
 		
-		return view('cpac.media.muslims');
 	}
 	
 
-
+	public function Incrase(){
+		
+		$M = MuslimsCount::find(1);
+		$M->count = MuslimsCount::find(1)->count + 1;
+		$M->save();
+		return redirect('/media');
+		
+	}
+	
+	public function Decrase(){
+		
+		$M = MuslimsCount::find(1);
+		$M->count = MuslimsCount::find(1)->count - 1;
+		$M->save();
+		return redirect('/media');
+	}
+	
 
 	public function AddNews(Request $Request){
 		

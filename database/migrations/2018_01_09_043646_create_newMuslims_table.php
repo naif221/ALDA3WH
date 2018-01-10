@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\MuslimsCount;
 
 class CreateNewMuslimsTable extends Migration
 {
@@ -18,8 +19,19 @@ class CreateNewMuslimsTable extends Migration
             $table->integer('count');
             $table->timestamps();
         });
+        
+        	$this->initRow();
     }
 
+    
+    private function initRow(){
+    	
+    	$M 			= new MuslimsCount;
+    	$M->count 	= 0;
+    	$M->save();
+    	
+    }
+    
     /**
      * Reverse the migrations.
      *
