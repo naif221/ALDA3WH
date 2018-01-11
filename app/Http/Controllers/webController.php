@@ -5,16 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Books;
 use App\News;
-
+use App\MuslimsCount;
 class WebController extends Controller
 {
 	
 	
+
     public function index() 
     {
     	$ns = News::latest()->paginate(6);
+    	$M = MuslimsCount::find(1);
     	
-        return view('web.home', ['home' => $ns]);
+        return view('web.home', ['home' => $ns, 'Count' => $M]);
     }
     public function About() {
 
