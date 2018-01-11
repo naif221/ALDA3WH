@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\File;
 use App\MuslimsCount;
+use App\Event;
 
 class NewsController extends Controller
 {
@@ -15,6 +16,53 @@ class NewsController extends Controller
 	{
 		$this->middleware('auth');
 	}
+	
+	public function StoreEventImg(Request $Request){
+		
+		if($Request->isMethod('get')){
+			
+			$E = Event::find(1)->img_path;
+			
+			return view('cpac.media.events', ['img' => $E]);
+		
+		}else {
+			
+			$this->validate($Request, [
+					
+					'file_path' => 'required',
+			]);
+			
+			$path;
+			if($Request->hasFile('file_path')){
+				// Get filename with the extension
+				$filenameWithExt = $Request->file('file_path')->getClientOriginalName();
+				// Get just filename
+				$filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+				// Get just ext
+				$extension = $Request->file('file_path')->getClientOriginalExtension();
+				// Filename to store
+				$fileNameToStore= $filename.'_'.time().'.'.$extension;
+				// Upload Image
+				// 				 $path = $Request->file('file_path')->storeAs('/imgs', $fileNameToStore);
+				// 				Storage::put('/public/storage/imgs/', $fileNameToStore);
+				$path = Storage::putFile('public/news_logo', new File($Request->file('file_path')) , 'public');
+				// 				 '/public/storage/imgs/'.$fileNameToStore;
+				$path = str_replace("public","storage",$path);
+			}else {
+				$path = 'storage/news_logo/default.png';
+			}
+			
+			
+			$EventImg =   Event::find(1);
+			unlink(str_replace(asset(''),"",$EventImg->img_path));
+			$EventImg->img_path= asset($path);
+			$EventImg->save();
+			
+		}
+		
+		return redirect('/media');
+	}
+	
 	
 	// intrnal !!
 	public function ShowNews(){

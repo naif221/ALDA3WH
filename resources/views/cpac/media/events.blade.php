@@ -30,7 +30,7 @@
 
 
 <!-- <form method="post" action="{{ route('store') }}"> -->
-		{!! Form::open(['url' => '' , 'method' => 'POST']) !!}
+{!! Form::open(['url' => 'stroe-img-event' , 'method' => 'POST' ,'files' => 'true']) !!}
 
 
     
@@ -40,7 +40,6 @@
       <p >فعاليات المكتب</p>
     </div>
   </div>
-
 
 
     <div class="form-group row">
@@ -54,10 +53,9 @@
       <p >الحجم المتناسق 380x538 </p>
     </div>
     <div class="thumbnail-img">
-        <img style="max-width:100%; " src="images/a.png" />
+        <img style="max-width:100%; " src="{{$img}}" />
     </div>
 
-    
     
 
     

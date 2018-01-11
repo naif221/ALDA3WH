@@ -144,7 +144,6 @@ Route::get('/new-news', 'NewsController@AddNews');
 Route::post('/new-news', 'NewsController@AddNews');
 Route::get('/delete-news', 'NewsController@DeleteNews');
 Route::get('/banner', 'NewsController@banner');
-Route::get('/events', 'NewsController@events');
 Route::get('/muslims', 'NewsController@muslims');
 Route::get('/edit-news', 'NewsController@EditPost');
 Route::post('/edit-news', 'NewsController@EditPost');
@@ -152,6 +151,11 @@ Route::post('/store-muslims-count', 'NewsController@muslims');
 
 Route::get('/decrase-count', 'NewsController@Decrase');
 Route::get('/increase-count', 'NewsController@Incrase');
+
+//stroe-img-event
+Route::post('/stroe-img-event', 'NewsController@StoreEventImg');
+Route::get('/events', 'NewsController@StoreEventImg');
+
 
 // website 
 Route::get('/islam', 'WebController@islam')->name('web.islam');

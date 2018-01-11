@@ -208,7 +208,7 @@
     
         
 <div class="thumbnail-img" >
-        <img style="max-width:100%; " src="images/a.png" />
+        <img style="max-width:100%; " src="{{App\Event::find(1)->img_path}}" />
     </div>
     <!-- /.panel-body -->
 </div>
