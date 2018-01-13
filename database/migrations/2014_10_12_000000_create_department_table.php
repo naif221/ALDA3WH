@@ -27,6 +27,8 @@ class CreateDepartmentTable extends Migration
         	$this->initializeDepartment('الإدارة');
         	$this->initializeDepartment('الإعلام');
         	$this->initializeDepartment('الخدمات');
+        	$this->initializeDepartment('المالية');
+        	
         	
     }
     

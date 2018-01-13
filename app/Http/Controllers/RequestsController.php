@@ -45,7 +45,7 @@ class RequestsController extends Controller
 			
 	}
 	
-	
+	// it mean forward to another department, lack in english.
 	public function Transact(Request $Request){
 		
 		if(Auth::user()->department_id !== Pointer::$Manager){
@@ -87,6 +87,10 @@ class RequestsController extends Controller
 			case Pointer::$Services:
 				$request->state_id = Pointer::$ToServices;
 				break;
+				
+			case Pointer::$Finance:
+				$request->state_id = Pointer::$UnderStudyFromFinance;
+				break;
 		}
 
 		
@@ -119,6 +123,8 @@ class RequestsController extends Controller
 			$request->state_id = Pointer::$Accepted;
 		}else if(Auth::user()->department_id == Pointer::$Council){
 			$request->state_id = Pointer::$AcceptedFromCouncil;
+		}else if(Auth::user()->department_id == Pointer::$Finance){
+			$request->state_id = Pointer::$AcceptedFromFinance;
 		}else {
 			return redirect('/home');
 		}
@@ -136,6 +142,8 @@ class RequestsController extends Controller
 			$request->state_id = Pointer::$Rejected;
 		}else if(Auth::user()->department_id == Pointer::$Council){
 			$request->state_id = Pointer::$AcceptedFromCouncil;
+		}else if(Auth::user()->department_id == Pointer::$Finance){
+			$request->state_id = Pointer::$RejectedFromFinance;
 		}else {
 			return redirect('/home');
 		}

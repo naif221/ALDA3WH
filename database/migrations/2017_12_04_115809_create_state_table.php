@@ -33,6 +33,11 @@ class CreateStateTable extends Migration
         	$this->initializeState('محولة للمكتبة');
         	$this->initializeState('محولة للإعلام');
         	$this->initializeState('محولة للخدمات');
+
+        	
+        	$this->initializeState('تحت الدراسة من قسم المالية');
+        	$this->initializeState('مقبولة من قسم المالية');
+        	$this->initializeState('مرفوضة من قسم المالية');
         	
     }
 
