@@ -45,7 +45,14 @@ class HomeController extends Controller
     	
     	return view('cpac.finance.editprice');
     	
-    }
+	}
+	
+	public function history()
+    {
+    	
+    	return view('cpac.finance.history');
+    	
+	}
 
 
 	public function detailsnotifications()

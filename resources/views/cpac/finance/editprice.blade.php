@@ -27,7 +27,7 @@
                         <div class="panel-body">
                         
                      <h3> تعديل المبالغ المتوفرة في الحسابات</h3>
-                         		
+                     <div class="table-responsive">        		
   <table class="table table-striped">
     <thead>
       <tr>
@@ -59,8 +59,18 @@
       </tr>
     </tbody>
   </table>
+
+  <div class="form-group row">
+    <label class="col-xs-2 col-form-label">ملاحظات</label>
+    <div class="col-xs-10">
+    <textarea  rows="2" cols="50">
+</textarea>
+
+    </div>
+    </div>
+
 </div>         
-                            
+             </div>               
                
 <center>
 

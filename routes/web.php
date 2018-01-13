@@ -167,6 +167,7 @@ Route::get('/islam', 'WebController@islam')->name('web.islam');
  Route::get('/details-notifications', 'HomeController@detailsnotifications');
  Route::get('/price', 'homeController@price');
  Route::get('/editprice', 'homeController@editprice');
+ Route::get('/history', 'homeController@history');
  
  
 Route::get('/media' , function () {

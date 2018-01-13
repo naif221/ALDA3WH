@@ -27,6 +27,11 @@
                          			<a href="editprice"><button type="submit" class="btn btn-info ">
                  					<i class="fa fa-pencil-square-o " aria-hidden="true"></i> تعديل </button>
                    </a>
+
+                   <a href="history"><button type="submit" class="btn btn-warning ">
+                   <i class="fa fa-calendar" aria-hidden="true"></i> السجل </button>
+                   </a>
+                   <div class="table-responsive">
   <table class="table table-striped">
     <thead>
       <tr>
@@ -55,7 +60,7 @@
   </table>
 </div>         
                             
-                             
+         </div>                    
                             
                             </div>
                             <!-- /.list-group -->
