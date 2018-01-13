@@ -47,16 +47,16 @@
     <div class="col-xs-2">
     <p>{{$detail->user->name}}<p>
     </div>
+    
+    </div>
+    
+
+    <div class="form-group row">
     <label class="col-xs-2 col-form-label">القسم</label>
     <div class="col-xs-2">
     <p>{{$detail->user->department->department_name}}<p>
     </div>
-    <label class="col-xs-2 col-form-label">المشفوعات</label>
-    <div class="col-xs-2">
-    <p>-----------<p>
     </div>
-    </div>
-
 
     <div class="form-group row">
     <label class="col-xs-2 col-form-label">نوع الطلب</label>
@@ -74,26 +74,29 @@
     <p>{{$detail->price}}<p>
     @endif
     </div>
+
+    <label class="col-xs-2 col-form-label">المشفوعات</label>
+    <div class="col-xs-2">
+    <p>-----------<p>
     </div>
+    </div>
+
 
 <hr>
 <br>
     <div class="form-group row">
     <label class="col-xs-2 col-form-label">العنوان</label>
-    <div class="col-xs-2">
+    <div class="col-xs-10">
     <p>{{$detail->title}}<p>
     </div>
     </div>
 
     <div class="form-group row">
-    <label class="col-xs-2 col-form-label">المحتوى</label>
+    <label class="col-xs-2 col-form-label">العنوان</label>
     <div class="col-xs-10">
-    <p>
-		{!! $detail->content !!}
-	<p>
+    <p>{!! $detail->content !!}<p>
     </div>
     </div>
-
 </div>
 
 
@@ -134,25 +137,60 @@ function PrintMe(printthis) {
 
 @if($detail->state_id == App\Pointer::$UnderStudy | $detail->state_id == App\Pointer::$UnderStudyFromCouncil )
 @if(Auth::user()->department_id == App\Pointer::$Manager | Auth::user()->department_id == App\Pointer::$Council)
+
+
+
+<center>
+<button  class="btn btn-primary"  onclick="showDiv()"><i class="fa fa-comments" aria-hidden="true"></i> اضافة تعليق</button>
+<div id="divcomment" style="display:none;" class="answer_list" >
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">التعليق</label>
+    <div class="col-sm-10">
+    
+
+		 <textarea class="summernote" name="comment" ></textarea> 
+
+    
+    <script>
+$(document).ready(function() {
+  $('.summernote').summernote();
+});
+    </script>
+    </div>
+   
+  </div>
+</div>
+
+  <script>
+function showDiv() {
+   document.getElementById('divcomment').style.display = "block";
+}
+
+
+</script>
+</center>
 <form  method="POST" action="{{ url('request-accept') }}">
+
+
 <center>
 
 <table>
 
-<td>
+<tr>
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <input type="hidden" type="text" name="id" value="{{$detail->id}}">  
 <button  class="btn btn-success" > قبول <i class="fa fa-check-square-o" aria-hidden="true"></i></button>
 </form> 
-</td>
+</tr>
 
-<td>
+<tr>
 <form  method="POST" action="{{ url('request-reject') }}">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <input type="hidden" type="text" name="id" value="{{$detail->id}}">  
 <button  class="btn btn-danger" > رفض <i class="fa fa-times-circle" aria-hidden="true"></i></button>
 </form> 
-</td>
+</tr>
+<div style="margin-top: 10px;">
 <td>
 <button type="button"  class="btn btn-success"  data-toggle="modal" data-target="#myModal2"> قبول مع اشعار قسم<i class="fa fa-check-square-o" aria-hidden="true"></i>
 </button> 
@@ -173,7 +211,7 @@ function PrintMe(printthis) {
 <button  class="btn btn-info" onclick="javascript:PrintMe('printthis')"/>طباعة <i class="fa fa-print" aria-hidden="true"></i></button>
 </td>
 
-
+</div>
 
 </table>
 </center>
@@ -292,6 +330,10 @@ function PrintMe(printthis) {
     </div>
   </div>
 </div>
+
+
+
+
 
 
 
