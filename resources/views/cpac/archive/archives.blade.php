@@ -30,6 +30,7 @@
                                     <thead>
                                         <tr>
                                             <th> الرقم</th>
+                                            <th> الجهة المرسل لها</th>
                                             <th>العنوان</th>
                                             <th>بواسطة </th>
                                             <th>التاريخ و الوقت</th>
@@ -40,7 +41,8 @@
                                     <tbody>
 @foreach($iss as $is)                                     
                                         <tr class="odd gradeX">
-                                        	<td>{{$is->id}}</td>
+                                        	<td>{{$is->numberA}}</td>
+                                            <td>{{$is->destination}}</td>
                                         	<td>{{$is->title}}</td>
                                         	<td>{{$is->user->name}}</td>
                                         	<td>{{$is->created_at}}</td>

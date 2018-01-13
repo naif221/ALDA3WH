@@ -36,21 +36,17 @@
 
 {!! Form::open(['url' => 'new-archive' , 'method' => 'POST' , 'files' => true]) !!}
     
-  <div class="form-group row">
-    <label class="col-sm-2 col-form-label">العنوان</label>
-    <div class="col-sm-10">
-      <input type="text"  name="title" >
 
-    </div>
-  </div>
 
-  <div class="form-group row">
+
+<div class="form-group row">
     <label class="col-sm-2 col-form-label">الرقم</label>
     <div class="col-sm-10">
       <input type="text"  name="numberA" >
 
     </div>
   </div>
+
 
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">الجهه المرسل لها</label>
@@ -59,6 +55,18 @@
 
     </div>
   </div>
+
+  
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">العنوان</label>
+    <div class="col-sm-10">
+      <input type="text"  name="title" >
+
+    </div>
+  </div>
+
+  
+
   
   <div class="form-group row">
     <label class="col-sm-2 col-form-label">المحتوى</label>

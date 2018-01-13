@@ -46,6 +46,8 @@ class IssuedController extends Controller
 		}else{
 		
 			$this->validate($request, [
+				    'numberA'    	=> 'required',
+				    'destination'	=> 'required',
 					'title' 		=> 'required',
 					'file_path'		=> 'required',
 			]);
@@ -69,6 +71,8 @@ class IssuedController extends Controller
 			}
 			
 			$iss 				= new Issued();
+			$iss->numberA			= $request->input('numberA');
+			$iss->destination			= $request->input('destination');	
 			$iss->title			= $request->input('title');
 			$iss->user_id		= Auth::user()->id;
 			$iss->file_path		= $path;
@@ -120,7 +124,7 @@ class IssuedController extends Controller
 		$entry->delete();
  		Storage::disk('local')->delete($entry->file_path);
 		
- 		return redirect('archives')->with('success','تم بنجاح حذف المستند');
+ 		return redirect('archives')->with('success','تم حذف المستند بنجاح');
  		
 		}else
 			return redirect('/home');

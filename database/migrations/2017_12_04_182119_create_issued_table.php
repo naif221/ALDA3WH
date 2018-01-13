@@ -17,6 +17,8 @@ class CreateIssuedTable extends Migration
         	
 
             $table->increments('id');
+            $table->string('numberA');
+            $table->string('destination');
             $table->string('title');
             $table->text('file_path');
             $table->unsignedInteger('user_id');
