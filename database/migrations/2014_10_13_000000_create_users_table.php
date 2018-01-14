@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->unsignedInteger('department_id');
-            $table->foreign('department_id')->references('id')->on('department')->onDelete('cascade');;
+            $table->foreign('department_id')->references('id')->on('department')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

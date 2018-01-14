@@ -13,6 +13,7 @@ use App\Pointer;
 use Psy\Command\WhereamiCommand;
 use Illuminate\Foundation\Console\Presets\React;
 use phpDocumentor\Reflection\DocBlock\Tags\Return_;
+use App\Noti;
 
 class RequestsController extends Controller
 {
@@ -30,6 +31,38 @@ class RequestsController extends Controller
 	public function __construct()
 	{
 		$this->middleware('auth');
+	}
+	
+	
+	public function AddComment(Request $Request){
+		
+		$ldate = date('Y-m-d H:i');
+		$Div 		 = "<div>   </div>"; // Here Must Be HTML Div
+		$ID 		 = $Request->input('id');
+		$NewComment  = $Request->input('comment');
+		$req 		 = Request_::find($ID);
+		$PervComment = $req->reason;
+		/*
+		 * date : created_at
+		 * auth : user name
+		 * auth : user department
+		 * request comment
+		 * 
+		 * 
+		 */
+			
+			$PervComment .=
+			'</br>'.$Div .
+			'</br> تم الرد في:'.$ldate.
+			'</br> من قبل:' . Auth::user()->name .
+			'</br>'.Auth::user()->department_name .
+			'</br> &nbsp;'. $NewComment;
+		
+			$req->reason = $PervComment;
+			$req->save();
+			
+			return redirect('/requests');
+		
 	}
 	
 	
@@ -115,16 +148,23 @@ class RequestsController extends Controller
 		return view('cpac.requests.details-request', ['details' => $request]);
 	}
 	
+	
 
 	public function RequestAccept(Request $id){
 		
 			$request = Request_::find($id->input('id'));
 		if(Auth::user()->department_id == Pointer::$Manager ){
 			$request->state_id = Pointer::$Accepted;
+			$request->responder_id = Auth::user()->id;
+			
 		}else if(Auth::user()->department_id == Pointer::$Council){
 			$request->state_id = Pointer::$AcceptedFromCouncil;
+			$request->responder_id = Auth::user()->id;
+			
 		}else if(Auth::user()->department_id == Pointer::$Finance){
 			$request->state_id = Pointer::$AcceptedFromFinance;
+			$request->responder_id = Auth::user()->id;
+			
 		}else {
 			return redirect('/home');
 		}
@@ -157,6 +197,7 @@ class RequestsController extends Controller
 	
 	public function Show(){
 		
+		
 		$UserDepartment = Auth::user()->department_id;
 		
 		if($UserDepartment == Pointer::$Manager){
@@ -166,7 +207,7 @@ class RequestsController extends Controller
 			->join('request', 'request.user_id', '=', 'users.id')
 			->join('state', 'request.state_id', '=', 'state.id')
 			->select('request.id','request.title','request.price','request.created_at' ,'request.user_id' ,'department.department_name','state.title AS state')
-			->whereIn('state.id', [Pointer::$UnderStudy])
+			->whereIn('state.id', [Pointer::$UnderStudy , Pointer::$AcceptedFromFinance])
 			->get();
 			
 			
@@ -175,7 +216,7 @@ class RequestsController extends Controller
 			->join('request', 'request.user_id', '=', 'users.id')
 			->join('state', 'request.state_id', '=', 'state.id')
 			->select('request.id','request.title','request.price','request.created_at' ,'request.user_id' ,'department.department_name','state.title AS state')
-			->whereIn('state.id', [Pointer::$Accepted , Pointer::$Rejected , Pointer::$AcceptedFromCouncil , Pointer::$RejectedFromCouncil])
+			->whereIn('state.id', [Pointer::$Accepted , Pointer::$Rejected , Pointer::$AcceptedFromCouncil , Pointer::$RejectedFromCouncil, Pointer::$RejectedFromFinance])
 			->get();
 			
 			
@@ -201,6 +242,28 @@ class RequestsController extends Controller
 			->get();
 			
 			
+		}else if($UserDepartment == Pointer::$Finance){
+			
+			
+			//Show Users Requests all departments
+			$requests= DB::table('users')
+			->join('department', 'users.department_id', '=', 'department.id')
+			->join('request', 'request.user_id', '=', 'users.id')
+			->join('state', 'request.state_id', '=', 'state.id')
+			->select('request.id','request.title','request.price','request.created_at' ,'request.user_id' ,'department.department_name','state.title AS state')
+			->whereIn('state.id', [Pointer::$UnderStudyFromFinance])
+			->get();
+			
+			
+			$oldrequests= DB::table('users')
+			->join('department', 'users.department_id', '=', 'department.id')
+			->join('request', 'request.user_id', '=', 'users.id')
+			->join('state', 'request.state_id', '=', 'state.id')
+			->select('request.id','request.title','request.price','request.created_at' ,'request.user_id' ,'department.department_name','state.title AS state')
+			->whereIn('state.id', [Pointer::$AcceptedFromFinance, Pointer::$RejectedFromFinance])
+			->get();
+			
+			
 		}else {
 		
 		// Show Users Request , it's show his department Only , All states ofcource
@@ -209,7 +272,7 @@ class RequestsController extends Controller
 		->join('request', 'request.user_id', '=', 'users.id')
 		->join('state', 'request.state_id', '=', 'state.id')
 		->select('request.id','request.title','request.price','request.created_at' ,'request.user_id' ,'department.department_name','state.title AS state')
-		->whereIn('state.id', [Pointer::$UnderStudy , Pointer::$UnderStudyFromCouncil])
+		->whereIn('state.id', [Pointer::$UnderStudy , Pointer::$UnderStudyFromCouncil, Pointer::$UnderStudyFromFinance,Pointer::$AcceptedFromFinance,])
 		->where('department.id',$UserDepartment)
 		->get();
 		 
@@ -219,7 +282,7 @@ class RequestsController extends Controller
 		->join('request', 'request.user_id', '=', 'users.id')
 		->join('state', 'request.state_id', '=', 'state.id')
 		->select('request.id','request.title','request.price','request.created_at' ,'request.user_id' ,'department.department_name','state.title AS state')
-		->whereIn('state.id', [Pointer::$Accepted , Pointer::$Rejected , Pointer::$AcceptedFromCouncil , Pointer::$RejectedFromCouncil])
+		->whereIn('state.id', [Pointer::$Accepted , Pointer::$Rejected , Pointer::$AcceptedFromCouncil , Pointer::$RejectedFromCouncil, Pointer::$RejectedFromFinance])
 		->where('department.id',$UserDepartment)
 		->get();
 		

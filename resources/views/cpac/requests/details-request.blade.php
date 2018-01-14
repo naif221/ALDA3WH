@@ -134,20 +134,17 @@ function PrintMe(printthis) {
         }
 /** */
 </script>
-
-@if($detail->state_id == App\Pointer::$UnderStudy | $detail->state_id == App\Pointer::$UnderStudyFromCouncil )
-@if(Auth::user()->department_id == App\Pointer::$Manager | Auth::user()->department_id == App\Pointer::$Council)
-
-
+<form  method="POST" action="{{ url('Add-Comment') }}">
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
+<input type="hidden" type="text" name="id" value="{{$detail->id}}">  
 
 <center>
-<button  class="btn btn-primary"  onclick="showDiv()"><i class="fa fa-comments" aria-hidden="true"></i> اضافة تعليق</button>
-<div id="divcomment" style="display:none;" class="answer_list" >
+<button  class="btn btn-primary" ><i class="fa fa-comments" aria-hidden="true"></i> اضافة تعليق</button>
 <div class="form-group row">
     <label class="col-sm-2 col-form-label">التعليق</label>
+    </br> </br>
     <div class="col-sm-10">
     
-
 		 <textarea class="summernote" name="comment" ></textarea> 
 
     
@@ -159,7 +156,6 @@ $(document).ready(function() {
     </div>
    
   </div>
-</div>
 
   <script>
 function showDiv() {
@@ -169,6 +165,13 @@ function showDiv() {
 
 </script>
 </center>
+</form> 
+
+@if($detail->state_id == App\Pointer::$UnderStudy | $detail->state_id == App\Pointer::$UnderStudyFromCouncil | $detail->state_id == App\Pointer::$AcceptedFromFinance )
+@if(Auth::user()->department_id == App\Pointer::$Manager | Auth::user()->department_id == App\Pointer::$Council | Auth::user()->department_id == App\Pointer::$Finance)
+
+
+
 <form  method="POST" action="{{ url('request-accept') }}">
 
 
@@ -190,14 +193,14 @@ function showDiv() {
 <button  class="btn btn-danger" > رفض <i class="fa fa-times-circle" aria-hidden="true"></i></button>
 </form> 
 </tr>
+@endif
+@if(Auth::user()->department_id == App\Pointer::$Manager)
 <div style="margin-top: 10px;">
 <td>
 <button type="button"  class="btn btn-success"  data-toggle="modal" data-target="#myModal2"> قبول مع اشعار قسم<i class="fa fa-check-square-o" aria-hidden="true"></i>
 </button> 
 
 </td>
-@endif
-@if(Auth::user()->department_id == App\Pointer::$Manager)
 
 <td>
 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal1">تحويل <i class="fa fa-undo" aria-hidden="true"></i>
@@ -253,6 +256,7 @@ function showDiv() {
 	<option value="{{App\Pointer::$Library}}">قسم المكتبة</option>
 	<option value="{{App\Pointer::$Media}}">قسم الإعلام</option>
 	<option value="{{App\Pointer::$Services}}">قسم الخدمات</option>
+	<option value="{{App\Pointer::$Finance}}">قسم المالية</option>
 	
 </select>
 
@@ -331,25 +335,10 @@ function showDiv() {
   </div>
 </div>
 
-
-
-
-
-
-
-
-
                         </div>
                         <!-- /.col-lg-12" -->
                     </div>
  <!-- /.row -->
-
-
-
-
-
-
-
 
                 </div>
                 <!-- /.page-wrapper -->

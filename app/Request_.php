@@ -29,6 +29,11 @@ class Request_ extends Model
 		return $this->belongsTo('App\User');
 	}
 	
+	
+	public function noti(){
+		
+		return $this->hasMany('App\Noti');
+	}
 
 
 }

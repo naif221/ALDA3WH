@@ -64,6 +64,7 @@ Route::post('/delete-request', 'RequestsController@DeleteRequest');
 
 // Transeaction the Requests transact
 Route::post('/transact', 'RequestsController@Transact');
+Route::post('/Add-Comment', 'RequestsController@AddComment');
 
 
 // Emplyees Section !
@@ -168,6 +169,9 @@ Route::get('/islam', 'WebController@islam')->name('web.islam');
  Route::get('/price', 'homeController@price');
  Route::get('/editprice', 'homeController@editprice');
  Route::get('/history', 'homeController@history');
+ 
+ 
+ 
  
  
 Route::get('/media' , function () {
