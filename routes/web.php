@@ -45,7 +45,6 @@ Route::get('/decrasebook/{id}', 'LibraryController@DecreaseBookByOne');
 
 //Requests Routes
 Route::get('/requests', 'RequestsController@Show');
-Route::get('/oldrequests', 'RequestsController@ShowOldRequests');
 
 //To Direct User to New Request Page After Click !
 Route::get('/new-request', 'RequestsController@NewRequest');
@@ -57,6 +56,7 @@ Route::post('/store', array( 'as' => 'store', 'uses' => 'RequestsController@stor
 	
 Route::post('/request-accept', 'RequestsController@RequestAccept');
 Route::post('/request-reject', 'RequestsController@RequestReject');
+Route::post('/request-accept-w', 'RequestsController@RequestAcceptWithNoti');
 
 //
 Route::post('/delete-request', 'RequestsController@DeleteRequest');
@@ -158,13 +158,13 @@ Route::post('/stroe-img-event', 'NewsController@StoreEventImg');
 Route::get('/events', 'NewsController@StoreEventImg');
 
 
+ Route::get('/notifications', 'HomeController@Notifications');
 // website 
 Route::get('/islam', 'WebController@islam')->name('web.islam');
 
 
 
  Route::get('/profile', 'HomeController@profile');
- Route::get('/notifications', 'HomeController@notifications');
  Route::get('/details-notifications', 'HomeController@detailsnotifications');
  Route::get('/price', 'homeController@price');
  Route::get('/editprice', 'homeController@editprice');

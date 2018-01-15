@@ -10,9 +10,6 @@ use App\Department;
 use App\State;
 use App\User;
 use App\Pointer;
-use Psy\Command\WhereamiCommand;
-use Illuminate\Foundation\Console\Presets\React;
-use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 use App\Noti;
 
 class RequestsController extends Controller
@@ -98,31 +95,74 @@ class RequestsController extends Controller
 		
 		switch ($Selected) {
 			case Pointer::$Council:
-				$request->state_id = Pointer::$UnderStudyFromCouncil;
+				$this->Noty($request);
+				$request->state_id 		= Pointer::$UnderStudyFromCouncil;
+				$noti 					= new Noti();
+				$noti->request_id 		= $request->id;
+				$noti->seen 			= false;
+				$noti->department_id 	= Pointer::$Council;
+				$noti->save();
 			break;
 			
 			case Pointer::$Jalyat:
 				$request->state_id = Pointer::$ToJalyat;
+				$this->Noty($request);
+				$noti 					= new Noti();
+				$noti->request_id 		= $request->id;
+				$noti->seen 			= false;
+				$noti->department_id 	= Pointer::$Jalyat;
+				$noti->save();
 				break;
 				
 			case Pointer::$Issued:
 				$request->state_id = Pointer::$ToIssued;
+				$this->Noty($request);
+				$noti 					= new Noti();
+				$noti->request_id 		= $request->id;
+				$noti->seen 			= false;
+				$noti->department_id 	= Pointer::$Issued;
+				$noti->save();
 				break;
 				
 			case Pointer::$Library:
 				$request->state_id = Pointer::$ToLibrary;
+				$this->Noty($request);
+				$noti 					= new Noti();
+				$noti->request_id 		= $request->id;
+				$noti->seen 			= false;
+				$noti->department_id 	= Pointer::$Library;
+				$noti->save();
 				break;
 				
 			case Pointer::$Media:
 				$request->state_id = Pointer::$ToMedia;
+				$this->Noty($request);
+				$noti 					= new Noti();
+				$noti->request_id 		= $request->id;
+				$noti->seen 			= false;
+				$noti->department_id 	= Pointer::$Media;
+				$noti->save();
 				break;
 				
 			case Pointer::$Services:
 				$request->state_id = Pointer::$ToServices;
+				$this->Noty($request);
+				$noti 					= new Noti();
+				$noti->request_id 		= $request->id;
+				$noti->seen 			= false;
+				$noti->department_id 	= Pointer::$Services;
+				$noti->save();
 				break;
 				
 			case Pointer::$Finance:
 				$request->state_id = Pointer::$UnderStudyFromFinance;
+				$this->Noty($request);
+				$request->state_id 		= Pointer::$UnderStudyFromFinance;
+				$noti 					= new Noti();
+				$noti->request_id 		= $request->id;
+				$noti->seen 			= false;
+				$noti->department_id 	= Pointer::$Finance;
+				$noti->save();
 				break;
 		}
 
@@ -140,11 +180,14 @@ class RequestsController extends Controller
 	
 	public function RequestDetails(Request $id){
 		
-		$this->validate($id, [
-				'id' 	=> 'required',
-		]);
-		
 		$request = Request_::all()->where('id', $id->input('id'));
+		
+		if(!is_null($id->input('newnoti'))){
+			
+			$notifcation = Noti::find($id->input('newnoti'));
+			$notifcation->seen = true;
+			$notifcation->save();
+		}
 		return view('cpac.requests.details-request', ['details' => $request]);
 	}
 	
@@ -155,23 +198,69 @@ class RequestsController extends Controller
 			$request = Request_::find($id->input('id'));
 		if(Auth::user()->department_id == Pointer::$Manager ){
 			$request->state_id = Pointer::$Accepted;
-			$request->responder_id = Auth::user()->id;
 			
 		}else if(Auth::user()->department_id == Pointer::$Council){
 			$request->state_id = Pointer::$AcceptedFromCouncil;
-			$request->responder_id = Auth::user()->id;
 			
 		}else if(Auth::user()->department_id == Pointer::$Finance){
 			$request->state_id = Pointer::$AcceptedFromFinance;
-			$request->responder_id = Auth::user()->id;
 			
 		}else {
 			return redirect('/home');
 		}
 		
 
+			$request->responder_id = Auth::user()->id;
 			$request->save();
+			
+			
+			$noti 					= new Noti();
+			$noti->request_id 		= $request->id;
+			$noti->seen 			= false;
+			$noti->department_id 	= $request->user->department_id;
+			$noti->save();
+			
 		return redirect('/requests')->with('success','تم قبول الطلب بنجاح.');
+		
+	}
+	
+	public function RequestAcceptWithNoti(Request $id){
+		
+		$request = Request_::find($id->input('id'));
+		if(Auth::user()->department_id == Pointer::$Manager ){
+			$request->state_id = Pointer::$Accepted;
+			
+		}else if(Auth::user()->department_id == Pointer::$Council){
+			$request->state_id = Pointer::$AcceptedFromCouncil;
+			
+		}else if(Auth::user()->department_id == Pointer::$Finance){
+			$request->state_id = Pointer::$AcceptedFromFinance;
+			
+		}else {
+			return redirect('/home');
+		}
+		
+		
+		
+		// Send Notifcation.
+		
+		$Department = Department::all();
+		foreach ($Department as $dep){
+			
+			if (!is_null($id->input($dep->id))){
+				$noti 					= new Noti();
+				$noti->request_id 		= $request->id;
+				$noti->seen 			= false;
+				$noti->department_id 	= $dep->id;
+				$noti->save();
+			}
+		}
+		
+		
+		
+		$request->responder_id = Auth::user()->id;
+		$request->save();
+		return redirect('/requests')->with('success','تم قبول الطلب بنجاح مع إشعار الاقسام.');
 		
 	}
 	
@@ -188,8 +277,18 @@ class RequestsController extends Controller
 			return redirect('/home');
 		}
 		
-		
+		$request->responder_id = Auth::user()->id;
 		$request->save();
+		
+		
+		
+		
+		$noti 					= new Noti();
+		$noti->request_id 		= $request->id;
+		$noti->seen 			= false;
+		$noti->department_id 	= $request->user->department_id;
+		$noti->save();
+		
 		return redirect('/requests')->with('success','تم رفض الطلب بنجاح.');
 		
 		
@@ -309,13 +408,26 @@ class RequestsController extends Controller
 		$request_->user_id			= Auth::id();
 		$request_->price			= $request->input('price');
 		$request_->state_id			= Pointer::$UnderStudy;
-			
+		
 		$request_->save();
+
+		$noti 					= new Noti();
+		$noti->request_id 		= $request_->id;
+		$noti->seen 			= false;
+		$noti->department_id 	= Pointer::$Manager;
+		$noti->save();
 		
 		return redirect('/requests')->with('success','تم رفع الطلب بنجاح.');
 		
 	}
 	
+	private function Noty($request){
+		$noti 					= new Noti();
+		$noti->request_id 		= $request->id;
+		$noti->seen 			= false;
+		$noti->department_id 	= $request->user->department_id;
+		$noti->save();
+	}
 	
 	private function GetIDs($DepartmentID){
 		

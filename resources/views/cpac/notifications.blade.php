@@ -34,38 +34,45 @@
     <li role="presentation" class="active"><a href="#notifications" aria-controls="notifications" role="tab" data-toggle="tab">الاشعارات الجديدة</a></li>
     <li role="presentation"><a href="#oldnotifications" aria-controls="oldnotifications" role="tab" data-toggle="tab">الاشعارات القديمة </a></li>
     </ul>
-
-
     <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="notifications">
-        
-    <a href="details-notifications" class="list-group-item">    
-                                <p>اشعار جديد</p>
-                                <p align="left" class="pull-right text-muted small">2018-01-07 15:48:08	
-                                </p>
+@foreach($newlist as $Nlist)        
+
+<form  method="post" action="{{ url('details-request') }}">
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
+<input type="hidden" type="text" name="id" value="{{$Nlist->request->id}}">  
+<input type="hidden" type="text" name="newnoti" value="{{$Nlist->id}}">  
+
+    <Button class="list-group-item">    
+    <p>{{$Nlist->request->title}}</p>
+    <p align="left" class="pull-right text-muted small">{{$Nlist->created_at}}</p>
                             <br>
-                            </a>
-                            <a href="details-notifications" class="list-group-item">    
-                                <p>اشعار جديد</p>
-                                <p align="left" class="pull-right text-muted small">2018-01-07 15:48:08	
-                                </p>
-                            <br>
-                            </a>
-                                   
+    </Button>
+</form>                       
+@endforeach                                  
 </div>                        
 
 <div role="tabpanel" class="tab-pane" id="oldnotifications"> 
-<a href="#" class="list-group-item">    
-                                <p>اشعار جديد</p>
-                                <p align="left" class="pull-right text-muted small">2018-01-07 15:48:08	
-                                </p>
+    <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="notifications">
+@foreach($oldlist as $Nlist)        
+<form  method="post" action="{{ url('details-request') }}">
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
+<input type="hidden" type="text" name="id" value="{{$Nlist->request->id}}"> 
+ 
+    <Button class="list-group-item">    
+    <p>{{$Nlist->request->title}}</p>
+    <p align="left" class="pull-right text-muted small">{{$Nlist->created_at}}</p>
                             <br>
-                            </a>
+    </Button>
+</form>                       
+@endforeach                                 
+</div>                        
+</form>   
 </div>
                             
        
 </div>                       
-                            
                             </div>
                             <!-- /.list-group -->
                               </div>

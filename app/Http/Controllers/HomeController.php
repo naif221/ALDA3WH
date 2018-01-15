@@ -9,7 +9,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Department;
 use App\Pointer;
-
+use App\Noti;
 class HomeController extends Controller
 {
     /**
@@ -62,10 +62,12 @@ class HomeController extends Controller
     	
     }
 	
-	public function notifications()
+    public function Notifications()
     {
     	
-    	return view('cpac.notifications');
+    	$list =  Noti::with('request')->where('department_id', Auth::user()->department_id)->where('seen',false)->get();
+    	$oldlist = Noti::with('request')->where('department_id', Auth::user()->department_id)->where('seen',true)->get();
+    	return view('cpac.notifications', ['newlist' => $list, 'oldlist' => $oldlist]);
     	
     }
 	
@@ -244,6 +246,7 @@ class HomeController extends Controller
     		$id != Pointer::$Library &&
     		$id != Pointer::$Manager &&
     		$id != Pointer::$Issued	 &&
+    		$id != Pointer::$Finance &&
     		$id != Pointer::$Services){
     		
     	$dep = Department::find($id);

@@ -25,7 +25,7 @@ class CreateRequestTable extends Migration
             $table->longText('content');
             $table->double('price')->nullable();
             $table->unsignedInteger('responder_id')->nullable();
-            $table->foreign('responder_id')->references('id')->on('users')->onDelete('cascade');;
+            $table->foreign('responder_id')->references('id')->on('users')->onDelete('cascade');
             $table->text('reason')->nullable();
             $table->timestamps();
         });

@@ -8,7 +8,7 @@ class Noti extends Model
 {
     //
     
-	protected $table = 'request-noti';
+	protected $table = 'requestNoti';
 	// Primary Key
 	protected $primaryKey = 'id';
 	// Timestamps

@@ -240,6 +240,7 @@ function showDiv() {
     <p>{{$detail->id}}<p>
     </div>
     </div>
+      </div>
     
      <form  method="POST" id="trnsform" action="{{ url('transact') }}">
 	 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -265,13 +266,12 @@ function showDiv() {
     </div>
     
 
-      </div>
       <div class="modal-footer">
       
 
       	<button type="submit" class="btn btn-primary">تحويل</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">الغاء</button>
-    </form> 
+</form> 
       </div>
     </div>
   </div>
@@ -296,46 +296,33 @@ function showDiv() {
     </div>
     </div>
     
-     <form  method="POST" id="trnsform" action="{{ url('transact') }}">
+<form  method="POST" id="noti" action="{{ url('request-accept-w') }}">
 	 <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <input type="hidden" type="text" name="id" value="{{$detail->id}}">  
     
-
+@php
+$Departments = App\Department::all();
+@endphp
       <div class="form-group row">
   <label class="col-sm-2 col-form-label">اشعار قسم</label>
   <div class="col-sm-10">
+@foreach($Departments as $Dep)
   <label class="checkbox-inline">
-      <input type="checkbox" value="{{App\Pointer::$Council}}">مجلس الإدارة</label><br>
-      <label class="checkbox-inline">
-      <input type="checkbox"  value="{{App\Pointer::$Jalyat}}">قسم الجاليات</label><br>
-    <label class="checkbox-inline">
-      <input type="checkbox" value="{{App\Pointer::$Issued}}">قسم الصادر</label><br>
-    <label class="checkbox-inline">
-      <input type="checkbox" value="{{App\Pointer::$Library}}">قسم المكتبة</label><br>
-    <label class="checkbox-inline">
-      <input type="checkbox" value="{{App\Pointer::$Media}}">قسم الإعلام</label><br>
-    <label class="checkbox-inline">
-      <input type="checkbox" value="{{App\Pointer::$Services}}">قسم الخدمات</label><br>
-
-
+      <input type="checkbox" name="{{$Dep->id}}" value="{{$Dep->id}}">{{$Dep->department_name}}</label><br>
+@endforeach
 </div>
-
     </div>
-    
-
-      </div>
       <div class="modal-footer">
-      
 
       	<button type="submit" class="btn btn-primary">ارسال</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">الغاء</button>
-    </form> 
+</form> 
+      </div>
       </div>
     </div>
   </div>
 </div>
 
-                        </div>
                         <!-- /.col-lg-12" -->
                     </div>
  <!-- /.row -->

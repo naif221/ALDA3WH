@@ -66,8 +66,17 @@
 
             <ul class="nav navbar-top-links navbar-left" >
 
+@php
 
-            <a  href="notifications"><span class="badge">1</span><i class="fa fa-bell fa-fw"></i></a>
+	$Holder = App\Noti::all()->where('department_id', Auth::user()->department_id)->where('seen', false);
+
+@endphp
+
+@if($Holder->count() > 0)
+<a  href="notifications"><span class="badge">{{$Holder->count()}}</span><i class="fa fa-bell fa-fw"></i></a>
+@else
+<a  href="notifications"><span class="badge"></span><i class="fa fa-bell fa-fw"></i></a>
+@endif
 
 
                 <li class="dropdown">

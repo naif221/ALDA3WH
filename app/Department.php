@@ -30,5 +30,8 @@ class Department extends Model
 		return $this->hasManyThrough('App\Request_' , 'App\User' , 'department_id', 'user_id', 'id' , 'id');
 	}
 	
-	
+	public function noti(){
+		
+		return $this->hasMany('App\Noti');
+	}
 }
