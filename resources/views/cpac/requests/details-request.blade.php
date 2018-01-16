@@ -82,7 +82,6 @@
     </div>
 
 
-<hr>
 <br>
     <div class="form-group row">
     <label class="col-xs-2 col-form-label">العنوان</label>
@@ -92,12 +91,12 @@
     </div>
 
     <div class="form-group row">
-    <label class="col-xs-2 col-form-label">العنوان</label>
+    <label class="col-xs-2 col-form-label">المحتوى</label>
     <div class="col-xs-10">
     <p>{!! $detail->content !!}<p>
     </div>
     </div>
-</div>
+
 
 
 
@@ -137,36 +136,62 @@ function PrintMe(printthis) {
 <form  method="POST" action="{{ url('Add-Comment') }}">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <input type="hidden" type="text" name="id" value="{{$detail->id}}">  
-
-<center>
-<button  class="btn btn-primary" ><i class="fa fa-comments" aria-hidden="true"></i> اضافة تعليق</button>
-<div class="form-group row">
-    <label class="col-sm-2 col-form-label">التعليق</label>
-    </br> </br>
-    <div class="col-sm-10">
-    
-		 <textarea class="summernote" name="comment" ></textarea> 
-
-    
-    <script>
-$(document).ready(function() {
-  $('.summernote').summernote();
-});
-    </script>
-    </div>
-   
-  </div>
-
-  <script>
-function showDiv() {
-   document.getElementById('divcomment').style.display = "block";
-}
-
-
-</script>
-</center>
 </form> 
 
+
+
+<hr>
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">التعليق  <p style="color: gray; font-size: 12px;"> (اضف تعليق يظهر لمقدم الطلب)</p></label>
+  
+    <div class="col-sm-10">
+    
+
+		
+
+
+ <textarea class="summernote" name="comment" ></textarea> 
+
+    
+<script>
+$(document).ready(function() {
+$('.summernote').summernote();
+});
+</script>
+
+
+    </div>
+    </div>
+
+
+ <div class="form-group row">
+    <label class="col-xs-2 col-form-label">التعليقات</label>
+    
+    </div>
+<div class="row">
+  
+<div class="col-lg-1 col-md-1 col-sm-2 col-xs-2">
+<div class="thumbnail">
+<img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+</div><!-- /thumbnail -->
+</div><!-- /col-sm-1 -->
+
+<div class="col-lg-11 col-md-11 col-sm-10 col-xs-10">
+<div class="panel panel-default">
+<div class="panel-heading">
+<strong>المشرف</strong> 
+</div>
+<div class="panel-body">
+هنا التعليق
+</div><!-- /panel-body -->
+</div><!-- /panel panel-default -->
+</div><!-- /col-sm-5 -->
+
+
+</div><!-- /row -->   
+   
+
+  
 @if($detail->state_id == App\Pointer::$UnderStudy | $detail->state_id == App\Pointer::$UnderStudyFromCouncil | $detail->state_id == App\Pointer::$AcceptedFromFinance )
 @if(Auth::user()->department_id == App\Pointer::$Manager | Auth::user()->department_id == App\Pointer::$Council | Auth::user()->department_id == App\Pointer::$Finance)
 
@@ -209,7 +234,6 @@ function showDiv() {
 
 @endif
 @endif
-<center>
 <td>
 <button  class="btn btn-info" onclick="javascript:PrintMe('printthis')"/>طباعة <i class="fa fa-print" aria-hidden="true"></i></button>
 </td>
@@ -220,12 +244,9 @@ function showDiv() {
 </center>
 
 
-</div>
-</div>
-<!-- panel -->
 
 
-<!-- Modal -->
+<!-- start Modal 1-->
 <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -264,8 +285,7 @@ function showDiv() {
 </div>
 
     </div>
-    
-
+ 
       <div class="modal-footer">
       
 
@@ -277,9 +297,18 @@ function showDiv() {
   </div>
 </div>
 
+<!-- end model 1-->   
+
+ 
 
 
+ 
+ 
+ 
+ 
+ 
 
+<!-- start Modal 2-->
 
 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -295,6 +324,8 @@ function showDiv() {
     <p>{{$detail->id}}<p>
     </div>
     </div>
+      </div>
+    
     
 <form  method="POST" id="noti" action="{{ url('request-accept-w') }}">
 	 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -311,25 +342,34 @@ $Departments = App\Department::all();
       <input type="checkbox" name="{{$Dep->id}}" value="{{$Dep->id}}">{{$Dep->department_name}}</label><br>
 @endforeach
 </div>
-    </div>
+    
+	
+	
       <div class="modal-footer">
 
       	<button type="submit" class="btn btn-primary">ارسال</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">الغاء</button>
-</form> 
+ 
       </div>
       </div>
+	  </form>
+ 
+     
     </div>
   </div>
 </div>
 
-                        <!-- /.col-lg-12" -->
-                    </div>
- <!-- /.row -->
+<!-- end model 2-->   
 
-                </div>
-                <!-- /.page-wrapper -->
-        
-
+ 
+ 
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+ 
+ 
 @endforeach
 @include('cpac/style/footer')
