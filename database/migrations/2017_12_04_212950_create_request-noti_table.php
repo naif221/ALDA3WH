@@ -37,15 +37,17 @@ class CreateRequestNotiTable extends Migration
     {
         //
         
-    	Schema::table('requestNoti', function(Blueprint $table){
+//     	Schema::table('requestNoti', function(Blueprint $table){
     		
-    		$table->dropForeign('requestnoti_request_id_foreign');
-     		$table->dropColumn('request_id');
-     		$table->dropForeign('requestnoti_department_id_foreign');
-     		$table->dropColumn('department_id');
-     		$table->drop();
+//     		$table->dropForeign('requestnoti_request_id_foreign');
+//      		$table->dropColumn('request_id');
+//      		$table->dropForeign('requestnoti_department_id_foreign');
+//      		$table->dropColumn('department_id');
+//      		$table->drop();
     		
-    	});
+//     	});
+    	Schema::dropIfExists('requestNoti');
+    	
     		
     }
 }
