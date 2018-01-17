@@ -41,7 +41,7 @@
 
     <br>
     <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example" >
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example1" >
                                     <thead>
                                         <tr>
                                             <th>رقم الطلب</th>
@@ -105,7 +105,8 @@
     
     <br>
     <div class="table-responsive">
-    <table class="table table-striped table-bordered table-hover" id="dataTables-example2" >
+    <table class="table table-striped table-bordered table-hover" id="dataTables-example" >
+                                
                                     <thead>
                                         <tr>
                                             <th>رقم الطلب</th>

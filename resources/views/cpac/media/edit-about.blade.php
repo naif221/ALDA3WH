@@ -3,6 +3,16 @@
 
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
+
+<head><link href="{{ url('css/bootstrap-r.css') }}" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote-bs4.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote-bs4.js"></script>
+  </head>
+
+
 <div id="page-wrapper">
 
             <div class="row">
@@ -27,56 +37,34 @@
 
 
 <!-- <form method="post" action="{{ route('store') }}"> -->
-		{!! Form::open(['url' => 'store-muslims-count' , 'method' => 'POST']) !!}
+		{!! Form::open(['url' => '' , 'method' => 'POST']) !!}
 
 
     
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">الصفحة</label>
     <div class="col-sm-10">
-      <p > المسلمين الجدد منذ بداية هذا العام</p>
+      <p >عن المكتب و اعمالة </p>
     </div>
-  </div> 
-
-
+  </div>
   <div class="form-group row">
-    <label class="col-sm-2 col-form-label">العدد الحالي</label>
+    <label class="col-sm-2 col-form-label">المحتوى</label>
     <div class="col-sm-10">
-    <input type="text"  name="numberM"  value="{{$Count->count}}">
+    
+    
+      <div id="summernote" name="contentA"></div> 
+   <script> -->
+    $(document).ready(function() { 
+         $('#summernote').summernote();
+     }); 
+  </script> 
+		 
+
     </div>
   </div>
 
-<div class="form-group row">
-    <label class="col-sm-2 col-form-label">اضافة/حذف</label>
-    <div class="col-sm-2">
-    <div class="input-group add-minus">
-          <span class="input-group-btn">
-          
-              <a type="button"  href="/decrase-count" class="form-control btn btn-danger btn-number" onclick="return confirm('تاكيد الحذف')" >
-                <span class="glyphicon glyphicon-minus"><b> 1</b></span>
-              </a>
-          </span>
-          <span class="input-group-btn">
-              <a type="button"   href="/increase-count"  class="form-control btn btn-success btn-number"  onclick="return confirm('تاكيد الاضافة')" >
-                  <span class="glyphicon glyphicon-plus"><b> 1</b></span>
-              </a>
-          </span>
-         
-      </div>
-    </div>
-  </div> 
-
-
-
 <center>
 
-<style>
-.add-minus{
-    width: 185px;
-    margin: 0px auto;
-    
-  }
-</style>
   
   <button  class="btn btn-success" ><i class="fa fa-floppy-o" aria-hidden="true"></i> حفظ</button>
   <button  class="btn btn-muted" onclick="goBack()"><i class="fa fa-ban" aria-hidden="true"></i> الغاء</button>

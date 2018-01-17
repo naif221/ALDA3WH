@@ -99,6 +99,7 @@
 
 
 
+    </div>
 
 <script language="javascript">
 
@@ -226,7 +227,6 @@ $('.summernote').summernote();
 <button  class="btn btn-info" onclick="javascript:PrintMe('printthis')"/>طباعة <i class="fa fa-print" aria-hidden="true"></i></button>
 </td>
 
-</div>
 
 </table>
 </center>

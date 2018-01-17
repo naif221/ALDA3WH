@@ -185,13 +185,23 @@ Route::get('/media' , function () {
  
  });
 
- Route::get('/edit-media' , function () {
-	return view('cpac.media.edit-media');
+ Route::get('/edit-about' , function () {
+	return view('cpac.media.edit-about');
  
  });
  
+ 
+ Route::get('/edit-donation' , function () {
+	return view('cpac.media.edit-donation');
+ 
+ });
 	
  	
+ Route::get('/edit-islam' , function () {
+	return view('cpac.media.edit-islam');
+ 
+ });
+	
  
  
  

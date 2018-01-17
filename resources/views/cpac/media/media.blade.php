@@ -45,13 +45,13 @@
                                         	<td>
                  <a  class="btn btn-info"   href="home" >
                  <i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> عرض </a>
-                 <a class="btn btn-warning" href="edit-media">
+                 <a class="btn btn-warning" href="edit-about">
                  <i class="fa fa-pencil-square-o " aria-hidden="true"></i> تعديل</a>
                                             </td>
                                         </tr>
-                                       
-                                        <td>2</td>
-                                        	<td>عدد المسلمين الجدد</td>
+                                        <tr class="odd gradeX">
+                                        <td>3</td>
+                                        	<td>عدد المسلمين الجدد منذ بداية هذا العام</td>
                                             
                                         	<td>
                  <a  class="btn btn-info"   href="home" >
@@ -60,24 +60,34 @@
                  <i class="fa fa-pencil-square-o " aria-hidden="true"></i> تعديل</a>
                                             </td>
                                         </tr>
-
-                                       
                                         <tr class="odd gradeX">
-                                        	
-                                            <td>3</td>
-                                        	<td>تبرع للمكتب</td>
+                                        <td>4</td>
+                                        	<td>لديك شخص تريد دعوته للأسلام</td>
                                             
                                         	<td>
                  <a  class="btn btn-info"   href="home" >
                  <i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> عرض </a>
-                 <a class="btn btn-warning" href="edit-news">
+                 <a class="btn btn-warning" href="edit-islam">
                  <i class="fa fa-pencil-square-o " aria-hidden="true"></i> تعديل</a>
                                             </td>
                                         </tr>
                                        
                                         <tr class="odd gradeX">
                                         	
-                                            <td>4</td>
+                                            <td>5</td>
+                                        	<td>تبرع للمكتب</td>
+                                            
+                                        	<td>
+                 <a  class="btn btn-info"   href="home" >
+                 <i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> عرض </a>
+                 <a class="btn btn-warning" href="edit-donation">
+                 <i class="fa fa-pencil-square-o " aria-hidden="true"></i> تعديل</a>
+                                            </td>
+                                        </tr>
+                                       
+                                        <tr class="odd gradeX">
+                                        	
+                                            <td>6</td>
                                         	<td>فعاليات المكتب</td>
 
                                         	<td>
