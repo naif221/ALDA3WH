@@ -14,36 +14,28 @@
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                        تعديل 
+                        أضافة 
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                         
-   <h3> تعديل المبالغ المتوفرة في الحسابات</h3>
+   <h3> اضافة بنك</h3>
      <div class="table-responsive">        		
   <table class="table table-striped">
     <thead>
       <tr>
         <th>البنك</th>
         <th>المبلغ المتوفر</th>
-        <th>اضافة +</th>
-        <th>خصم -</th>
       </tr>
     </thead>
     <tbody>
-{!! Form::open(['url' => 'editprice' , 'method' => 'POST']) !!}
-
-@foreach($Banks as $Bank)
+{!! Form::open(['url' => 'addbank' , 'method' => 'POST']) !!}
       <tr>
-        <td>{{$Bank->bank}}</td>
-        <td><input type="text"  name="{{'amount' . $Bank->id}}" value="{{$Bank->amount}}" >ريال</td>
-        <td><input type="text"  name="{{'add'. $Bank->id}}" value="0" >ريال</td>
-        <td><input type="text"  name="{{'sub' . $Bank->id}}" value="0" >ريال</td>
+        <td><input type="text"  name="bank" value="" ></td>
+        <td><input type="text"  name="price" value="" ></td>
       </tr>
-@endforeach
     </tbody>
   </table>
-
 </div>         
              </div>               
                
@@ -65,4 +57,4 @@
             </div>
             
 
-                    @include('cpac/style/footer')
+@include('cpac/style/footer')

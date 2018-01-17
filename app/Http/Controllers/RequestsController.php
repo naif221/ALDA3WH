@@ -11,6 +11,7 @@ use App\State;
 use App\User;
 use App\Pointer;
 use App\Noti;
+use App\History;
 
 class RequestsController extends Controller
 {
@@ -32,9 +33,10 @@ class RequestsController extends Controller
 	
 	
 	public function AddComment(Request $Request){
+
 		
+		$Depname = Department::find(Auth::user()->department_id)->department_name;
 		$ldate = date('Y-m-d H:i');
-		$Div 		 = "<div>   </div>"; // Here Must Be HTML Div
 		$ID 		 = $Request->input('id');
 		$NewComment  = $Request->input('comment');
 		$req 		 = Request_::find($ID);
@@ -47,13 +49,27 @@ class RequestsController extends Controller
 		 * 
 		 * 
 		 */
+		$Div 		 = '
+<div class="row">
+
+<div class="col-lg-11 col-md-11 col-sm-10 col-xs-10">
+<div class="panel panel-default">
+<div class="panel-heading">
+<strong> قسم '. $Depname .' / ' . Auth::user()->name.'</strong> 
+</div>
+<div class="panel-body">
+'.
+$NewComment.'</br>'
+.' بتاريخ: '.$ldate.
+'
+</div><!-- /panel-body -->
+</div><!-- /panel panel-default -->
+</div><!-- /col-sm-5 -->
+
+
+</div><!-- /row -->   '; // Here Must Be HTML Div
 			
-			$PervComment .=
-			'</br>'.$Div .
-			'</br> تم الرد في:'.$ldate.
-			'</br> من قبل:' . Auth::user()->name .
-			'</br>'.Auth::user()->department_name .
-			'</br> &nbsp;'. $NewComment;
+			$PervComment .= $Div;
 		
 			$req->reason = $PervComment;
 			$req->save();
@@ -205,6 +221,11 @@ class RequestsController extends Controller
 		}else if(Auth::user()->department_id == Pointer::$Finance){
 			$request->state_id = Pointer::$AcceptedFromFinance;
 			
+			$History 				= new History();
+			$History->request_id 	= $request->id;
+			$History->user_id		= Auth::user()->id;
+			$History->save();
+			
 		}else {
 			return redirect('/home');
 		}
@@ -289,7 +310,7 @@ class RequestsController extends Controller
 		$noti->department_id 	= $request->user->department_id;
 		$noti->save();
 		
-		return redirect('/requests')->with('success','تم رفض الطلب بنجاح.');
+		return redirect('/requests')->with('success','تم رفض الطلب .');
 		
 		
 	}

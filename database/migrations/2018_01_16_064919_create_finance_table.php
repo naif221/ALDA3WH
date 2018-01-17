@@ -17,7 +17,6 @@ class CreateFinanceTable extends Migration
             $table->increments('id');
             $table->string('bank');
             $table->integer('amount');
-            $table->timestamps();
             
         });
     }

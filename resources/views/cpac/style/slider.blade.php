@@ -19,7 +19,7 @@
                         </li>
                         
                         <li>
-                                    <a href="price"> <i class="fa fa-money" aria-hidden="true"></i> المالية</a>
+                                    <a href="finance"> <i class="fa fa-money" aria-hidden="true"></i> المالية</a>
                                 </li>      
                                     
                         <li>

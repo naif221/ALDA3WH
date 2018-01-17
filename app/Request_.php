@@ -34,6 +34,11 @@ class Request_ extends Model
 		
 		return $this->hasMany('App\Noti');
 	}
+	
+	public function history(){
+		
+		return $this->hasone('App\History', 'request_id','id');
+	}
 
 
 }

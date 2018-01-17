@@ -136,7 +136,7 @@ function PrintMe(printthis) {
 <form  method="POST" action="{{ url('Add-Comment') }}">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <input type="hidden" type="text" name="id" value="{{$detail->id}}">  
-</form> 
+
 
 
 
@@ -163,36 +163,24 @@ $('.summernote').summernote();
     </div>
     </div>
 
+<center>
+</br>
+</br>
+<button  class="btn btn-success" >أضف التعليق<i class="fa fa-check-square-o" aria-hidden="true"></i></button>
+</center>
 
+</form> 
  <div class="form-group row">
     <label class="col-xs-2 col-form-label">التعليقات</label>
     
     </div>
 <div class="row">
   
-<div class="col-lg-1 col-md-1 col-sm-2 col-xs-2">
-<div class="thumbnail">
-<img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-</div><!-- /thumbnail -->
-</div><!-- /col-sm-1 -->
 
-<div class="col-lg-11 col-md-11 col-sm-10 col-xs-10">
-<div class="panel panel-default">
-<div class="panel-heading">
-<strong>المشرف</strong> 
-</div>
-<div class="panel-body">
-هنا التعليق
-</div><!-- /panel-body -->
-</div><!-- /panel panel-default -->
-</div><!-- /col-sm-5 -->
-
-
-</div><!-- /row -->   
-   
+{!! $detail->reason !!}
 
   
-@if($detail->state_id == App\Pointer::$UnderStudy | $detail->state_id == App\Pointer::$UnderStudyFromCouncil | $detail->state_id == App\Pointer::$AcceptedFromFinance )
+@if($detail->state_id == App\Pointer::$UnderStudy | $detail->state_id == App\Pointer::$UnderStudyFromCouncil | $detail->state_id == App\Pointer::$AcceptedFromFinance | $detail->state_id == App\Pointer::$UnderStudyFromFinance )
 @if(Auth::user()->department_id == App\Pointer::$Manager | Auth::user()->department_id == App\Pointer::$Council | Auth::user()->department_id == App\Pointer::$Finance)
 
 

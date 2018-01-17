@@ -3,18 +3,15 @@
 
 
 
-
-
-
 <div id="page-wrapper">
 
             <div class="row">
                 <div class="col-lg-12">
                 <br>
                 
-                <a  class="btn btn-default" onclick="goBack()"> <i class="fa fa-chevron-right" aria-hidden="true"></i> رجوع</a>
+     <a  class="btn btn-default" onclick="goBack()"> <i class="fa fa-chevron-right" aria-hidden="true"></i> رجوع</a>
                 
-                                    <h1 class="page-header">المالية</h1>
+         <h1 class="page-header">المالية</h1>
                 
                 
                     
@@ -27,33 +24,39 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                         
-                     <h3>تاريخ خصم و اضافة المبالغ للحسابات</h3>
+                     <h3>تاريخ خصم المبالغ</h3>
                      <div class="table-responsive">
   <table width="100%" class="table table-striped">
     <thead>
       <tr>
         <th>التاريخ/الوقت</th>
-        <th>البنك</th>
-        <th   >خصم -</th>
-        <th  >اضافة +</th>
-        <th >البنك</th>
-        <th  >خصم -</th>
-        <th >اضافة +</th>
-        <th>الملاحظات</th>
+        <th>المبلغ</th>
+        <th>الطلب</th>
+		<th>تمت بواسطة</th>
+		<th>تفاصيل الطلب</th>
+		
       </tr>
     </thead>
     <tbody>
+@foreach($History as $history)
     <tr >
-        <td>2018-01-13 06:18:29</td>
-        <td>الراجحي</td>
-        <td  class="danger" ></td>
-        <td class="success" ></td>
-        <td>الاهلي</td>
-        <td  class="danger" ></td>
-        <td class="success" ></td>
-        <td></td>
+        <td>{{$history->created_at}}</td>
+        <td>{{$history->request->price}}</td>
+        <td>{{$history->request->title}}</td>
+        <td>{{$history->user->name}}</td>
+        <td>
+        
+     <form  method="POST" action="{{ url('details-request') }}">
+		<input type="hidden" name="_token" value="{{ csrf_token() }}">
+	<input type="hidden" type="text" name="id" value="{{$history->request_id}}">  
+ <button type="submit" class="btn btn-info">
+  	<i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> التفاصيل </button>
+                 					
+      	</form> 
+        
+        </td>
       </tr>
-
+@endforeach
     </tbody>
   </table>
 </div>         

@@ -14,13 +14,12 @@
                 <h4>مرحبا بك يا {{Auth::user()->name}}
                 
                 <br>
-                القسم :  {{Auth::user()->department_id}}
+                القسم :  {{App\Department::find(Auth::user()->department_id)->department_name}}
                 </h4>
 
                 
                    <br>
                    <hr>
-
 </div>
 
                    <a href="profile" > <i class="fa fa-user-circle fa-5x"></i> <br>الملف الشخصي</a>

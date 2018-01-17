@@ -49,7 +49,10 @@ class User extends Authenticatable
     }
     
     
-//     public function getAuthPassword() {
-//     	return $this->password;
-//     }
+    public function history(){
+    	
+    	return $this->hasMany('App\History');
+    }
+    
+
 }

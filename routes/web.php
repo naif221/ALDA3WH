@@ -157,6 +157,15 @@ Route::get('/increase-count', 'NewsController@Incrase');
 Route::post('/stroe-img-event', 'NewsController@StoreEventImg');
 Route::get('/events', 'NewsController@StoreEventImg');
 
+Route::get('/finance', 'FinanceController@GetBanks');
+Route::get('/history', 'FinanceController@GetHistory');
+Route::get('/editprice', 'FinanceController@EditPrice');
+Route::post('/editprice', 'FinanceController@EditPrice');
+
+Route::get('/addbank', 'FinanceController@addbank');
+Route::post('/addbank', 'FinanceController@addbank');
+
+//addbank
 
  Route::get('/notifications', 'HomeController@Notifications');
 // website 
@@ -166,9 +175,6 @@ Route::get('/islam', 'WebController@islam')->name('web.islam');
 
  Route::get('/profile', 'HomeController@profile');
  Route::get('/details-notifications', 'HomeController@detailsnotifications');
- Route::get('/price', 'homeController@price');
- Route::get('/editprice', 'homeController@editprice');
- Route::get('/history', 'homeController@history');
  
  
  
