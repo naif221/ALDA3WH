@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\File;
 use App\MuslimsCount;
 use App\Event;
+use App\About;
+use App\Islam;
+use App\Donation;
+use App\Banner;
 
 class NewsController extends Controller
 {
@@ -21,9 +25,7 @@ class NewsController extends Controller
 		
 		if($Request->isMethod('get')){
 			
-			$E = Event::find(1)->img_path;
-			
-			return view('cpac.media.events', ['img' => $E]);
+			return view('cpac.media.events', []);
 		
 		}else {
 			
@@ -53,8 +55,8 @@ class NewsController extends Controller
 			}
 			
 			
-			$EventImg =   Event::find(1);
-			unlink(str_replace(asset(''),"",$EventImg->img_path));
+			$EventImg =  new Event();
+			//unlink(str_replace(asset(''),"",$EventImg->img_path));
 			$EventImg->img_path= asset($path);
 			$EventImg->save();
 			
@@ -74,19 +76,93 @@ class NewsController extends Controller
 	
 
 
-	public function banner() {
+	
+	public function banner(Request $Request){
 		
+		if($Request->isMethod('get')){
+			$baners = Banner::all();
+			return view('cpac.media.banner', ['banner' => $baners]);
+			
+		}else {
+			
+			$path;
+			if($Request->hasFile('file_path')){
+				// Get filename with the extension
+				$filenameWithExt = $Request->file('file_path')->getClientOriginalName();
+				// Get just filename
+				$filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+				// Get just ext
+				$extension = $Request->file('file_path')->getClientOriginalExtension();
+				// Filename to store
+				$fileNameToStore= $filename.'_'.time().'.'.$extension;
+				// Upload Image
+				// 				 $path = $Request->file('file_path')->storeAs('/imgs', $fileNameToStore);
+				// 				Storage::put('/public/storage/imgs/', $fileNameToStore);
+				$path = Storage::putFile('public/news_logo', new File($Request->file('file_path')) , 'public');
+				// 				 '/public/storage/imgs/'.$fileNameToStore;
+				$path = str_replace("public","storage",$path);
+			}else {
+				$path = 'storage/news_logo/default.png';
+			}
+			
+			
+			$EventImg =  new Banner();
+			//unlink(str_replace(asset(''),"",$EventImg->img_path));
+			$EventImg->img_path= asset($path);
+			
+			
+			
+			if($Request->hasFile('file_path2')){
+				// Get filename with the extension
+				$filenameWithExt = $Request->file('file_path2')->getClientOriginalName();
+				// Get just filename
+				$filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+				// Get just ext
+				$extension = $Request->file('file_path')->getClientOriginalExtension();
+				// Filename to store
+				$fileNameToStore= $filename.'_'.time().'.'.$extension;
+				// Upload Image
+				// 				 $path = $Request->file('file_path')->storeAs('/imgs', $fileNameToStore);
+				// 				Storage::put('/public/storage/imgs/', $fileNameToStore);
+				$path = Storage::putFile('public/news_logo', new File($Request->file('file_path2')) , 'public');
+				// 				 '/public/storage/imgs/'.$fileNameToStore;
+				$path = str_replace("public","storage",$path);
+			}else {
+				$path = 'storage/news_logo/default.png';
+			}
+			
+			//unlink(str_replace(asset(''),"",$EventImg->img_path));
+			$EventImg->img_path2= asset($path);
+			
+			if($Request->hasFile('file_path3')){
+				// Get filename with the extension
+				$filenameWithExt = $Request->file('file_path3')->getClientOriginalName();
+				// Get just filename
+				$filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+				// Get just ext
+				$extension = $Request->file('file_path3')->getClientOriginalExtension();
+				// Filename to store
+				$fileNameToStore= $filename.'_'.time().'.'.$extension;
+				// Upload Image
+				// 				 $path = $Request->file('file_path')->storeAs('/imgs', $fileNameToStore);
+				// 				Storage::put('/public/storage/imgs/', $fileNameToStore);
+				$path = Storage::putFile('public/news_logo', new File($Request->file('file_path3')) , 'public');
+				// 				 '/public/storage/imgs/'.$fileNameToStore;
+				$path = str_replace("public","storage",$path);
+			}else {
+				$path = 'storage/news_logo/default.png';
+			}
+			
+			//unlink(str_replace(asset(''),"",$EventImg->img_path));
+			$EventImg->img_path3= asset($path);
+			$EventImg->save();
+			
+		}
 		
-		return view('cpac.media.banner');
+		return redirect('/media');
 	}
+	
 
-	
-	public function events() {
-		
-		
-		return view('cpac.media.events');
-	}
-	
 
 	public function muslims(Request $Request) {
 		
@@ -211,6 +287,41 @@ class NewsController extends Controller
 		}
 		
 	}
+	
+	public function StoreAbout(Request $Request){
+		$About = About::find(1);
+		$About->post = $Request->input('content');
+		$About->save();
+		return redirect('/media');
+	}
+	
+	public function Islam(Request $Request){
+		
+		if($Request->isMethod('get')){
+		
+		return view('cpac.media.edit-islam');
+		}else if($Request->isMethod('post')){
+			
+			$is = Islam::find(1);
+			$is->content = $Request->input('content');
+			$is->save();
+			
+		}
+		return redirect('/media');
+	}
+	
+	public function StoreDonation(Request $Request){
+		
+			if($Request->isMethod('post')){
+			
+			$is = Donation::find(1);
+			$is->content = $Request->input('content');
+			$is->save();
+			
+		}
+		return redirect('/media');
+	}
+	
 	
 	
 	

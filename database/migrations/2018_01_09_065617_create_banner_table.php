@@ -15,7 +15,9 @@ class CreateBannerTable extends Migration
     {
         Schema::create('banner', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('banner_path');
+            $table->text('img_path');
+            $table->text('img_path2');
+            $table->text('img_path3');
         });
     }
 

@@ -30,7 +30,7 @@
 
 
 <!-- <form method="post" action="{{ route('store') }}"> -->
-		{!! Form::open(['url' => '' , 'method' => 'POST']) !!}
+		{!! Form::open(['url' => 'StoreBanner' , 'method' => 'POST' , 'files' => 'true']) !!}
 
 
     
@@ -54,7 +54,7 @@
     </div>
     </div>
     <div class="thumbnail-img">
-        <img style="max-width:100%; " src="images/im1.png" />
+        <img style="max-width:100%; " src="{{App\Banner::find(1)->img_path}}" />
     </div>
 
     <br>
@@ -62,22 +62,22 @@
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">البانر 2</label>
     <div class="col-sm-10">
-    <input type="file" name="file_path" >
+    <input type="file" name="file_path2" >
     </div>
     </div>
     <div class="thumbnail-img">
-        <img style="max-width:100%; " src="images/im1.png" />
+        <img style="max-width:100%; " src="{{App\Banner::find(1)->img_path2}}" />
     </div>
     <br>
     <br>
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">البانر 3</label>
     <div class="col-sm-10">
-    <input type="file" name="file_path" >
+    <input type="file" name="file_path3" >
     </div>
     </div>
     <div class="thumbnail-img">
-    <img style="max-width:100%; " src="images/im1.png" />
+    <img style="max-width:100%; " src="{{App\Banner::find(1)->img_path3}}" />
     </div>
     
 

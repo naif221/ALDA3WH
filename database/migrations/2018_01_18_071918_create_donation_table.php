@@ -3,9 +3,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\About;
 
-class CreateAboutofficeTable extends Migration
+class CreateDonationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +13,10 @@ class CreateAboutofficeTable extends Migration
      */
     public function up()
     {
-        Schema::create('aboutoffice', function (Blueprint $table) {
+        Schema::create('donation', function (Blueprint $table) {
             $table->increments('id');
-			$table->text('post')->nullable;
+            $table->text('content');
         });
-    
-        $A 		 = new About();
-        $A->post = '';
-        $A->save();
     }
 
     /**
@@ -31,6 +26,6 @@ class CreateAboutofficeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aboutoffice');
+        Schema::dropIfExists('donation');
     }
 }

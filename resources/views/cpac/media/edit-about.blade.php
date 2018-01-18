@@ -37,9 +37,7 @@
 
 
 <!-- <form method="post" action="{{ route('store') }}"> -->
-		{!! Form::open(['url' => '' , 'method' => 'POST']) !!}
-
-
+{!! Form::open(['url' => 'StoreAbout' , 'method' => 'POST']) !!}
     
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">الصفحة</label>
@@ -52,7 +50,8 @@
     <div class="col-sm-10">
     
     
-      <div id="summernote" name="contentA"></div> 
+      		 <textarea class="summernote" name="content" value="">{{App\About::find(1)->post}}</textarea> 
+      
    <script> -->
     $(document).ready(function() { 
          $('#summernote').summernote();

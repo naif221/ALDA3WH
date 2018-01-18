@@ -124,20 +124,6 @@ Route::post('/edit-book', 'LibraryController@UpdateBook');
 
 
 
-// Public Site.
-
-Route::get('/Library', 'WebController@ShowBooks');
-Route::get('/Home','WebController@index');
-Route::get('/About', 'WebController@About');
-Route::get('/news', 'WebController@ShowPostDetail');
-Route::get('/more', 'WebController@ShowNewsForPublic');
-
-
-Route::get('/',function (){
-	
-	return redirect('/Home');
-});
-
 
 // Internal Section News
 Route::get('/media-news', 'NewsController@ShowNews');
@@ -145,6 +131,7 @@ Route::get('/new-news', 'NewsController@AddNews');
 Route::post('/new-news', 'NewsController@AddNews');
 Route::get('/delete-news', 'NewsController@DeleteNews');
 Route::get('/banner', 'NewsController@banner');
+Route::post('/StoreBanner', 'NewsController@banner');
 Route::get('/muslims', 'NewsController@muslims');
 Route::get('/edit-news', 'NewsController@EditPost');
 Route::post('/edit-news', 'NewsController@EditPost');
@@ -165,21 +152,19 @@ Route::post('/editprice', 'FinanceController@EditPrice');
 Route::get('/addbank', 'FinanceController@addbank');
 Route::post('/addbank', 'FinanceController@addbank');
 
-//addbank
+Route::get('/notifications', 'HomeController@Notifications');
 
- Route::get('/notifications', 'HomeController@Notifications');
+
+
+
 // website 
 Route::get('/islam', 'WebController@islam')->name('web.islam');
 
 
+Route::get('/profile', 'HomeController@profile');
+Route::get('/details-notifications', 'HomeController@detailsnotifications');
+ 
 
- Route::get('/profile', 'HomeController@profile');
- Route::get('/details-notifications', 'HomeController@detailsnotifications');
- 
- 
- 
- 
- 
 Route::get('/media' , function () {
 	return view('cpac.media.media');
  
@@ -199,10 +184,23 @@ Route::get('/media' , function () {
  	
  Route::get('/edit-islam' , function () {
 	return view('cpac.media.edit-islam');
- 
  });
-	
+ 	
  
  
+Route::post('/StoreAbout', 'NewsController@StoreAbout');
+Route::post('/StoreIslam', 'NewsController@Islam');
+Route::post('/StoreDon', 'NewsController@StoreDonation');
+
  
- 
+
+// Public Site.
+
+Route::get('/Library', 'WebController@ShowBooks');
+Route::get('/Home','WebController@index');
+Route::get('/About', 'WebController@About');
+Route::get('/news', 'WebController@ShowPostDetail');
+Route::get('/more', 'WebController@ShowNewsForPublic');
+Route::get('/',function (){
+	return redirect('/Home');
+});

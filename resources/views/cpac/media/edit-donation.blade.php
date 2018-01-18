@@ -37,7 +37,7 @@
 
 
 <!-- <form method="post" action="{{ route('store') }}"> -->
-		{!! Form::open(['url' => '' , 'method' => 'POST']) !!}
+		{!! Form::open(['url' => 'StoreDon' , 'method' => 'POST']) !!}
 
 
     
@@ -51,8 +51,7 @@
     <label class="col-sm-2 col-form-label">المحتوى</label>
     <div class="col-sm-10">
     
-    
-      <div id="summernote" name="contentD"></div> 
+      <textarea id="summernote" name="content">{{App\Donation::find(1)->content}}</textarea> 
    <script> -->
     $(document).ready(function() { 
          $('#summernote').summernote();

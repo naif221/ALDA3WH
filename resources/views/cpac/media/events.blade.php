@@ -53,7 +53,7 @@
       <p >الحجم المتناسق 380x538 </p>
     </div>
     <div class="thumbnail-img">
-        <img style="max-width:100%; " src="{{$img}}" />
+        <img style="max-width:100%; " src="{{App\Event::find(1)->img_path}}" />
     </div>
 
     
