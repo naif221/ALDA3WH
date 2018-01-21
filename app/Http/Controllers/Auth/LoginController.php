@@ -49,7 +49,7 @@ class LoginController extends Controller
     			'password' => Input::post('password')
     	);
     	
-    	if (Auth::attempt($dataAttempt)){
+    	if (Auth::attempt($dataAttempt , Input::post('remember'))){
     		
     		return redirect()->intended('/home');
     		

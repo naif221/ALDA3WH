@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-	<meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>تسجيل الدخول</title>
 
     <!-- Bootstrap Core CSS -->
@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">تذكرني
+                                        <input name="remember"  id="remember"type="checkbox" value="1">تذكرني
                                     </label>
                                 </div>
                             		<input type="submit" value="تسجيل الدخول" class="btn btn-lg btn-success btn-block">

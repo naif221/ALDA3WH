@@ -48,7 +48,7 @@ class LibraryController extends Controller
 	public function AddAuthor(Request $request)
 	{
 		
-		if(!Auth::user()->department_id === Pointer::$Issued || !Auth::user()->department_id === Pointer::$Manager)
+		if(Auth::user()->department_id != Pointer::$Library || Auth::user()->department_id != Pointer::$Manager)
 		return redirect('/home');
 		
 		if($request->isMethod('get')){
@@ -70,10 +70,8 @@ class LibraryController extends Controller
 	
 	public function AddLanguage(Request $request)
 	{
-		if(!Auth::user()->department_id === Pointer::$Issued || !Auth::user()->department_id === Pointer::$Manager){
-			
+		if(Auth::user()->department_id != Pointer::$Library || Auth::user()->department_id != Pointer::$Manager)
 			return redirect('/home');
-		}
 			
 		
 		if ($request->isMethod('get')) {
@@ -96,10 +94,8 @@ class LibraryController extends Controller
 
 	public function ShowLanguages(){
 		
-		if(!Auth::user()->department_id === Pointer::$Issued || !Auth::user()->department_id === Pointer::$Manager){
-			
+		if(Auth::user()->department_id != Pointer::$Library || Auth::user()->department_id != Pointer::$Manager)
 			return redirect('/home');
-		}
 		
 		$lang = Language::all()->load('books');
 		
@@ -109,10 +105,8 @@ class LibraryController extends Controller
 	public function AddBook(Request $request)
 	{
 
-		if(!Auth::user()->department_id === Pointer::$Issued || !Auth::user()->department_id === Pointer::$Manager){
-			
+		if(Auth::user()->department_id != Pointer::$Library || Auth::user()->department_id != Pointer::$Manager)
 			return redirect('/home');
-		}
 		
 		if ($request->isMethod('get')) {
 			
@@ -179,7 +173,7 @@ class LibraryController extends Controller
 	public function UpdateBook(Request $request)
 	{
 			
-		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+		if(Auth::user()->department_id == Pointer::$Library || Auth::user()->department_id == Pointer::$Manager){
 			
 		
 		if($request->isMethod('get')){
@@ -215,7 +209,7 @@ class LibraryController extends Controller
 	
 	public function DecreaseBookByOne($id)
 	{
-		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+		if(Auth::user()->department_id === Pointer::$Library|| Auth::user()->department_id === Pointer::$Manager){
 		DB::table('books')->where('id', $id)->decrement('in_stock', 1);
 		}
 		
@@ -224,7 +218,7 @@ class LibraryController extends Controller
 	
 	public function IncrementBookByOne($id)
 	{
-		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+		if(Auth::user()->department_id == Pointer::$Library|| Auth::user()->department_id == Pointer::$Manager){
 			
 			DB::table('books')->where('id', $id)->increment('in_stock', 1);
 		}
@@ -235,7 +229,7 @@ class LibraryController extends Controller
 	public function ShowBooks(){
 		
 
-		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+		if(Auth::user()->department_id == Pointer::$Library|| Auth::user()->department_id == Pointer::$Manager){
 			
 		$books = Books::all();
 		
@@ -246,7 +240,7 @@ class LibraryController extends Controller
 	}
 	
 	public function ShowAuthors(){
-		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+		if(Auth::user()->department_id == Pointer::$Library|| Auth::user()->department_id == Pointer::$Manager){
 			
 		$Author = Author::all();
 		
@@ -258,7 +252,7 @@ class LibraryController extends Controller
 	
 	
 	public function EditInStock(Request $Request){
-		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+		if(Auth::user()->department_id == Pointer::$Library || Auth::user()->department_id == Pointer::$Manager){
 		$Book = Books::find($Request->input('id'));
 		$Book->in_stock = $Request->input('in_stock');
 		$Book->save();

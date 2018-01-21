@@ -14,7 +14,7 @@ class CreateNewMuslimsTable extends Migration
      */
     public function up()
     {
-        Schema::create('newMuslims', function (Blueprint $table) {
+        Schema::create('newmuslims', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('count');
             $table->timestamps();

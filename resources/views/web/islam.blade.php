@@ -11,7 +11,7 @@
         <div class="table-responsive">
 
 
-	
+		{!! App\Islam::find(1)->content !!}
 
 
 

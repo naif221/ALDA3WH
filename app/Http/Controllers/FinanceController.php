@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Bank;
 use App\History;
-
+use App\Pointer;
+use Illuminate\Support\Facades\Auth;
 class FinanceController extends Controller
 {
     //
@@ -19,6 +20,11 @@ class FinanceController extends Controller
 	
 	
 	public function GetBanks(){
+		if(Auth::user()->department_id != Pointer::$Finance || Auth::user()->department_id != Pointer::$Manager)
+			return redirect('/home');
+		
+		if(Auth::user()->department_id != Pointer::$M || Auth::user()->department_id != Pointer::$Manager)
+			return redirect('/home');
 		
 		$Banks = Bank::all();
 		
@@ -27,7 +33,8 @@ class FinanceController extends Controller
 	
 	
 	public function GetHistory(){
-		
+		if(Auth::user()->department_id != Pointer::$Finance || Auth::user()->department_id != Pointer::$Manager)
+			return redirect('/home');
 		 $History = History::with('request')->get();
 		
 		return view('cpac.finance.history', ['History' => $History]);
@@ -35,6 +42,8 @@ class FinanceController extends Controller
 	
 	public function EditPrice(Request $Request){
 		
+		if(Auth::user()->department_id != Pointer::$Finance || Auth::user()->department_id != Pointer::$Manager)
+			return redirect('/home');
 		$Banks = Bank::all();
 		if($Request->isMethod('get')){
 			
@@ -71,6 +80,9 @@ class FinanceController extends Controller
 	
 	public function EditBank(Request $Request){
 		
+		
+		if(Auth::user()->department_id != Pointer::$Finance || Auth::user()->department_id != Pointer::$Manager)
+			return redirect('/home');
 		if($Request->isMethod('get')){
 			$Banks = Bank::find($Request->input('id'));
 			
@@ -91,6 +103,9 @@ class FinanceController extends Controller
 	
 	
 	public function AddBank(Request $Request){
+		
+		if(Auth::user()->department_id != Pointer::$Finance || Auth::user()->department_id != Pointer::$Manager)
+			return redirect('/home');
 		
 		if($Request->isMethod('get')){
 			

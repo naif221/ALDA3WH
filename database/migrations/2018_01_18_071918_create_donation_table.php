@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
+use App\Donation;
 class CreateDonationTable extends Migration
 {
     /**
@@ -17,6 +17,11 @@ class CreateDonationTable extends Migration
             $table->increments('id');
             $table->text('content');
         });
+        
+        $D = new Donation();
+        $D->content = '';
+        $D->save();
+        
     }
 
     /**

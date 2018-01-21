@@ -11,7 +11,7 @@ use App\About;
 use App\Islam;
 use App\Donation;
 use App\Banner;
-
+use App\Pointer;
 class NewsController extends Controller
 {
 
@@ -19,9 +19,16 @@ class NewsController extends Controller
 	public function __construct()
 	{
 		$this->middleware('auth');
+		
+
 	}
 	
 	public function StoreEventImg(Request $Request){
+		
+		
+		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
+			return redirect('/home');
+		
 		
 		if($Request->isMethod('get')){
 			
@@ -55,19 +62,25 @@ class NewsController extends Controller
 			}
 			
 			
-			$EventImg =  new Event();
-			//unlink(str_replace(asset(''),"",$EventImg->img_path));
+			$EventImg =  Event::find(1);
+			if($EventImg->img_path == asset('storage/news_logo/default.png'))
+			unlink(str_replace(asset(''),"",$EventImg->img_path));
+			
 			$EventImg->img_path= asset($path);
 			$EventImg->save();
 			
 		}
 		
-		return redirect('/media');
+		return redirect('/media')->with('success','تم حفظ الفعاليات بنجاح.');
 	}
 	
 	
 	// intrnal !!
 	public function ShowNews(){
+		
+		if(Auth::user()->department_id != Pointer::$Media || Auth::user()->department_id != Pointer::$Manager){
+			return redirect('/home');
+		}
 		
 		$Posts = News::all();
 		
@@ -78,6 +91,10 @@ class NewsController extends Controller
 
 	
 	public function banner(Request $Request){
+		
+		
+		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
+			return redirect('/home');
 		
 		if($Request->isMethod('get')){
 			$baners = Banner::all();
@@ -106,8 +123,12 @@ class NewsController extends Controller
 			}
 			
 			
-			$EventImg =  new Banner();
-			//unlink(str_replace(asset(''),"",$EventImg->img_path));
+			$EventImg =  Banner::find(1);
+			if($EventImg->img_path !== asset('storage/news_logo/default.png')){
+				return str_replace(asset(''),"",$EventImg->img_path);
+				unlink(str_replace(asset(''),"",$EventImg->img_path));
+				
+			}
 			$EventImg->img_path= asset($path);
 			
 			
@@ -131,7 +152,9 @@ class NewsController extends Controller
 				$path = 'storage/news_logo/default.png';
 			}
 			
-			//unlink(str_replace(asset(''),"",$EventImg->img_path));
+			if($EventImg->img_path2 !== asset('storage/news_logo/default.png')){
+				unlink(str_replace(asset(''),"",$EventImg->img_path2));
+			}
 			$EventImg->img_path2= asset($path);
 			
 			if($Request->hasFile('file_path3')){
@@ -153,18 +176,26 @@ class NewsController extends Controller
 				$path = 'storage/news_logo/default.png';
 			}
 			
-			//unlink(str_replace(asset(''),"",$EventImg->img_path));
+
+			if($EventImg->img_path3 !== asset('storage/news_logo/default.png')){
+				unlink(str_replace(asset(''),"",$EventImg->img_path3));
+			}
+			
 			$EventImg->img_path3= asset($path);
 			$EventImg->save();
 			
 		}
 		
-		return redirect('/media');
+		return redirect('/media')->with('success','تم تعديل الفعاليات بنجاح.');
 	}
 	
 
 
 	public function muslims(Request $Request) {
+		
+		
+		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
+			return redirect('/home');
 		
 		if($Request->isMethod('get')){
 			$M = MuslimsCount::find(1);
@@ -175,7 +206,7 @@ class NewsController extends Controller
 			$M = MuslimsCount::find(1);
 			$M->count = $Request->input('numberM');
 			$M->save();
-			return redirect('/media');
+			return redirect('/media')->with('success','تم تعديل عدد المسلمين.');
 		}
 
 		
@@ -185,23 +216,35 @@ class NewsController extends Controller
 
 	public function Incrase(){
 		
+		
+		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
+			return redirect('/home');
+		
 		$M = MuslimsCount::find(1);
 		$M->count = MuslimsCount::find(1)->count + 1;
 		$M->save();
-		return redirect('/media');
+		return redirect('/media')->with('success','تم تعديل عدد المسلمين.');
 		
 	}
 	
 	public function Decrase(){
 		
+		
+		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
+			return redirect('/home');
+		
 		$M = MuslimsCount::find(1);
 		$M->count = MuslimsCount::find(1)->count - 1;
 		$M->save();
-		return redirect('/media');
+		return redirect('/media')->with('success','تم تعديل عدد المسلمين.');
 	}
 	
 
 	public function AddNews(Request $Request){
+		
+		
+		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
+			return redirect('/home');
 		
 		if($Request->isMethod('get')){
 			
@@ -243,14 +286,16 @@ class NewsController extends Controller
 			$post->file_path= asset($path);
 			$post->save();
 			
-			return redirect('/media-news');
+			return redirect('/media-news')->with('success','تم اضافة الخبر بنجاح');
 		
 		}
 	}
 	
 	public function EditPost(Request $Request){
 		
-		 
+		
+		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
+			return redirect('/home');
 		 
 		 if($Request->isMethod('get')){
 		 	
@@ -270,12 +315,16 @@ class NewsController extends Controller
 		 	$post->user_id	= Auth::user()->id;
 		 	$post->save();
 		 	
-		 	return redirect('/media-news');
+		 	return redirect('/media-news')->with('success','تم تعديل الخبر.');
 		 }
 		 
 	}
 	
 	public function DeleteNews(Request $Request){
+		
+		
+		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
+			return redirect('/home');
 		
 		if($Request->isMethod('get')){
 			$post = News::find($Request->input('id'));
@@ -283,12 +332,18 @@ class NewsController extends Controller
 				unlink(str_replace(asset(''),"",$post->file_path));
 			}
 			$post->delete();
-			return redirect('media-news');
+			return redirect('media-news')->with('success','تم حذف الخبر بنجاح.');
 		}
 		
 	}
 	
 	public function StoreAbout(Request $Request){
+		
+		
+		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
+			return redirect('/home');
+		
+			
 		$About = About::find(1);
 		$About->post = $Request->input('content');
 		$About->save();
@@ -296,6 +351,10 @@ class NewsController extends Controller
 	}
 	
 	public function Islam(Request $Request){
+		
+		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
+			return redirect('/home');
+			
 		
 		if($Request->isMethod('get')){
 		
@@ -307,10 +366,13 @@ class NewsController extends Controller
 			$is->save();
 			
 		}
-		return redirect('/media');
+		return redirect('/media')->with('success','تم الحفظ بنجاح.');
 	}
 	
 	public function StoreDonation(Request $Request){
+		
+		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
+			return redirect('/home');
 		
 			if($Request->isMethod('post')){
 			
@@ -319,7 +381,7 @@ class NewsController extends Controller
 			$is->save();
 			
 		}
-		return redirect('/media');
+		return redirect('/media')->with('success','تم الحفظ بنجاح.');
 	}
 	
 	

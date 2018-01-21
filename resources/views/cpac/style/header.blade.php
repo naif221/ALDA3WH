@@ -90,7 +90,7 @@
                         </li>
                         
                         <li class="divider"></li>
-                        <li><a href="logout"><i class="fa fa-sign-out fa-fw"></i> تسجيل الخروج</a>
+                        <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> تسجيل الخروج</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

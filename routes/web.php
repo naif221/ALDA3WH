@@ -166,23 +166,37 @@ Route::get('/details-notifications', 'HomeController@detailsnotifications');
  
 
 Route::get('/media' , function () {
+	
+	if(Auth::user()->department_id != App\Pointer::$Media || Auth::user()->department_id != App\Pointer::$Manager)
+		return redirect('/home');
+	
 	return view('cpac.media.media');
  
  });
 
  Route::get('/edit-about' , function () {
+ 	
+ 	if(Auth::user()->department_id != App\Pointer::$Media || Auth::user()->department_id != App\Pointer::$Manager)
+ 		return redirect('/home');
 	return view('cpac.media.edit-about');
  
  });
  
  
  Route::get('/edit-donation' , function () {
+ 	
+ 	if(Auth::user()->department_id != App\Pointer::$Media || Auth::user()->department_id != App\Pointer::$Manager)
+ 		return redirect('/home');
+ 	
 	return view('cpac.media.edit-donation');
  
  });
 	
  	
  Route::get('/edit-islam' , function () {
+ 	if(Auth::user()->department_id != App\Pointer::$Media || Auth::user()->department_id != App\Pointer::$Manager)
+ 		return redirect('/home');
+ 	
 	return view('cpac.media.edit-islam');
  });
  	
@@ -201,6 +215,7 @@ Route::get('/Home','WebController@index');
 Route::get('/About', 'WebController@About');
 Route::get('/news', 'WebController@ShowPostDetail');
 Route::get('/more', 'WebController@ShowNewsForPublic');
+
 Route::get('/',function (){
 	return redirect('/Home');
 });

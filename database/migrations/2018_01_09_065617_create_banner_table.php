@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Banner;
 
 class CreateBannerTable extends Migration
 {
@@ -19,6 +20,13 @@ class CreateBannerTable extends Migration
             $table->text('img_path2');
             $table->text('img_path3');
         });
+        
+		$B = new Banner();
+		$B->img_path = asset('storage/news_logo/default.png');
+		$B->img_path2 = asset('storage/news_logo/default.png');
+		$B->img_path3 = asset('storage/news_logo/default.png');
+		$B->save();
+        
     }
 
     /**

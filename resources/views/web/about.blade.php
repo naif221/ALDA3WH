@@ -10,6 +10,8 @@
     <div class="panel-body twitter-height">
         <div class="table-responsive">
              
+             {!! App\About::find(1)->post !!}
+             
         </div>
        
     </div>

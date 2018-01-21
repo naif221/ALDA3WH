@@ -62,7 +62,7 @@ class WebController extends Controller
 
     public function ShowBooks(){
     	
-    	$Books = Books::all();
+    	$Books = Books::all()->where('in_stock', '>=' , '1');
     	
     	return view('web.library' , ['Books' => $Books]);
     	

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Islam;
 
 class CreateIslamTable extends Migration
 {
@@ -18,6 +19,10 @@ class CreateIslamTable extends Migration
             $table->text('content');
             
         });
+
+    	$I = new Islam();
+    	$I->content = '';
+    	$I->save();
     }
 
     /**

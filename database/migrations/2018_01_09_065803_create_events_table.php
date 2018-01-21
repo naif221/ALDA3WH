@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
+use App\Event;
 class CreateEventsTable extends Migration
 {
     /**
@@ -17,6 +17,12 @@ class CreateEventsTable extends Migration
             $table->increments('id');
             $table->text('img_path');
         });
+        
+        
+        $E = new Event();
+        $E->img_path = asset('storage/news_logo/default.png');
+        $E->save();
+        
     }
 
     /**
