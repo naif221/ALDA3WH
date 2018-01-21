@@ -20,30 +20,32 @@ class FinanceController extends Controller
 	
 	
 	public function GetBanks(){
-		if(Auth::user()->department_id != Pointer::$Finance || Auth::user()->department_id != Pointer::$Manager)
-			return redirect('/home');
-		
-		if(Auth::user()->department_id != Pointer::$M || Auth::user()->department_id != Pointer::$Manager)
-			return redirect('/home');
+		if(Auth::user()->department_id == Pointer::$Manager|| Auth::user()->department_id == Pointer::$Finance){
+			
 		
 		$Banks = Bank::all();
 		
 		return view('cpac.finance.finance', ['Banks' => $Banks]);
+		}else 
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
+		
 	}
 	
 	
 	public function GetHistory(){
-		if(Auth::user()->department_id != Pointer::$Finance || Auth::user()->department_id != Pointer::$Manager)
-			return redirect('/home');
+		if(Auth::user()->department_id == Pointer::$Manager|| Auth::user()->department_id == Pointer::$Finance){
+			
 		 $History = History::with('request')->get();
 		
 		return view('cpac.finance.history', ['History' => $History]);
+		}else 
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 	
 	public function EditPrice(Request $Request){
 		
-		if(Auth::user()->department_id != Pointer::$Finance || Auth::user()->department_id != Pointer::$Manager)
-			return redirect('/home');
+		if(Auth::user()->department_id == Pointer::$Manager|| Auth::user()->department_id == Pointer::$Finance){
+			
 		$Banks = Bank::all();
 		if($Request->isMethod('get')){
 			
@@ -75,14 +77,16 @@ class FinanceController extends Controller
 			
 		}
 		return redirect('/finance')->with('success','تم تعديل المعلومات بنجاح.');
+		}else 
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 	
 	
 	public function EditBank(Request $Request){
 		
 		
-		if(Auth::user()->department_id != Pointer::$Finance || Auth::user()->department_id != Pointer::$Manager)
-			return redirect('/home');
+		if(Auth::user()->department_id == Pointer::$Manager|| Auth::user()->department_id == Pointer::$Finance){
+			
 		if($Request->isMethod('get')){
 			$Banks = Bank::find($Request->input('id'));
 			
@@ -99,13 +103,15 @@ class FinanceController extends Controller
 		}
 		return redirect('/finance')->with('success','تم تعديل المعلومات بنجاح.');
 		
+		}else 
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 	
 	
 	public function AddBank(Request $Request){
 		
-		if(Auth::user()->department_id != Pointer::$Finance || Auth::user()->department_id != Pointer::$Manager)
-			return redirect('/home');
+		if(Auth::user()->department_id == Pointer::$Manager|| Auth::user()->department_id == Pointer::$Finance){
+			
 		
 		if($Request->isMethod('get')){
 			
@@ -128,6 +134,8 @@ class FinanceController extends Controller
 		}
 		return redirect('/finance')->with('success','تم أضافة البنك المعلومات بنجاح.');;
 		
+		}else
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 	
 	

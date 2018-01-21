@@ -16,9 +16,13 @@
                 <br>
                 القسم :  {{App\Department::find(Auth::user()->department_id)->department_name}}
                 </h4>
-
+	
                 
                    <br>
+@if(session('error'))
+
+@include('cpac.style.error', ['Error' => session('error')])
+@endif
                    <hr>
 </div>
 

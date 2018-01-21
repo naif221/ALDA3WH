@@ -165,14 +165,9 @@ Route::get('/profile', 'HomeController@profile');
 Route::get('/details-notifications', 'HomeController@detailsnotifications');
  
 
-Route::get('/media' , function () {
-	
-	if(Auth::user()->department_id != App\Pointer::$Media || Auth::user()->department_id != App\Pointer::$Manager)
-		return redirect('/home');
-	
-	return view('cpac.media.media');
- 
- });
+Route::get('/media', 'NewsController@media');
+
+
 
  Route::get('/edit-about' , function () {
  	

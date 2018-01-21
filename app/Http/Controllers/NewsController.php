@@ -12,6 +12,7 @@ use App\Islam;
 use App\Donation;
 use App\Banner;
 use App\Pointer;
+
 class NewsController extends Controller
 {
 
@@ -25,9 +26,7 @@ class NewsController extends Controller
 	
 	public function StoreEventImg(Request $Request){
 		
-		
-		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
-			return redirect('/home');
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
 		
 		
 		if($Request->isMethod('get')){
@@ -72,19 +71,24 @@ class NewsController extends Controller
 		}
 		
 		return redirect('/media')->with('success','تم حفظ الفعاليات بنجاح.');
+			
+		}else
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 	
 	
 	// intrnal !!
 	public function ShowNews(){
 		
-		if(Auth::user()->department_id != Pointer::$Media || Auth::user()->department_id != Pointer::$Manager){
-			return redirect('/home');
-		}
-		
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
 		$Posts = News::all();
 		
 		return view('cpac.media.media-news',['posts' => $Posts]);
+			
+		}else 
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
+		
+				
 	}
 	
 
@@ -93,8 +97,8 @@ class NewsController extends Controller
 	public function banner(Request $Request){
 		
 		
-		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
-			return redirect('/home');
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+			
 		
 		if($Request->isMethod('get')){
 			$baners = Banner::all();
@@ -184,9 +188,13 @@ class NewsController extends Controller
 			$EventImg->img_path3= asset($path);
 			$EventImg->save();
 			
+			
 		}
 		
 		return redirect('/media')->with('success','تم تعديل الفعاليات بنجاح.');
+		
+		}else
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 	
 
@@ -194,8 +202,8 @@ class NewsController extends Controller
 	public function muslims(Request $Request) {
 		
 		
-		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
-			return redirect('/home');
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+			
 		
 		if($Request->isMethod('get')){
 			$M = MuslimsCount::find(1);
@@ -209,6 +217,8 @@ class NewsController extends Controller
 			return redirect('/media')->with('success','تم تعديل عدد المسلمين.');
 		}
 
+		}else
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 		
 		
 	}
@@ -217,34 +227,38 @@ class NewsController extends Controller
 	public function Incrase(){
 		
 		
-		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
-			return redirect('/home');
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+			
 		
 		$M = MuslimsCount::find(1);
 		$M->count = MuslimsCount::find(1)->count + 1;
 		$M->save();
 		return redirect('/media')->with('success','تم تعديل عدد المسلمين.');
 		
+		}else
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 	
 	public function Decrase(){
 		
 		
-		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
-			return redirect('/home');
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+			
 		
 		$M = MuslimsCount::find(1);
 		$M->count = MuslimsCount::find(1)->count - 1;
 		$M->save();
 		return redirect('/media')->with('success','تم تعديل عدد المسلمين.');
+		
+		}else
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 	
 
 	public function AddNews(Request $Request){
 		
-		
-		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
-			return redirect('/home');
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+			
 		
 		if($Request->isMethod('get')){
 			
@@ -289,13 +303,15 @@ class NewsController extends Controller
 			return redirect('/media-news')->with('success','تم اضافة الخبر بنجاح');
 		
 		}
+		}else
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 	
 	public function EditPost(Request $Request){
 		
 		
-		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
-			return redirect('/home');
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+			
 		 
 		 if($Request->isMethod('get')){
 		 	
@@ -318,13 +334,15 @@ class NewsController extends Controller
 		 	return redirect('/media-news')->with('success','تم تعديل الخبر.');
 		 }
 		 
+		}else
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
+		 
 	}
 	
 	public function DeleteNews(Request $Request){
 		
-		
-		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
-			return redirect('/home');
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+			
 		
 		if($Request->isMethod('get')){
 			$post = News::find($Request->input('id'));
@@ -335,27 +353,30 @@ class NewsController extends Controller
 			return redirect('media-news')->with('success','تم حذف الخبر بنجاح.');
 		}
 		
+		}else
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 	
 	public function StoreAbout(Request $Request){
 		
 		
-		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
-			return redirect('/home');
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+			
 		
 			
 		$About = About::find(1);
 		$About->post = $Request->input('content');
 		$About->save();
 		return redirect('/media');
+		
+		}else
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 	
 	public function Islam(Request $Request){
 		
-		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
-			return redirect('/home');
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
 			
-		
 		if($Request->isMethod('get')){
 		
 		return view('cpac.media.edit-islam');
@@ -367,12 +388,15 @@ class NewsController extends Controller
 			
 		}
 		return redirect('/media')->with('success','تم الحفظ بنجاح.');
+		
+		}else
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 	
 	public function StoreDonation(Request $Request){
-		
-		if(!Auth::user()->department_id === Pointer::$Media || !Auth::user()->department_id === Pointer::$Manager)
-			return redirect('/home');
+			
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+			
 		
 			if($Request->isMethod('post')){
 			
@@ -382,8 +406,21 @@ class NewsController extends Controller
 			
 		}
 		return redirect('/media')->with('success','تم الحفظ بنجاح.');
+		
+		}else
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 	
+	public function media(){
+		
+		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+			
+			
+			return view('cpac.media.media');
+			
+		}else
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
+	}
 	
 	
 	

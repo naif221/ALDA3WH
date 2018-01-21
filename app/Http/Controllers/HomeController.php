@@ -82,7 +82,7 @@ class HomeController extends Controller
     public function ShowEmployees(){
     	
     	if(Auth::user()->department_id !== Pointer::$Manager)
-    		return redirect('/home');
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
     	
     	$users = User::all();
     	return view('cpac.employees.employees' , ['users' => $users]);
@@ -91,7 +91,7 @@ class HomeController extends Controller
     public function GetEditEmployee(Request $Request){
     	
     	if(Auth::user()->department_id !== Pointer::$Manager)
-    		return redirect('/home');
+    					return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
     	
     	$User = User::find($Request->input('id'));
     	$Departments = Department::all();
@@ -103,7 +103,7 @@ class HomeController extends Controller
     public function EditEmployee(Request $Request){
     	
     	if(Auth::user()->department_id !== Pointer::$Manager)
-    		return redirect('/home');
+    					return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
     	
     	$this->validate($Request, [
     			'id'			=> 'required',
@@ -129,7 +129,7 @@ class HomeController extends Controller
     public function AddEmployee(Request $Request){
     	
     	if(Auth::user()->department_id !== Pointer::$Manager)
-    		return redirect('/home');
+    					return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
     	
     	$this->validate($Request, [
     			'name' 			=> 'required|max:40',
@@ -153,7 +153,7 @@ class HomeController extends Controller
     public function GetDepartments(){
     	
     	if(Auth::user()->department_id !== Pointer::$Manager)
-    		return redirect('/home');
+    					return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
     	
     	$Departments = Department::all();
     	
@@ -164,7 +164,7 @@ class HomeController extends Controller
     public function GetDepartmentsForD(){
     	
     	if(Auth::user()->department_id !== Pointer::$Manager)
-    		return redirect('/home');
+    					return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
     	
     	 $Departments = Department::all()->load('user')->load('request');
     	
@@ -175,7 +175,7 @@ class HomeController extends Controller
     public function GetEditDepartment(Request $Request){
     	
     	if(Auth::user()->department_id !== Pointer::$Manager)
-    		return redirect('/home');
+    					return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
     	
     	$Departments = Department::find($Request->input('id'));
     	
@@ -186,7 +186,7 @@ class HomeController extends Controller
     public function EditDepartment(Request $Request){
     	
     	if(Auth::user()->department_id !== Pointer::$Manager)
-    		return redirect('/home');
+    					return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
     	
     	$this->validate($Request, [
     			'department_name'	=> 'required',
@@ -206,7 +206,7 @@ class HomeController extends Controller
     public function GetNewDepartmentPage(){
     	
     	if(Auth::user()->department_id !== Pointer::$Manager)
-    		return redirect('/home');
+    					return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
     	
     	return view('cpac.department.new-department');
     }
@@ -214,7 +214,7 @@ class HomeController extends Controller
     public function AddDepartment(Request $Request){
     	
     	if(Auth::user()->department_id !== Pointer::$Manager)
-    		return redirect('/home');
+    					return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
     	
     	$this->validate($Request, [
     			'department_name'	=> 'required',

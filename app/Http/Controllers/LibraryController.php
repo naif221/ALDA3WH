@@ -48,8 +48,8 @@ class LibraryController extends Controller
 	public function AddAuthor(Request $request)
 	{
 		
-		if(Auth::user()->department_id != Pointer::$Library || Auth::user()->department_id != Pointer::$Manager)
-		return redirect('/home');
+		if(Auth::user()->department_id == Pointer::$Library|| Auth::user()->department_id == Pointer::$Manager){
+			
 		
 		if($request->isMethod('get')){
 			
@@ -66,12 +66,14 @@ class LibraryController extends Controller
 		}
 		return redirect('/author')->with('success','تم أضافة المؤلف بنجاح.');
 		
+		}else 
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 	
 	public function AddLanguage(Request $request)
 	{
-		if(Auth::user()->department_id != Pointer::$Library || Auth::user()->department_id != Pointer::$Manager)
-			return redirect('/home');
+		if(Auth::user()->department_id == Pointer::$Library|| Auth::user()->department_id == Pointer::$Manager){
+			
 			
 		
 		if ($request->isMethod('get')) {
@@ -90,23 +92,27 @@ class LibraryController extends Controller
 			return redirect('/languages')->with('success','تم اضافة اللغة بنجاح');
 		}
 		
+		}else
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 
 	public function ShowLanguages(){
 		
-		if(Auth::user()->department_id != Pointer::$Library || Auth::user()->department_id != Pointer::$Manager)
-			return redirect('/home');
+		if(Auth::user()->department_id == Pointer::$Library|| Auth::user()->department_id == Pointer::$Manager){
+			
 		
 		$lang = Language::all()->load('books');
 		
 		return view('cpac.library.language', ['languages' => $lang]);
+		}else 
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 	
 	public function AddBook(Request $request)
 	{
 
-		if(Auth::user()->department_id != Pointer::$Library || Auth::user()->department_id != Pointer::$Manager)
-			return redirect('/home');
+		if(Auth::user()->department_id == Pointer::$Library|| Auth::user()->department_id == Pointer::$Manager){
+			
 		
 		if ($request->isMethod('get')) {
 			
@@ -168,12 +174,14 @@ class LibraryController extends Controller
 		}
 			return redirect('/books')->with('success','تم اضافة الكتاب بنجاح.');
 			
+		}else 
+			return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 	
 	public function UpdateBook(Request $request)
 	{
 			
-		if(Auth::user()->department_id == Pointer::$Library || Auth::user()->department_id == Pointer::$Manager){
+		if(Auth::user()->department_id == Pointer::$Library|| Auth::user()->department_id == Pointer::$Manager){
 			
 		
 		if($request->isMethod('get')){
@@ -203,14 +211,15 @@ class LibraryController extends Controller
 			return redirect('/books')->with('success','تم تعديل الكتاب بنجاح.');
 			
 		}else 
-			return redirect('/home');
+						return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 	
 	
 	public function DecreaseBookByOne($id)
 	{
-		if(Auth::user()->department_id === Pointer::$Library|| Auth::user()->department_id === Pointer::$Manager){
-		DB::table('books')->where('id', $id)->decrement('in_stock', 1);
+		if(Auth::user()->department_id == Pointer::$Library|| Auth::user()->department_id == Pointer::$Manager){
+			
+			DB::table('books')->where('id', $id)->decrement('in_stock', 1);
 		}
 		
 		return redirect('/books')->with('success','تم الخصم من الكتاب بنجاح.');
@@ -235,7 +244,7 @@ class LibraryController extends Controller
 		
 		return view('cpac.library.books' , ['books' => $books]);
 		}else 
-			return redirect('/home');
+						return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 		
 	}
 	
@@ -246,13 +255,15 @@ class LibraryController extends Controller
 		
 		return view('cpac.library.author' , ['Author' => $Author]);
 		}else 
-			return redirect('/home');
+						return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 		
 	}
 	
 	
 	public function EditInStock(Request $Request){
-		if(Auth::user()->department_id == Pointer::$Library || Auth::user()->department_id == Pointer::$Manager){
+		if(Auth::user()->department_id == Pointer::$Library|| Auth::user()->department_id == Pointer::$Manager){
+			
+			
 		$Book = Books::find($Request->input('id'));
 		$Book->in_stock = $Request->input('in_stock');
 		$Book->save();
@@ -260,7 +271,7 @@ class LibraryController extends Controller
 		return redirect('/books')->with('success','تم تعديل عدد الكتب بنجاح.');
 		
 		}else 
-			return redirect('/home');
+						return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 		
 	}
 	

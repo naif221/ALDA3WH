@@ -32,7 +32,7 @@ class IssuedController extends Controller
 		return view('cpac.archive.archives', ['iss' =>$issued]);
 		
 		}else 
-			return redirect('/home');
+						return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 	
 	public function StoreIssued(Request $request)
@@ -84,7 +84,7 @@ class IssuedController extends Controller
 			return redirect('archives');
 			
 		} else 
-			return redirect('/home');
+						return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 	
 	
@@ -113,7 +113,7 @@ class IssuedController extends Controller
 		
 			
 		}else 
-			return redirect('/home');
+						return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 	}
 	
 	public function DeleteArchive(Request $Request){
@@ -127,7 +127,7 @@ class IssuedController extends Controller
  		return redirect('archives')->with('success','تم حذف المستند بنجاح');
  		
 		}else
-			return redirect('/home');
+						return redirect('/home')->with('error','غير مسموح لك دخول هذا القسم.');
 		
 		
 	}
