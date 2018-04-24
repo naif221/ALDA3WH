@@ -171,28 +171,34 @@ Route::get('/media', 'NewsController@media');
 
  Route::get('/edit-about' , function () {
  	
- 	if(Auth::user()->department_id != App\Pointer::$Media || Auth::user()->department_id != App\Pointer::$Manager)
- 		return redirect('/home');
+ 	if(Auth::user()->department_id == App\Pointer::$Issued || Auth::user()->department_id == App\Pointer::$Manager){
+ 		
 	return view('cpac.media.edit-about');
+ 	}else
+ 		return redirect('/home');
  
  });
  
  
  Route::get('/edit-donation' , function () {
  	
- 	if(Auth::user()->department_id != App\Pointer::$Media || Auth::user()->department_id != App\Pointer::$Manager)
- 		return redirect('/home');
- 	
+ 	if(Auth::user()->department_id == App\Pointer::$Issued || Auth::user()->department_id == App\Pointer::$Manager){
+ 		
+ 		
 	return view('cpac.media.edit-donation');
+ 	}else
+ 		return redirect('/home');
  
  });
 	
  	
  Route::get('/edit-islam' , function () {
- 	if(Auth::user()->department_id != App\Pointer::$Media || Auth::user()->department_id != App\Pointer::$Manager)
+ 	if(Auth::user()->department_id == App\Pointer::$Issued || Auth::user()->department_id == App\Pointer::$Manager){
+ 		
+	return view('cpac.media.edit-islam');
+ 	}else 
  		return redirect('/home');
  	
-	return view('cpac.media.edit-islam');
  });
  	
  

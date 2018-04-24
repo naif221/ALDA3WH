@@ -57,12 +57,12 @@ class NewsController extends Controller
 				// 				 '/public/storage/imgs/'.$fileNameToStore;
 				$path = str_replace("public","storage",$path);
 			}else {
-				$path = 'storage/news_logo/default.png';
+				$path = 'storage/news_logo/default.jpg';
 			}
 			
 			
 			$EventImg =  Event::find(1);
-			if($EventImg->img_path == asset('storage/news_logo/default.png'))
+			if($EventImg->img_path == asset('storage/news_logo/default.jpg'))
 			unlink(str_replace(asset(''),"",$EventImg->img_path));
 			
 			$EventImg->img_path= asset($path);
@@ -123,14 +123,19 @@ class NewsController extends Controller
 				// 				 '/public/storage/imgs/'.$fileNameToStore;
 				$path = str_replace("public","storage",$path);
 			}else {
-				$path = 'storage/news_logo/default.png';
+				$path = 'storage/news_logo/default.jpg';
 			}
 			
 			
 			$EventImg =  Banner::find(1);
-			if($EventImg->img_path !== asset('storage/news_logo/default.png')){
-				return str_replace(asset(''),"",$EventImg->img_path);
-				unlink(str_replace(asset(''),"",$EventImg->img_path));
+			if($EventImg->img_path != asset('storage/news_logo/default.jpg')){
+				//return str_replace(asset(''),"",$EventImg->img_path);
+				
+				// here is a problem, the local server is TEST.SA
+				// and the server on the web is local, we must fix this when we work on the web
+				//return $EventImg->img_path;
+				//return str_replace('http://localhost/','',$EventImg->img_path);
+				//unlink(str_replace('http://localhost/','',$EventImg->img_path));
 				
 			}
 			$EventImg->img_path= asset($path);
@@ -153,12 +158,14 @@ class NewsController extends Controller
 				// 				 '/public/storage/imgs/'.$fileNameToStore;
 				$path = str_replace("public","storage",$path);
 			}else {
-				$path = 'storage/news_logo/default.png';
+				$path = 'storage/news_logo/default.jpg';
 			}
-			
-			if($EventImg->img_path2 !== asset('storage/news_logo/default.png')){
-				unlink(str_replace(asset(''),"",$EventImg->img_path2));
+		/**	
+			if($EventImg->img_path2 !== asset('storage/news_logo/default.jpg')){
+				//unlink(str_replace(asset(''),"",$EventImg->img_path2));
+				unlink(str_replace('http://localhost/','',$EventImg->img_path));
 			}
+			*/
 			$EventImg->img_path2= asset($path);
 			
 			if($Request->hasFile('file_path3')){
@@ -177,18 +184,20 @@ class NewsController extends Controller
 				// 				 '/public/storage/imgs/'.$fileNameToStore;
 				$path = str_replace("public","storage",$path);
 			}else {
-				$path = 'storage/news_logo/default.png';
+				$path = 'storage/news_logo/default.jpg';
 			}
 			
-
-			if($EventImg->img_path3 !== asset('storage/news_logo/default.png')){
-				unlink(str_replace(asset(''),"",$EventImg->img_path3));
+/**
+			if($EventImg->img_path3 !== asset('storage/news_logo/default.jpg')){
+				//unlink(str_replace(asset(''),"",$EventImg->img_path3));
+				unlink(str_replace('http://localhost/','',$EventImg->img_path));
+				
 			}
-			
+			*/
 			$EventImg->img_path3= asset($path);
 			$EventImg->save();
 			
-			
+			return redirect('/media')->with('success','تم التعديل بنجاح.');
 		}
 		
 		return redirect('/media')->with('success','تم تعديل الفعاليات بنجاح.');
@@ -202,7 +211,7 @@ class NewsController extends Controller
 	public function muslims(Request $Request) {
 		
 		
-		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+		if(Auth::user()->department_id == Pointer::$Issued || Auth::user()->department_id == Pointer::$Manager){
 			
 		
 		if($Request->isMethod('get')){
@@ -289,7 +298,7 @@ class NewsController extends Controller
 // 				 '/public/storage/imgs/'.$fileNameToStore;
 			 	$path = str_replace("public","storage",$path);
 			}else {
-				$path = 'storage/news_logo/default.png';
+				$path = 'storage/news_logo/default.jpg';
 			}
 			
 			
@@ -346,7 +355,7 @@ class NewsController extends Controller
 		
 		if($Request->isMethod('get')){
 			$post = News::find($Request->input('id'));
-			if($post->file_path !== asset('storage/news_logo/default.png')){
+			if($post->file_path !== asset('storage/news_logo/default.jpg')){
 				unlink(str_replace(asset(''),"",$post->file_path));
 			}
 			$post->delete();
@@ -360,7 +369,7 @@ class NewsController extends Controller
 	public function StoreAbout(Request $Request){
 		
 		
-		if(Auth::user()->department_id === Pointer::$Issued || Auth::user()->department_id === Pointer::$Manager){
+		if(Auth::user()->department_id == Pointer::$Issued || Auth::user()->department_id == Pointer::$Manager){
 			
 		
 			

@@ -39,6 +39,6 @@ class CreateNewMuslimsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('newMuslims');
+        Schema::dropIfExists('newmuslims');
     }
 }

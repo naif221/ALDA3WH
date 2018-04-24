@@ -13,7 +13,9 @@
     border-width: 5px;  border-color: #cc7a0a; border-top: none;">
     
     <div class="item active" >
+    @if(!is_null(App\Banner::find(1)->img_path))
       <img src="{{App\Banner::find(1)->img_path}}" >
+    @endif
     </div>
 <div class="item" >
   
@@ -43,7 +45,7 @@
     
       <marquee width="100%" height="34px"  behavior="scroll" direction="right" scrolldelay="100" scrollamount="5" align="top" onmouseover="this.setAttribute('scrollamount', 1, 0);" onmouseout="this.setAttribute('scrollamount', 3, 0);">
         @foreach($home->take(6) as $n)  
-    <a href="news?id={{$n->id}}" class="s2">{{ $n->title }}</a><img src="images/logo-small.png" style=" margin: -5px 8px 0px 8px;">
+    <a href="news?id={{$n->id}}" class="s2">  {{$n->title}}  </a><img src="images/logo-small.png" style=" margin: -5px 8px 0px 8px;">
     @endforeach
   </marquee>
 
@@ -51,7 +53,6 @@
 </div> 
   <a class="front33"></a> 
 </div>
-
 
 
 <div class="thumbnail-img col-lg-4 col-md-4 col-sm-4" >
@@ -96,11 +97,6 @@
 </div>
 </a>
 
-
-
-
-
-
 <div class="col-lg-8 col-md-8 col-sm-12">
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -115,10 +111,10 @@
 <div class="thumbnail ">
   
 <b>
-<a href="news?id={{$n->id}}" ><h4 style="color:#bd720c;"><img  src="{{$n->file_path}}"  style="width:130px; "  align="right"> {!! $n->title !!}</h4></b></a>
+<a href="news?id={{$n->id}}" ><h4 style="color:#bd720c;"><img  src="{{$n->file_path}}"  style="width:130px; "  align="right">{!! $n->title !!}</h4></b></a>
 <p style="color:gray; font-size:10px;"><i class="fa fa-calendar" aria-hidden="true" style="padding-right: 5px"></i>{{$n->created_at}}</p>
 <div id="myhide">
-    <p align="center" >{!! str_limit($n->content , 150 ) !!}<a href="news?id={{$n->id}}" style="color:blue">أقراء المزيد...</a>
+    <p align="center" >  {!! str_limit($n->content, 50 ) !!}<a href="news?id={{$n->id}}" style="color:blue">أقراء المزيد...</a>
 
 </p>
 </div>

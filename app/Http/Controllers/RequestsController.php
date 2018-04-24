@@ -12,7 +12,7 @@ use App\User;
 use App\Pointer;
 use App\Noti;
 use App\History;
-
+use Illuminate\Support\Facades\Mail;
 class RequestsController extends Controller
 {
     //
@@ -317,6 +317,8 @@ $NewComment.'</br>'
 	
 	public function Show(){
 		
+		
+		Mail::to('n_a_f5@windowslive.com');
 		
 		$UserDepartment = Auth::user()->department_id;
 		
